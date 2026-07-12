@@ -1,36 +1,56 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Ecolery
+
+A modern, minimal digital experience studio website built with Next.js, Tailwind CSS v4, and a premium animation stack.
+
+## Tech Stack
+
+| Category          | Libraries                                                    |
+| ----------------- | ------------------------------------------------------------ |
+| Framework         | Next.js 16 (App Router, React Server Components)             |
+| Styling           | Tailwind CSS v4                                              |
+| Language          | TypeScript (strict mode)                                     |
+| Smooth Scroll     | Lenis (v2)                                                   |
+| Scroll Animations | GSAP + ScrollTrigger + `@gsap/react`                         |
+| Micro-interactions| Framer Motion                                                |
+| Icons             | lucide-react                                                 |
+| Utilities         | clsx, tailwind-merge (`cn()`)                                |
 
 ## Getting Started
 
-First, run the development server:
-
 ```bash
-npm run dev
-# or
-yarn dev
-# or
+pnpm install
 pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000).
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Scripts
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+| Command           | Description                    |
+| ----------------- | ------------------------------ |
+| `pnpm dev`        | Start dev server               |
+| `pnpm build`      | Production build               |
+| `pnpm start`      | Start production server        |
+| `pnpm lint`       | Run ESLint                     |
+| `pnpm format`     | Format with Prettier           |
+| `pnpm typecheck`  | Run TypeScript check           |
 
-## Learn More
+## Animation Approach
 
-To learn more about Next.js, take a look at the following resources:
+We use a layered animation system:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- **Framer Motion** — UI micro-interactions, page transitions, hover/tap states, and component-level `motion.div` animations. Use for any isolated, declarative animation that doesn't depend on scroll position.
+- **GSAP + ScrollTrigger** — complex scroll-driven timelines, sequenced reveals, parallax effects, and anything that needs precise timeline control. Use GSAP when you need to orchestrate multiple elements or tie animations to scroll progress.
+- **Lenis** — smooth scrolling is wrapped at the app root. GSAP ScrollTrigger is synced to Lenis's scroll events so all scroll-based animations stay perfectly in sync.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### When to use what
 
-## Deploy on Vercel
+```
+Framer Motion:   Simple fades, slides, hover/tap, layout animations
+GSAP:            Scroll-triggered timelines, parallax, multi-step reveals
+Lenis:           Always on (smooth scroll). GSAP listens to Lenis, not the native scroll.
+```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### Accessibility
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+All animations respect `prefers-reduced-motion`. When the user's OS setting requests reduced motion, animations are disabled or simplified via the `@media (prefers-reduced-motion: reduce)` cascade in `globals.css`.
