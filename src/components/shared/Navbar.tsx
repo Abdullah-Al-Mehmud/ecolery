@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Image from "next/image";
 
 const NAV_LINKS = [
   { label: "Shop", href: "#shop" },
@@ -15,27 +16,19 @@ export function Navbar() {
       initial={{ opacity: 0, y: -16 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
-      className="relative z-40 flex items-center justify-between px-6 py-6 md:px-12"
+      // className="relative z-40 flex items-center justify-between px-6 py-6 md:px-12"
+      className="max-w-8xl mx-auto flex items-center gap-96 py-2"
     >
       <a href="#" className="flex items-center gap-2">
         {/* fork · plate · spoon mark, echoing the logo */}
-        <svg
-          width="22"
-          height="22"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          strokeWidth="1.4"
-          strokeLinecap="round"
-          className="text-moss"
-        >
-          <line x1="5" y1="2" x2="5" y2="22" />
-          <line x1="3" y1="2" x2="3" y2="8" />
-          <line x1="7" y1="2" x2="7" y2="8" />
-          <circle cx="12.5" cy="12" r="4.3" />
-          <path d="M19 2v9c0 1.4-1 2.4-2 2.6V22" />
-        </svg>
-        <span className="font-display text-ink text-lg font-medium tracking-tight">ecolery</span>
+
+        <Image
+          src="/logo.png"
+          alt="Ecolery logo"
+          width={92}
+          height={92}
+          className="h-16 w-16 object-contain"
+        />
       </a>
 
       <nav className="hidden items-center gap-9 md:flex">
@@ -43,7 +36,7 @@ export function Navbar() {
           <a
             key={link.label}
             href={link.href}
-            className="font-body text-ink/70 hover:text-ink text-[13px] tracking-[0.08em] uppercase transition-colors"
+            className="hover:text-ink text-[13px] font-semibold tracking-[0.08em] text-gray-600 uppercase transition-colors"
           >
             {link.label}
           </a>

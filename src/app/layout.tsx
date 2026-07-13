@@ -1,17 +1,16 @@
 import type { Metadata } from "next";
-import { Fraunces, Instrument_Sans } from "next/font/google";
+import { Manrope, Sora } from "next/font/google";
 import "./globals.css";
 
-const fraunces = Fraunces({
+const sora = Sora({
   subsets: ["latin"],
-  variable: "--font-fraunces",
-  weight: ["400", "500", "600"],
-  style: ["normal", "italic"],
+  variable: "--font-sora",
+  weight: ["400", "500", "600", "700"],
 });
 
-const instrument = Instrument_Sans({
+const manrope = Manrope({
   subsets: ["latin"],
-  variable: "--font-instrument",
+  variable: "--font-manrope",
   weight: ["400", "500", "600"],
 });
 
@@ -23,7 +22,7 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={`${fraunces.variable} ${instrument.variable}`}>
+    <html lang="en" className={`${sora.variable} ${manrope.variable}`}>
       <body className="font-body antialiased">{children}</body>
     </html>
   );

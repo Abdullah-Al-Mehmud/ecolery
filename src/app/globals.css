@@ -1,19 +1,26 @@
 @import "tailwindcss";
 
 @theme {
-  /* --- Brand palette, pulled from the cork / moss / rust product photography --- */
+  /* --- Base --- */
   --color-cream: #f6f2e9;
   --color-cream-2: #efe9da;
-  --color-cork: #c08a54;
-  --color-cork-dark: #8c5f34;
-  --color-moss: #37502f;
-  --color-moss-light: #5c7a4c;
+  --color-ink: #1c2018;
+
+  /* --- Primary: pulled from logo gradient --- */
+  --color-primary: #1e9e5a; /* mid-tone from the "ecolery" gradient */
+  --color-primary-light: #4fc077; /* lighter green from gradient start */
+  --color-primary-dark: #0f6b3d; /* deeper green from gradient end */
+
+  /* --- Icon tone: the dark moss fork/plate/spoon --- */
+  --color-moss: #33452b;
+
+  /* --- Accent: warm contrast against all the green --- */
   --color-rust: #c1622b;
-  --color-ink: #232017;
+  --color-cork: #c08a54;
 
   /* --- Type roles --- */
-  --font-display: var(--font-fraunces);
-  --font-body: var(--font-instrument);
+  --font-display: var(--font-sora);
+  --font-body: var(--font-manrope);
 }
 
 html {
