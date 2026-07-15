@@ -50,13 +50,6 @@ export function ImpactSection() {
     <>
       {/* ---------- ABOUT / MISSION ---------- */}
       <section className="bg-cream relative overflow-hidden px-6 py-24 md:py-32">
-        <span
-          aria-hidden
-          className="font-display text-ink/[0.03] pointer-events-none absolute -top-10 left-1/2 -translate-x-1/2 text-[10rem] leading-none font-bold whitespace-nowrap select-none md:text-[16rem]"
-        >
-          ecolery
-        </span>
-
         <div className="relative mx-auto grid max-w-6xl items-center gap-14 md:grid-cols-2">
           <div>
             <span className="font-body text-primary text-[13px] font-semibold tracking-[0.2em] uppercase">

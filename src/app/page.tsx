@@ -1,3 +1,4 @@
+import { ComparisonSection } from "@/components/sections/ComparisonSection";
 import { Hero } from "@/components/sections/Hero";
 import { ImpactSection } from "@/components/template/ImpactSection";
 
@@ -6,6 +7,7 @@ export default function Home() {
     <main>
       <Hero />
       <ImpactSection />
+      <ComparisonSection />
     </main>
   );
 }

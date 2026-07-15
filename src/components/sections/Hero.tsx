@@ -24,6 +24,17 @@ export function Hero() {
       </div>
 
       <div className="relative flex-1">
+        {/* <span
+          aria-hidden
+          className="text-ink/[0.04] pointer-events-none absolute bottom-0 left-1/2 -translate-x-1/2 text-[14rem] leading-none font-bold whitespace-nowrap normal-case select-none md:text-[20rem]"
+          style={{
+            maskImage: "linear-gradient(to right, transparent, black 15%, black 85%, transparent)",
+            WebkitMaskImage:
+              "linear-gradient(to right, transparent, black 15%, black 85%, transparent)",
+          }}
+        >
+          ecolery
+        </span> */}
         <div className="absolute -bottom-36 left-1/2 -translate-x-1/2">
           <Image
             src="/cup2.png"
@@ -35,6 +46,10 @@ export function Hero() {
           />
         </div>
       </div>
+      <div
+        aria-hidden
+        className="pointer-events-none absolute inset-x-0 bottom-0 h-[50%] bg-gradient-to-t from-white/25 via-white/10 to-transparent"
+      />
     </section>
   );
 }
