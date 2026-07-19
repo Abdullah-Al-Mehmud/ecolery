@@ -1,49 +1,43 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { motion } from "framer-motion";
-import { ArrowDownLeft, Sparkles } from "lucide-react";
+import { Sparkles } from "lucide-react";
 
 interface Metric {
   percentage: number;
   label: string;
   subLabel: string;
   description: string;
-  strokeColor: string;
   metricIcon: string;
 }
 
-const METRICS: Metric[] = [
+const METRICS_LIST: Metric[] = [
   {
     percentage: 92,
-    label: "Landfill Reduction",
-    subLabel: "92% less solid waste",
+    label: "Solid Waste Prevention",
+    subLabel: "92% less solid landfill footprint",
     description: "Replaces traditional single-use petroleum lining. Composts at home within 30 days.",
-    strokeColor: "stroke-rust",
     metricIcon: "🗑️",
   },
   {
     percentage: 85,
-    label: "Carbon Offset",
+    label: "Atmospheric Carbon Offset",
     subLabel: "85% fewer greenhouse emissions",
     description: "Harvesting local cork bark and wheat husk byproduct lowers freight and production energy.",
-    strokeColor: "stroke-moss",
     metricIcon: "🌱",
   },
   {
     percentage: 70,
-    label: "Water Conservation",
-    subLabel: "70% water savings",
-    description: "Unlike paper manufacture, which requires chemical washing and bleach, our thermal press process uses minimal moisture.",
-    strokeColor: "stroke-cork",
+    label: "Aquatic Conservation",
+    subLabel: "70% water savings in processing",
+    description: "Unlike paper manufacture, which requires chemical washing, our press process uses minimal moisture.",
     metricIcon: "💧",
   },
   {
     percentage: 100,
-    label: "Circular Integrity",
-    subLabel: "100% bio-restorative",
+    label: "Cradle-to-Cradle Integrity",
+    subLabel: "100% organic return",
     description: "Every scrap of material returns to earth as biological feedstock, closing the loop completely.",
-    strokeColor: "stroke-moss-light",
     metricIcon: "🔄",
   },
 ];
@@ -73,22 +67,23 @@ export function Impact() {
   }, []);
 
   return (
-    <section ref={containerRef} className="py-24 md:py-32 bg-cream px-6 relative overflow-hidden">
-      {/* Background blobs */}
-      <div className="absolute top-[40%] left-[-15%] w-[600px] h-[600px] text-cork/5 pointer-events-none select-none blur-3xl rounded-full bg-cork/10" />
-      <div className="absolute bottom-[10%] right-[-10%] w-[500px] h-[500px] text-moss/5 pointer-events-none select-none blur-3xl rounded-full bg-moss/10" />
+    <section ref={containerRef} className="py-20 md:py-32 bg-cream px-6 relative overflow-hidden">
+      
+      {/* Organic background light */}
+      <div className="absolute top-[30%] left-[-15%] w-[600px] h-[600px] rounded-full bg-cork/5 blur-[120px] pointer-events-none" />
+      <div className="absolute bottom-[20%] right-[-10%] w-[500px] h-[500px] rounded-full bg-moss/5 blur-[100px] pointer-events-none" />
 
       <div className="max-w-7xl mx-auto relative z-10">
         
-        {/* Header Block */}
+        {/* Editorial Section Header */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 mb-20 items-end">
           <div className="lg:col-span-8">
             <span className="font-body text-moss text-xs md:text-sm tracking-[0.2em] uppercase bg-moss/5 px-4 py-1.5 rounded-full inline-block mb-4">
               environmental metrics
             </span>
-            <h2 className="font-display text-4xl sm:text-5xl md:text-6xl text-ink leading-tight font-medium">
+            <h2 className="font-display text-4xl sm:text-5xl md:text-6xl font-bold text-ink leading-tight">
               Measurable impact, <br />
-              <span className="text-rust italic font-normal">transparent responsibility.</span>
+              <span className="text-rust font-light italic">transparent responsibility.</span>
             </h2>
           </div>
           <div className="lg:col-span-4">
@@ -98,87 +93,88 @@ export function Impact() {
           </div>
         </div>
 
-        {/* Circular Progress Metrics Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-          {METRICS.map((metric, idx) => {
-            const radius = 50;
-            const strokeWidth = 8;
-            const circumference = 2 * Math.PI * radius;
-            const strokeDashoffset = inView
-              ? circumference - (metric.percentage / 100) * circumference
-              : circumference;
+        {/* Asymmetrical Metric Dashboard */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-stretch">
+          
+          {/* Left Column: Giant SVG Circular Economy Dial (col-span-5) */}
+          <div className="lg:col-span-5 bg-cream-2 border border-clay/30 rounded-[3rem_1rem_4rem_2rem] p-10 flex flex-col justify-between items-center shadow-sm relative overflow-hidden min-h-[420px]">
+            <div className="absolute inset-0 bg-stone-900/5 pointer-events-none" style={{ backgroundImage: "radial-gradient(#232017 6%, transparent 7%)", backgroundSize: "10px 10px" }} />
+            
+            <div className="w-full relative z-10 flex justify-between items-center border-b border-stone-300 pb-4 mb-4">
+              <span className="font-mono text-[10px] text-clay uppercase tracking-widest font-bold">circular metric dial</span>
+              <span className="text-[10px] font-mono text-ink/40">SYS // CR-98</span>
+            </div>
 
-            return (
-              <motion.div
-                key={metric.label}
-                initial={{ opacity: 0, scale: 0.95 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true, margin: "-50px" }}
-                transition={{ duration: 0.6, delay: idx * 0.12 }}
-                className="bg-cream-2/50 border border-stone-300/30 rounded-[2rem] p-8 flex flex-col items-center text-center shadow-sm hover:shadow-md transition-all duration-300 hover:bg-cream-2/80 relative group"
-              >
-                {/* SVG Circular Progress Bar */}
-                <div className="relative w-36 h-36 flex items-center justify-center mb-6">
-                  <svg className="w-full h-full transform -rotate-90">
-                    {/* Background track circle */}
-                    <circle
-                      cx="72"
-                      cy="72"
-                      r={radius}
-                      className="stroke-stone-200"
-                      strokeWidth={strokeWidth}
-                      fill="transparent"
-                    />
-                    {/* Animated progress circle */}
-                    <circle
-                      cx="72"
-                      cy="72"
-                      r={radius}
-                      className={`transition-all duration-[1.5s] ease-out ${metric.strokeColor}`}
-                      strokeWidth={strokeWidth}
-                      fill="transparent"
-                      strokeDasharray={circumference}
-                      strokeDashoffset={strokeDashoffset}
-                      strokeLinecap="round"
-                    />
-                  </svg>
+            {/* Giant Circular Dial */}
+            <div className="relative w-48 h-48 flex items-center justify-center my-6 z-10">
+              <svg className="w-full h-full transform -rotate-90">
+                <circle
+                  cx="96"
+                  cy="96"
+                  r="80"
+                  className="stroke-stone-300"
+                  strokeWidth="4"
+                  fill="transparent"
+                />
+                <circle
+                  cx="96"
+                  cy="96"
+                  r="80"
+                  className="stroke-moss transition-all duration-[2s] ease-out"
+                  strokeWidth="8"
+                  fill="transparent"
+                  strokeDasharray={2 * Math.PI * 80}
+                  strokeDashoffset={inView ? (2 * Math.PI * 80) * (1 - 0.984) : 2 * Math.PI * 80}
+                  strokeLinecap="round"
+                />
+              </svg>
+              <div className="absolute flex flex-col items-center">
+                <span className="font-display text-4xl font-extrabold text-ink">98.4</span>
+                <span className="font-mono text-[9px] uppercase tracking-widest text-clay mt-1">ECOLERY INDEX</span>
+              </div>
+            </div>
 
-                  {/* Centered Percentage and Emoji */}
-                  <div className="absolute flex flex-col items-center">
-                    <span className="text-[11px] text-ink/40 uppercase tracking-widest font-mono">
+            <div className="w-full relative z-10 border-t border-stone-300 pt-4 text-center">
+              <p className="text-xs text-ink/65 leading-relaxed max-w-xs mx-auto">
+                <strong>Ecolery Index</strong> evaluates sourcing renewal, clean thermal press energy, and absolute chemical absence.
+              </p>
+            </div>
+
+          </div>
+
+          {/* Right Column: Flat Technical Metrics List (col-span-7) */}
+          <div className="lg:col-span-7 flex flex-col justify-between space-y-6">
+            <div className="space-y-4">
+              {METRICS_LIST.map((metric) => (
+                <div
+                  key={metric.label}
+                  className="bg-cream-2/30 border border-stone-300/30 rounded-2xl p-6 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6 shadow-sm hover:shadow-md transition-shadow"
+                >
+                  <div className="flex items-start gap-4">
+                    <div className="w-10 h-10 rounded-full bg-cream flex items-center justify-center shadow-inner shrink-0 text-lg">
                       {metric.metricIcon}
-                    </span>
-                    <span className="font-display text-2xl font-bold text-ink mt-0.5">
-                      {metric.percentage}%
-                    </span>
+                    </div>
+                    <div>
+                      <h3 className="font-display font-bold text-base text-ink">{metric.label}</h3>
+                      <p className="text-xs text-ink/70 leading-relaxed mt-1 max-w-md">{metric.description}</p>
+                    </div>
+                  </div>
+                  
+                  {/* Stats display */}
+                  <div className="sm:text-right shrink-0 border-l sm:border-l-0 sm:border-t-0 pl-4 sm:pl-0 pt-2 sm:pt-0 border-stone-300/50 flex flex-col items-start sm:items-end">
+                    <span className="font-display text-2xl font-black text-moss">{metric.percentage}%</span>
+                    <span className="font-mono text-[9px] uppercase tracking-wider text-clay font-bold mt-0.5">{metric.subLabel.split(" ")[0]}</span>
                   </div>
                 </div>
+              ))}
+            </div>
+          </div>
 
-                {/* Metric Copy */}
-                <h3 className="font-display font-semibold text-lg text-ink mb-1">
-                  {metric.label}
-                </h3>
-                <span className="text-xs text-moss font-semibold uppercase tracking-wider mb-3 block">
-                  {metric.subLabel}
-                </span>
-                <p className="text-xs md:text-sm text-ink/70 leading-relaxed">
-                  {metric.description}
-                </p>
-                
-                {/* Decorative border element */}
-                <div className="absolute top-4 right-4 text-ink/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                  <ArrowDownLeft className="w-4 h-4" />
-                </div>
-              </motion.div>
-            );
-          })}
         </div>
 
-        {/* Circular Economy Visualization Panel */}
-        <div className="mt-16 bg-moss text-cream rounded-[2.5rem] p-8 md:p-12 border border-moss-light/35 flex flex-col lg:flex-row items-center justify-between gap-12 overflow-hidden relative">
-          
-          {/* Subtle overlay texture */}
-          <div className="absolute inset-0 bg-stone-900/10 opacity-30" style={{ backgroundImage: "radial-gradient(#ffffff 6%, transparent 7%)", backgroundSize: "10px 10px" }} />
+        {/* Closed Loop Panel */}
+        <div className="mt-16 bg-moss text-cream rounded-[3rem_1rem_4rem_2rem] p-8 md:p-16 border border-moss-light/35 flex flex-col lg:flex-row items-center justify-between gap-12 overflow-hidden relative">
+          <div className="absolute inset-0 bg-stone-900/10 opacity-30 pointer-events-none" style={{ backgroundImage: "radial-gradient(#ffffff 6%, transparent 7%)", backgroundSize: "12px 12px" }} />
 
           <div className="max-w-2xl relative z-10">
             <div className="flex items-center gap-2 mb-4 bg-cream/10 px-3.5 py-1.5 rounded-full w-max text-cream-2 text-xs font-semibold uppercase tracking-wider">
@@ -188,7 +184,7 @@ export function Impact() {
             <h3 className="font-display text-3xl md:text-4xl font-bold leading-tight mb-4">
               Restoring the Earth, one coffee cup at a time.
             </h3>
-            <p className="text-cream/80 text-sm md:text-base leading-relaxed">
+            <p className="text-cream-2/80 text-sm md:text-base leading-relaxed">
               Standard bioplastics (PLA) require industrial composting facilities reaching 60°C to break down, taking years in typical backyard soil. Ecolery requires zero infrastructure. It decomposes anywhere water and microbes exist, returning vital minerals to local micro-ecology.
             </p>
           </div>
@@ -197,18 +193,18 @@ export function Impact() {
             <h4 className="font-display font-medium text-lg text-cream mb-4">
               Soil-to-Soil Checklist
             </h4>
-            <div className="space-y-4">
+            <div className="space-y-4 text-xs">
               <div className="flex items-start gap-3">
-                <div className="w-5 h-5 rounded-full bg-rust text-cream flex items-center justify-center text-xs font-bold shrink-0 mt-0.5">✓</div>
-                <div className="text-xs text-cream/95">Zero microplastics left in soils.</div>
+                <div className="w-5 h-5 rounded-full bg-rust text-cream flex items-center justify-center text-[10px] font-bold shrink-0 mt-0.5">✓</div>
+                <div>Zero microplastics left in soils.</div>
               </div>
               <div className="flex items-start gap-3">
-                <div className="w-5 h-5 rounded-full bg-rust text-cream flex items-center justify-center text-xs font-bold shrink-0 mt-0.5">✓</div>
-                <div className="text-xs text-cream/95">Chemical-free thermal bonding.</div>
+                <div className="w-5 h-5 rounded-full bg-rust text-cream flex items-center justify-center text-[10px] font-bold shrink-0 mt-0.5">✓</div>
+                <div>Chemical-free thermal bonding.</div>
               </div>
               <div className="flex items-start gap-3">
-                <div className="w-5 h-5 rounded-full bg-rust text-cream flex items-center justify-center text-xs font-bold shrink-0 mt-0.5">✓</div>
-                <div className="text-xs text-cream/95">Natural mineral restoration (nitrogen-rich).</div>
+                <div className="w-5 h-5 rounded-full bg-rust text-cream flex items-center justify-center text-[10px] font-bold shrink-0 mt-0.5">✓</div>
+                <div>Natural mineral restoration (nitrogen-rich).</div>
               </div>
             </div>
           </div>

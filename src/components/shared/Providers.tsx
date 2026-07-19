@@ -4,8 +4,14 @@ import { type ReactNode, useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Lenis from "lenis";
+import dynamic from "next/dynamic";
 
 gsap.registerPlugin(ScrollTrigger);
+
+const CustomCursor = dynamic(
+  () => import("./CustomCursor").then((mod) => mod.CustomCursor),
+  { ssr: false }
+);
 
 export function Providers({ children }: { children: ReactNode }) {
   const lenisRef = useRef<Lenis | null>(null);
@@ -39,5 +45,11 @@ export function Providers({ children }: { children: ReactNode }) {
     };
   }, []);
 
-  return <>{children}</>;
+  return (
+    <>
+      <CustomCursor />
+      {children}
+    </>
+  );
 }
+

@@ -3,7 +3,7 @@
 import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight, Shield, Sparkles } from "lucide-react";
+import { ArrowRight, Sparkles } from "lucide-react";
 import { useEffect, useState, useRef } from "react";
 
 // Animated counter utility
@@ -48,179 +48,192 @@ function Counter({ value, suffix = "", duration = 2.5 }: { value: number; suffix
 
 export function Hero() {
   return (
-    <section className="relative min-h-[90vh] flex flex-col justify-center bg-cream overflow-hidden px-6 py-12 md:py-20">
+    <section className="relative min-h-screen flex flex-col justify-between bg-cream overflow-hidden px-6 pt-12 pb-8 md:px-12 md:pt-20">
       
-      {/* Background Organic Elements & Soft Lights */}
+      {/* Background Organic Ambient Light */}
       <div className="absolute inset-0 pointer-events-none select-none">
-        {/* Soft glowing ambient circles */}
-        <div aria-hidden className="absolute top-[20%] left-[-10%] w-[500px] h-[500px] rounded-full bg-cork/10 blur-[130px]" />
-        <div aria-hidden className="absolute bottom-[10%] right-[-10%] w-[600px] h-[600px] rounded-full bg-moss/10 blur-[140px]" />
-
-        {/* Ambient floating vector leaves (interactive and organic) */}
-        <motion.div
-          animate={{
-            y: [0, -20, 0],
-            rotate: [0, 15, 0],
-            x: [0, 10, 0]
-          }}
-          transition={{ duration: 7, repeat: Infinity, ease: "easeInOut" }}
-          className="absolute top-[15%] left-[5%] w-12 h-12 text-moss/20 hidden lg:block"
-        >
-          <svg viewBox="0 0 24 24" fill="currentColor" className="w-full h-full">
-            <path d="M17 8c.98 0 1.76.83 1.94 1.82a6 6 0 0 1-3.64 6.54c-1.42.58-3.08.64-4.52-.08l-.28-.15V21H9v-5.2c-.37-.32-.69-.7-.93-1.12-1.34-2.3-1.07-5.38.65-7.39C9.9 5.86 12 5 14 5v3h3z" />
-          </svg>
-        </motion.div>
-
-        <motion.div
-          animate={{
-            y: [0, 25, 0],
-            rotate: [0, -10, 0],
-            x: [0, -12, 0]
-          }}
-          transition={{ duration: 9, repeat: Infinity, ease: "easeInOut", delay: 1 }}
-          className="absolute bottom-[25%] right-[45%] w-10 h-10 text-cork/20 hidden lg:block"
-        >
-          <svg viewBox="0 0 24 24" fill="currentColor" className="w-full h-full">
-            <ellipse cx="12" cy="12" rx="6" ry="10" transform="rotate(45 12 12)" />
-            <path d="M8 8 C11 12, 13 12, 16 16" stroke="white" strokeWidth="1.2" fill="none" strokeLinecap="round" />
-          </svg>
-        </motion.div>
+        <div aria-hidden className="absolute top-[10%] left-[-15%] w-[600px] h-[600px] rounded-full bg-cork/10 blur-[130px]" />
+        <div aria-hidden className="absolute bottom-[20%] right-[-15%] w-[700px] h-[700px] rounded-full bg-moss/10 blur-[140px]" />
       </div>
 
-      <div className="max-w-7xl mx-auto w-full grid grid-cols-1 lg:grid-cols-12 gap-12 md:gap-16 items-center relative z-10">
+      {/* Main Container */}
+      <div className="max-w-7xl mx-auto w-full flex-grow flex flex-col justify-center relative z-10 my-8">
         
-        {/* Left Column: Premium Editorial Content */}
-        <div className="lg:col-span-6 flex flex-col items-start">
+        {/* Giant Overlapping Editorial Heading */}
+        <div className="w-full mb-12 md:mb-16 select-none relative">
+          
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 35 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-            className="flex items-center gap-2 bg-moss/5 border border-moss/10 px-4 py-1.5 rounded-full mb-6 text-moss text-xs font-semibold uppercase tracking-wider"
+            transition={{ duration: 1.1, ease: [0.16, 1, 0.3, 1] }}
+            className="flex flex-col lg:flex-row lg:items-end justify-between gap-6"
           >
-            <Sparkles className="w-3.5 h-3.5 text-rust animate-pulse" />
-            <span>Modern Food Technology</span>
-          </motion.div>
-
-          <motion.h1
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
-            className="font-display text-5xl sm:text-6xl md:text-7xl font-bold leading-[1.05] text-ink tracking-tight"
-          >
-            Sipped by you.
-            <br />
-            <span className="text-moss font-light italic">Absorbed by earth.</span>
-          </motion.h1>
-
-          <motion.p
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
-            className="text-ink/80 text-base md:text-lg leading-relaxed mt-6 max-w-xl text-balance"
-          >
-            We shape agricultural by-products into premium, heat-resistant edible tableware. Replaces petrochemical plastics entirely, elevating the dining experience to a zero-waste loop.
-          </motion.p>
-
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
-            className="mt-10 flex flex-col sm:flex-row items-center gap-4 w-full sm:w-auto"
-          >
-            <Link
-              href="/products"
-              className="w-full sm:w-auto bg-rust text-cream hover:bg-rust/95 hover:scale-[1.02] active:scale-[0.98] transition-all font-semibold px-8 py-4 rounded-full text-sm shadow-md hover:shadow-rust/20 flex items-center justify-center gap-2 group"
-            >
-              Explore Products
-              <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
-            </Link>
+            <h1 className="font-display text-5xl sm:text-7xl md:text-8xl lg:text-[7.5rem] font-bold leading-[0.9] text-ink tracking-tight">
+              Cradled by <span className="text-moss font-light italic">nature.</span>
+            </h1>
             
-            <Link
-              href="/sustainability"
-              className="w-full sm:w-auto border border-moss/20 text-moss hover:bg-moss/5 font-semibold px-8 py-4 rounded-full text-sm transition-colors text-center"
-            >
-              Our Sustainability Loop
-            </Link>
+            {/* Metadata Tag */}
+            <div className="font-mono text-[10px] text-clay uppercase tracking-[0.2em] border border-stone-300/40 px-3.5 py-1.5 rounded-full bg-cream-2/45 hidden lg:block mb-3">
+              COMPOST_BOUND / MAT-08
+            </div>
           </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 35 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1.1, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}
+            className="text-right mt-2"
+          >
+            <h1 className="font-display text-5xl sm:text-7xl md:text-8xl lg:text-[7.5rem] font-bold leading-[0.9] text-ink tracking-tight">
+              Eaten by the <span className="text-rust font-light italic">earth.</span>
+            </h1>
+          </motion.div>
+
         </div>
 
-        {/* Right Column: Premium Product Composition */}
-        <div className="lg:col-span-6 flex justify-center items-center relative">
+        {/* Asymmetrical Content Grid */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 md:gap-16 items-center">
           
-          {/* Main composition card */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.95 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
-            className="relative w-full max-w-[500px] aspect-square rounded-[3rem] md:rounded-[4rem] overflow-hidden border border-stone-300/30 shadow-xl group"
-          >
-            <Image
-              src="/hero_cup_splash.png"
-              alt="Ecolery edible coffee cup dynamic photography featuring coffee splash and floating leaves"
-              fill
-              className="object-cover group-hover:scale-[1.03] transition-transform duration-[6s] ease-out"
-              priority
-              sizes="(max-w-7xl) 100vw, 500px"
-            />
-            {/* Soft dark corner vignette overlay */}
-            <div className="absolute inset-0 bg-gradient-to-t from-black/10 via-transparent to-transparent pointer-events-none" />
-          </motion.div>
+          {/* Left Side: Short Editorial Copy & Actions (col-span-5) */}
+          <div className="lg:col-span-5 flex flex-col items-start relative z-20">
+            
+            <motion.div
+              initial={{ opacity: 0, x: -10 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8 }}
+              className="flex items-center gap-2 bg-moss/5 border border-moss/10 px-4 py-1.5 rounded-full mb-6 text-moss text-xs font-semibold uppercase tracking-wider"
+            >
+              <Sparkles className="w-3.5 h-3.5 text-rust animate-pulse" />
+              <span>Modern Circular Sourcing</span>
+            </motion.div>
 
-          {/* Floater overlay badge */}
-          <motion.div
-            initial={{ opacity: 0, x: 20 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ delay: 0.6, duration: 0.8 }}
-            className="absolute -bottom-6 -left-6 bg-cream-2/95 border border-stone-300/40 backdrop-blur-md rounded-2xl p-4 shadow-lg hidden sm:flex items-center gap-3.5 z-20 max-w-[200px]"
-          >
-            <div className="w-9 h-9 rounded-full bg-moss/10 flex items-center justify-center text-moss shrink-0">
-              <Shield className="w-5 h-5" />
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 1, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
+              className="text-ink/80 text-sm md:text-base leading-relaxed max-w-md text-balance"
+            >
+              We harvest local agricultural fibers and reclaimed cork oak bark to bind premium, heat-resistant edible coffee cups, containers, and tableware. We replace petrochemical plastic with biological loops, leaving exactly zero waste.
+            </motion.p>
+
+            <motion.div
+              initial={{ opacity: 0, y: 25 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 1, delay: 0.35, ease: [0.16, 1, 0.3, 1] }}
+              className="mt-8 flex flex-col sm:flex-row items-center gap-4 w-full sm:w-auto"
+            >
+              <Link
+                href="/products"
+                className="w-full sm:w-auto bg-rust text-cream hover:bg-rust/95 hover:scale-[1.02] active:scale-[0.98] transition-all font-semibold px-8 py-4 rounded-full text-xs md:text-sm shadow-md hover:shadow-rust/20 flex items-center justify-center gap-2 group"
+              >
+                Explore Products
+                <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
+              </Link>
+              
+              <Link
+                href="/sustainability"
+                className="w-full sm:w-auto border border-moss/20 text-moss hover:bg-moss/5 font-semibold px-8 py-4 rounded-full text-xs md:text-sm transition-colors text-center"
+              >
+                Sustainability Mission
+              </Link>
+            </motion.div>
+
+          </div>
+
+          {/* Right Side: Collaged Product Centerpiece (col-span-7) */}
+          <div className="lg:col-span-7 flex justify-center items-center relative">
+            
+            {/* Background Botanical Line Sketch SVG */}
+            <div className="absolute top-[-10%] right-[-5%] w-[120%] h-[120%] text-moss/5 pointer-events-none select-none z-0">
+              <svg viewBox="0 0 200 200" fill="none" stroke="currentColor" strokeWidth="0.8" className="w-full h-full">
+                <path d="M20 180 C80 150 120 80 180 20" strokeLinecap="round" />
+                <path d="M100 100 Q80 70 60 90 Q85 105 100 100 Z" fill="currentColor" opacity="0.4" />
+                <path d="M140 60 Q120 30 110 50 Q130 70 140 60 Z" fill="currentColor" opacity="0.4" />
+                <circle cx="65" cy="95" r="2" fill="currentColor" />
+                <circle cx="125" cy="55" r="2.5" fill="currentColor" />
+              </svg>
             </div>
-            <div>
-              <h4 className="font-display font-bold text-xs text-ink">100% Home Compostable</h4>
-              <p className="text-[10px] text-ink/60 mt-0.5">Composts in 30 days in soil.</p>
-            </div>
-          </motion.div>
+
+            {/* Asymmetric curved product photo border */}
+            <motion.div
+              initial={{ opacity: 0, scale: 0.95 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 1.3, ease: [0.16, 1, 0.3, 1] }}
+              className="relative w-full max-w-[550px] aspect-[4/3] rounded-[4rem_1.5rem_5rem_2rem] overflow-hidden border border-stone-300/35 shadow-xl group z-10 bg-cream-2"
+            >
+              <Image
+                src="/hero_cup_splash.png"
+                alt="Ecolery premium organic cup dynamic photography"
+                fill
+                className="object-cover group-hover:scale-[1.03] transition-transform duration-[6s] ease-out"
+                priority
+                sizes="(max-w-7xl) 100vw, 550px"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent pointer-events-none" />
+            </motion.div>
+
+            {/* Overlay spec ledger card */}
+            <motion.div
+              initial={{ opacity: 0, x: 25 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ delay: 0.7, duration: 0.8 }}
+              className="absolute bottom-[-10px] left-[-15px] bg-cream-2/95 border border-clay/35 backdrop-blur-md rounded-2xl p-4 shadow-lg hidden sm:flex items-center gap-3.5 z-20 max-w-[220px]"
+            >
+              <div className="w-9 h-9 rounded-full bg-rust/10 flex items-center justify-center text-rust shrink-0 font-bold text-xs">
+                OK
+              </div>
+              <div>
+                <h4 className="font-display font-bold text-xs text-ink">Biological Cradle</h4>
+                <p className="text-[10px] text-ink/65 mt-0.5 font-mono">100% Home Compostable</p>
+              </div>
+            </motion.div>
+
+          </div>
+
         </div>
 
       </div>
 
-      {/* Trust Indicators Bar */}
-      <div className="max-w-7xl mx-auto w-full mt-16 md:mt-24 pt-8 border-t border-stone-300/30">
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 text-center lg:text-left">
+      {/* Flat Technical Statistics Ledger Table (No generic card columns) */}
+      <div className="max-w-7xl mx-auto w-full mt-12 pt-6 border-t border-clay/30 select-none">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 text-left">
           
-          <div className="flex flex-col lg:items-start items-center">
-            <span className="font-display text-3xl font-bold text-moss">
+          <div className="flex flex-col py-2">
+            <span className="font-mono text-[9px] text-clay uppercase tracking-widest">ledger // waste</span>
+            <span className="font-display text-2xl md:text-3xl font-bold text-moss mt-1">
               <Counter value={4251820} suffix="+" />
             </span>
-            <span className="font-body text-ink/55 text-xs uppercase tracking-wider mt-1.5">
+            <span className="font-body text-ink/70 text-xs mt-0.5">
               Plastic Cups Saved
             </span>
           </div>
 
-          <div className="flex flex-col lg:items-start items-center border-l-0 lg:border-l border-stone-300/30 lg:pl-8">
-            <span className="font-display text-3xl font-bold text-moss">
+          <div className="flex flex-col py-2 border-l border-clay/20 pl-4 lg:pl-6">
+            <span className="font-mono text-[9px] text-clay uppercase tracking-widest">ledger // carbon</span>
+            <span className="font-display text-2xl md:text-3xl font-bold text-moss mt-1">
               <Counter value={850} suffix=" Tons" />
             </span>
-            <span className="font-body text-ink/55 text-xs uppercase tracking-wider mt-1.5">
+            <span className="font-body text-ink/70 text-xs mt-0.5">
               CO₂ Emissions Saved
             </span>
           </div>
 
-          <div className="flex flex-col lg:items-start items-center border-l-0 lg:border-l border-stone-300/30 lg:pl-8">
-            <span className="font-display text-3xl font-bold text-moss">
+          <div className="flex flex-col py-2 border-l border-clay/20 pl-4 lg:pl-6">
+            <span className="font-mono text-[9px] text-clay uppercase tracking-widest">ledger // global</span>
+            <span className="font-display text-2xl md:text-3xl font-bold text-moss mt-1">
               <Counter value={28} />
             </span>
-            <span className="font-body text-ink/55 text-xs uppercase tracking-wider mt-1.5">
+            <span className="font-body text-ink/70 text-xs mt-0.5">
               Countries Replaced Plastic
             </span>
           </div>
 
-          <div className="flex flex-col lg:items-start items-center border-l-0 lg:border-l border-stone-300/30 lg:pl-8">
-            <span className="font-display text-3xl font-bold text-moss">
+          <div className="flex flex-col py-2 border-l border-clay/20 pl-4 lg:pl-6">
+            <span className="font-mono text-[9px] text-clay uppercase tracking-widest">ledger // loyalty</span>
+            <span className="font-display text-2xl md:text-3xl font-bold text-moss mt-1">
               <Counter value={99} suffix=".6%" duration={1.5} />
             </span>
-            <span className="font-body text-ink/55 text-xs uppercase tracking-wider mt-1.5">
+            <span className="font-body text-ink/70 text-xs mt-0.5">
               Partnership Loyalty
             </span>
           </div>
@@ -231,5 +244,6 @@ export function Hero() {
     </section>
   );
 }
+
 
 
