@@ -64,16 +64,29 @@ const TESTIMONIALS: Testimonial[] = [
 ];
 
 export function Testimonials() {
+  const cardBorders = [
+    "rounded-[3rem_1.2rem_2.5rem_1.5rem]",
+    "rounded-[1.5rem_3rem_1rem_2.5rem]",
+    "rounded-[2.5rem_1rem_3rem_1.2rem]"
+  ];
+
   return (
-    <section className="py-24 md:py-32 bg-cream px-6">
-      <div className="max-w-7xl mx-auto">
+    <section className="py-20 md:py-32 bg-cream px-6 relative overflow-hidden">
+      
+      {/* Background Organic Ambient Light */}
+      <div className="absolute inset-0 pointer-events-none select-none">
+        <div aria-hidden className="absolute top-[30%] left-[-15%] w-[600px] h-[600px] rounded-full bg-cork/5 blur-[120px]" />
+        <div aria-hidden className="absolute bottom-[20%] right-[-10%] w-[500px] h-[500px] rounded-full bg-moss/5 blur-[120px]" />
+      </div>
+
+      <div className="max-w-7xl mx-auto relative z-10">
         
         {/* Header Block */}
         <div className="mb-16 md:mb-24">
           <span className="font-body text-moss text-xs md:text-sm tracking-[0.2em] uppercase bg-moss/5 px-4 py-1.5 rounded-full inline-block mb-4">
             client voices
           </span>
-          <h2 className="font-display text-4xl sm:text-5xl md:text-6xl text-ink leading-tight font-medium max-w-3xl">
+          <h2 className="font-display text-4xl sm:text-5xl md:text-6xl text-ink font-bold leading-[1.05] tracking-tight max-w-3xl">
             Trusted by organizations <br />
             <span className="text-rust italic font-normal">changing the food system.</span>
           </h2>
@@ -88,7 +101,7 @@ export function Testimonials() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-50px" }}
               transition={{ duration: 0.8, delay: idx * 0.15, ease: [0.16, 1, 0.3, 1] }}
-              className="bg-cream-2/50 border border-stone-300/35 rounded-[2.5rem] p-8 md:p-10 flex flex-col justify-between shadow-sm hover:shadow-md transition-all duration-300 group"
+              className={`bg-cream-2/70 border border-clay/30 p-8 md:p-10 flex flex-col justify-between shadow-sm hover:shadow-md transition-all duration-300 group ${cardBorders[idx]}`}
             >
               
               {/* Quote Mark & Text */}

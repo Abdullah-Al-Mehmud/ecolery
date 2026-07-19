@@ -63,8 +63,15 @@ export function WhyEdible() {
   const currentStage = STAGES[stageIndex];
 
   return (
-    <section id="process" className="py-24 md:py-32 bg-cream-2/40 px-6">
-      <div className="max-w-7xl mx-auto">
+    <section id="process" className="py-20 md:py-32 bg-cream px-6 relative overflow-hidden">
+      
+      {/* Background Organic Ambient Light */}
+      <div className="absolute inset-0 pointer-events-none select-none">
+        <div aria-hidden className="absolute top-[20%] left-[-10%] w-[500px] h-[500px] rounded-full bg-cork/5 blur-[120px]" />
+        <div aria-hidden className="absolute bottom-[10%] right-[-10%] w-[500px] h-[500px] rounded-full bg-moss/5 blur-[120px]" />
+      </div>
+
+      <div className="max-w-7xl mx-auto relative z-10">
         
         {/* Header Block */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 mb-16 items-end">
@@ -72,12 +79,12 @@ export function WhyEdible() {
             <span className="font-body text-moss text-xs md:text-sm tracking-[0.2em] uppercase bg-moss/5 px-4 py-1.5 rounded-full inline-block mb-4">
               the plastic paradox
             </span>
-            <h2 className="font-display text-4xl sm:text-5xl md:text-6xl text-ink leading-tight font-medium">
-              We design packaging that behaves like <span className="text-moss italic font-normal">fruit.</span>
+            <h2 className="font-display text-4xl sm:text-5xl md:text-6xl text-ink font-bold leading-[1.05] tracking-tight">
+              We design packaging that behaves like <span className="text-moss font-light italic">fruit.</span>
             </h2>
           </div>
           <div className="lg:col-span-5">
-            <p className="text-ink/75 text-base md:text-lg leading-relaxed max-w-md">
+            <p className="text-ink/75 text-sm md:text-base leading-relaxed max-w-md">
               Over 500 billion single-use plastic cups are consumed annually. We asked: what if your cup was made of natural plant matter and could disappear as quickly as an apple core?
             </p>
           </div>
@@ -87,18 +94,19 @@ export function WhyEdible() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
           
           {/* Left panel: Info & Controls */}
-          <div className="lg:col-span-5 flex flex-col justify-between bg-cream p-8 md:p-12 rounded-[2rem] border border-stone-300/40 shadow-sm relative overflow-hidden">
+          <div className="lg:col-span-5 flex flex-col justify-between bg-cream-2 border border-clay/35 p-8 md:p-12 rounded-[3rem_1rem_4rem_2rem] shadow-sm relative overflow-hidden">
+            <div className="absolute inset-0 bg-stone-900/5 pointer-events-none" style={{ backgroundImage: "radial-gradient(#232017 6%, transparent 7%)", backgroundSize: "10px 10px" }} />
             <div className="relative z-10">
-              <h3 className="font-display text-2xl md:text-3xl text-ink font-semibold mb-6">
+              <h3 className="font-display text-2xl md:text-3xl text-ink font-bold mb-6">
                 Decomposition Timeline
               </h3>
-              <p className="text-ink/65 text-sm md:text-base leading-relaxed mb-8">
+              <p className="text-ink/70 text-xs md:text-sm leading-relaxed mb-8">
                 Drag the slider or click the stages to see how petroleum plastics lock away waste for centuries, while Ecolery tableware cycles seamlessly back into the biosphere.
               </p>
 
               {/* Range Slider */}
               <div className="mb-10">
-                <div className="flex justify-between text-xs font-semibold text-ink/40 uppercase tracking-wider mb-3">
+                <div className="flex justify-between text-[10px] font-mono font-bold text-clay uppercase tracking-widest mb-3">
                   <span>Day 1</span>
                   <span>Day 10</span>
                   <span>Day 20</span>
@@ -110,7 +118,7 @@ export function WhyEdible() {
                   max="3"
                   value={stageIndex}
                   onChange={(e) => setStageIndex(parseInt(e.target.value))}
-                  className="w-full h-1.5 bg-stone-200 rounded-lg appearance-none cursor-pointer accent-moss focus:outline-none"
+                  className="w-full h-1.5 bg-stone-300 rounded-lg appearance-none cursor-pointer accent-moss focus:outline-none"
                   aria-label="Decomposition timeline slider"
                 />
               </div>
@@ -121,10 +129,10 @@ export function WhyEdible() {
                   <button
                     key={stage.label}
                     onClick={() => setStageIndex(idx)}
-                    className={`py-3 px-4 rounded-xl text-xs md:text-sm font-medium border transition-all ${
+                    className={`py-3 px-4 rounded-xl text-xs font-semibold border transition-all ${
                       stageIndex === idx
                         ? "bg-moss text-cream border-moss shadow-sm"
-                        : "bg-cream-2 text-ink/75 border-stone-300/40 hover:bg-stone-100"
+                        : "bg-cream text-ink/75 border-stone-300/40 hover:bg-stone-200/50"
                     }`}
                   >
                     {stage.label.split(":")[0]}
@@ -134,19 +142,19 @@ export function WhyEdible() {
             </div>
 
             {/* Micro-insight bottom badge */}
-            <div className="mt-8 border-t border-stone-200/50 pt-6 flex items-start gap-3">
+            <div className="mt-8 border-t border-stone-300/50 pt-6 flex items-start gap-3 relative z-10">
               <AlertCircle className="w-5 h-5 text-rust shrink-0 mt-0.5" />
-              <p className="text-xs text-ink/60 leading-relaxed">
-                <strong>Did you know?</strong> Reclaimed cork is naturally antimicrobial and acts as a organic fertilizer once broken down in garden soil.
+              <p className="text-xs text-ink/65 leading-relaxed">
+                <strong>Did you know?</strong> Reclaimed cork is naturally antimicrobial and acts as an organic fertilizer once broken down in garden soil.
               </p>
             </div>
           </div>
 
           {/* Right panel: Side-by-Side Visual Comparison */}
-          <div className={`lg:col-span-7 rounded-[2rem] border border-stone-300/40 p-8 md:p-12 transition-colors duration-750 overflow-hidden flex flex-col justify-between ${currentStage.bgFilter}`}>
+          <div className={`lg:col-span-7 rounded-[2rem_3rem_1.5rem_4rem] border border-clay/30 p-8 md:p-12 transition-colors duration-750 overflow-hidden flex flex-col justify-between ${currentStage.bgFilter}`}>
             
             <div className="flex justify-between items-center mb-8 border-b border-stone-300/20 pb-4">
-              <span className="font-display font-medium text-lg md:text-xl text-ink">
+              <span className="font-display font-bold text-lg md:text-xl text-ink">
                 {currentStage.label}
               </span>
               <span className="text-xs text-ink/50 flex items-center gap-1.5">
@@ -158,7 +166,7 @@ export function WhyEdible() {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center py-6">
               
               {/* Plastic Column */}
-              <div className="flex flex-col items-center text-center p-6 bg-cream/40 rounded-2xl border border-red-950/5 relative overflow-hidden group">
+              <div className="flex flex-col items-center text-center p-6 bg-cream/50 rounded-[2rem_1rem_2rem_1rem] border border-stone-300/40 relative overflow-hidden group">
                 <div className="absolute top-3 left-3 bg-red-100 text-red-800 text-[10px] uppercase font-bold tracking-wider px-2.5 py-0.5 rounded-full">
                   Petroleum Plastic
                 </div>
@@ -181,7 +189,7 @@ export function WhyEdible() {
                   </div>
                 </div>
 
-                <h4 className="font-display font-semibold text-lg text-ink mb-2">
+                <h4 className="font-display font-bold text-lg text-ink mb-2">
                   {currentStage.plasticTitle}
                 </h4>
                 <p className="text-xs text-ink/70 leading-relaxed min-h-[64px]">
@@ -190,7 +198,7 @@ export function WhyEdible() {
               </div>
 
               {/* Edible/Compostable Column */}
-              <div className="flex flex-col items-center text-center p-6 bg-moss/5 rounded-2xl border border-moss/10 relative overflow-hidden group">
+              <div className="flex flex-col items-center text-center p-6 bg-moss/5 rounded-[1rem_2rem_1rem_2rem] border border-moss/20 relative overflow-hidden group">
                 <div className="absolute top-3 left-3 bg-moss text-cream text-[10px] uppercase font-bold tracking-wider px-2.5 py-0.5 rounded-full">
                   Ecolery Organic
                 </div>
@@ -227,7 +235,7 @@ export function WhyEdible() {
                   </div>
                 </div>
 
-                <h4 className="font-display font-semibold text-lg text-moss mb-2">
+                <h4 className="font-display font-bold text-lg text-moss mb-2">
                   {currentStage.edibleTitle}
                 </h4>
                 <p className="text-xs text-ink/70 leading-relaxed min-h-[64px]">

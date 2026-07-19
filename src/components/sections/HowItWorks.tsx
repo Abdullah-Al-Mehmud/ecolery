@@ -83,13 +83,20 @@ const STEPS: Step[] = [
 ];
 
 export function HowItWorks() {
+  const stepBorders = [
+    "rounded-[2.5rem_1rem_3rem_1rem]",
+    "rounded-[1.5rem_2.5rem_1rem_3rem]",
+    "rounded-[3rem_1.2rem_2.5rem_1.5rem]",
+    "rounded-[1rem_3rem_1.5rem_2.5rem]"
+  ];
+
   return (
-    <section className="py-24 md:py-32 bg-cream-2 px-6 relative overflow-hidden">
-      {/* Background organic waves */}
-      <div className="absolute top-[20%] right-[-10%] w-[500px] h-[500px] text-stone-300/20 pointer-events-none select-none">
-        <svg viewBox="0 0 200 200" fill="currentColor" className="w-full h-full">
-          <path d="M40,-53C54.3,-46.8,69.9,-37.6,76.5,-23.7C83.2,-9.9,80.9,8.7,73.5,23.8C66.1,38.9,53.6,50.6,39.3,58C25,65.4,8.8,68.5,-7.4,67C-23.7,65.6,-40,59.6,-51.7,48.7C-63.5,37.8,-70.7,21.9,-71.7,5.7C-72.7,-10.5,-67.5,-27,-57.3,-36C-47,-45,-31.6,-46.6,-18.2,-53.4C-4.8,-60.1,6.5,-72,18.4,-72C30.3,-72,40.1,-60.1,40,-53Z" transform="translate(100 100)" />
-        </svg>
+    <section className="py-20 md:py-32 bg-cream px-6 relative overflow-hidden">
+      
+      {/* Background Organic Ambient Light */}
+      <div className="absolute inset-0 pointer-events-none select-none">
+        <div aria-hidden className="absolute top-[20%] right-[-10%] w-[500px] h-[500px] rounded-full bg-moss/5 blur-[120px]" />
+        <div aria-hidden className="absolute bottom-[20%] left-[-10%] w-[500px] h-[500px] rounded-full bg-cork/5 blur-[120px]" />
       </div>
 
       <div className="max-w-7xl mx-auto relative z-10">
@@ -99,11 +106,11 @@ export function HowItWorks() {
           <span className="font-body text-moss text-xs md:text-sm tracking-[0.2em] uppercase bg-moss/5 px-4 py-1.5 rounded-full inline-block mb-4">
             the product lifecycle
           </span>
-          <h2 className="font-display text-4xl sm:text-5xl md:text-6xl text-ink leading-tight font-medium">
+          <h2 className="font-display text-4xl sm:text-5xl md:text-6xl text-ink font-bold leading-[1.05] tracking-tight">
             From the branch to the cup, <br />
-            <span className="text-moss italic font-normal">back to the earth.</span>
+            <span className="text-moss font-light italic">back to the earth.</span>
           </h2>
-          <p className="text-ink/75 text-base md:text-lg leading-relaxed mt-6">
+          <p className="text-ink/75 text-sm md:text-base leading-relaxed mt-6 max-w-xl">
             We close the loop entirely. Ecolery products follow a zero-waste loop. Our packaging does not end in land reclamation or ocean dumps—it returns to natural organic cycle.
           </p>
         </div>
@@ -118,21 +125,21 @@ export function HowItWorks() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-80px" }}
               transition={{ duration: 0.8, delay: idx * 0.15, ease: [0.16, 1, 0.3, 1] }}
-              className="bg-cream p-8 rounded-[2rem] border border-stone-300/30 flex flex-col justify-between items-start relative group shadow-sm hover:shadow-md transition-all duration-300"
+              className={`bg-cream-2/70 p-8 border border-clay/30 flex flex-col justify-between items-start relative group shadow-sm hover:shadow-md transition-all duration-300 ${stepBorders[idx]}`}
             >
               
               {/* Upper Header */}
               <div className="w-full">
                 <div className="flex justify-between items-center mb-6">
-                  <span className="font-body text-ink/40 text-xs font-semibold uppercase tracking-wider">
+                  <span className="font-mono text-clay text-[10px] font-bold uppercase tracking-wider">
                     {step.phase}
                   </span>
-                  <div className="w-9 h-9 rounded-full bg-cream-2 flex items-center justify-center text-moss group-hover:scale-110 transition-transform duration-350">
+                  <div className="w-9 h-9 rounded-full bg-cream flex items-center justify-center text-moss group-hover:scale-110 transition-transform duration-350 shadow-sm">
                     {step.icon}
                   </div>
                 </div>
 
-                <div className="h-32 flex items-center justify-center mb-6 border-b border-stone-200/50 pb-6 w-full">
+                <div className="h-32 flex items-center justify-center mb-6 border-b border-stone-300/40 pb-6 w-full">
                   {step.illustration}
                 </div>
               </div>
@@ -142,7 +149,7 @@ export function HowItWorks() {
                 <h3 className="font-display text-lg md:text-xl font-bold text-ink mb-3">
                   {step.title}
                 </h3>
-                <p className="text-xs md:text-sm text-ink/70 leading-relaxed">
+                <p className="text-xs text-ink/70 leading-relaxed">
                   {step.description}
                 </p>
               </div>
@@ -162,23 +169,24 @@ export function HowItWorks() {
         </div>
 
         {/* Informative Cradle-to-Cradle Summary */}
-        <div className="mt-16 bg-cream border border-stone-300/30 rounded-3xl p-6 md:p-8 flex flex-col sm:flex-row items-center justify-between gap-6">
-          <div className="flex items-center gap-4">
+        <div className="mt-16 bg-cream-2 border border-clay/35 rounded-[2rem_1rem_2.5rem_1rem] p-8 flex flex-col sm:flex-row items-center justify-between gap-6 relative overflow-hidden shadow-sm">
+          <div className="absolute inset-0 bg-stone-900/5 pointer-events-none" style={{ backgroundImage: "radial-gradient(#232017 6%, transparent 7%)", backgroundSize: "10px 10px" }} />
+          <div className="flex items-center gap-4 relative z-10">
             <div className="w-12 h-12 rounded-full bg-moss/10 flex items-center justify-center text-moss shrink-0">
               <Compass className="w-6 h-6" />
             </div>
             <div>
-              <h4 className="font-display font-semibold text-base text-ink">
+              <h4 className="font-display font-bold text-base text-ink">
                 Circular Cradle-to-Cradle Loop
               </h4>
-              <p className="text-xs md:text-sm text-ink/65">
+              <p className="text-xs text-ink/65 mt-0.5">
                 Our materials are 100% renewable, certified pesticide-free, and leave no carbon or toxic trace.
               </p>
             </div>
           </div>
           <a
-            href="#journey"
-            className="bg-rust text-cream hover:bg-rust/95 rounded-full px-6 py-3 text-xs md:text-sm font-medium transition-colors shrink-0 text-center w-full sm:w-auto"
+            href="/sustainability"
+            className="relative z-10 bg-rust text-cream hover:bg-rust/95 hover:scale-[1.02] active:scale-[0.98] transition-all font-semibold rounded-full px-8 py-3.5 text-xs md:text-sm shadow-md text-center w-full sm:w-auto"
           >
             Trace Our Materials
           </a>
