@@ -160,16 +160,14 @@ export function Products() {
                 </div>
 
                 {/* Photography Centerpiece (Right) */}
-                <div className="sm:col-span-6 flex justify-center items-center order-1 sm:order-2 py-4">
-                  <div className="relative w-full aspect-[4/3] rounded-2xl overflow-hidden border border-stone-300/35 shadow-inner bg-cream-2">
-                    <Image
-                      src={product.imagePath}
-                      alt={product.name}
-                      fill
-                      className="object-cover group-hover:scale-105 transition-transform duration-700"
-                      sizes="(max-w-md) 100vw, 240px"
-                    />
-                  </div>
+                <div className="sm:col-span-6 flex justify-center items-center order-1 sm:order-2 py-4 w-full">
+                  <Image
+                    src={product.imagePath}
+                    alt={product.name}
+                    width={400}
+                    height={300}
+                    className="object-cover rounded-2xl border border-stone-300/35 shadow-sm bg-cream-2 w-full h-auto aspect-[4/3] group-hover:scale-[1.02] transition-transform duration-500"
+                  />
                 </div>
 
               </div>

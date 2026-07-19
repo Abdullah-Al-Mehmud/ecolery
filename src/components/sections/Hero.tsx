@@ -159,15 +159,15 @@ export function Hero() {
               initial={{ opacity: 0, scale: 0.95 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 1.3, ease: [0.16, 1, 0.3, 1] }}
-              className="relative w-full max-w-[550px] aspect-[4/3] rounded-[4rem_1.5rem_5rem_2rem] overflow-hidden border border-stone-300/35 shadow-xl group z-10 bg-cream-2"
+              className="w-full max-w-[550px] rounded-[4rem_1.5rem_5rem_2rem] overflow-hidden border border-stone-300/35 shadow-xl group z-10 bg-cream-2 relative"
             >
               <Image
                 src="/hero_cup_splash.png"
                 alt="Ecolery premium organic cup dynamic photography"
-                fill
-                className="object-cover group-hover:scale-[1.03] transition-transform duration-[6s] ease-out"
+                width={550}
+                height={412}
+                className="object-cover w-full h-auto aspect-[4/3] group-hover:scale-[1.03] transition-transform duration-[6s] ease-out"
                 priority
-                sizes="(max-w-7xl) 100vw, 550px"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent pointer-events-none" />
             </motion.div>
