@@ -5,74 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { ShieldCheck, ShoppingCart } from "lucide-react";
 
-interface Product {
-  id: string;
-  name: string;
-  category: string;
-  description: string;
-  specs: string[];
-  material: string;
-  tempLimit: string;
-  ctaText: string;
-  layoutClass: string; // Tailwind grid mapping for asymmetrical layout
-  accentColor: string;
-  imagePath: string;
-}
-
-const PRODUCTS: Product[] = [
-  {
-    id: "coffee-cup",
-    name: "The Edible Coffee Cup",
-    category: "Tableware",
-    description: "Pressed from reclaimed organic cork and grain husks. Neutral taste profile that doesn't interfere with coffee notes, remaining leak-proof for over 45 minutes.",
-    specs: ["Capacity: 8oz / 230ml", "100% Edible & Biodegradable", "Neutral or Vanilla Flavor"],
-    material: "Reclaimed Cork & Cereal Fibers",
-    tempLimit: "Up to 90°C / 194°F",
-    ctaText: "Order Samples",
-    layoutClass: "md:col-span-7",
-    accentColor: "bg-cork/10 text-cork-dark border-cork/20",
-    imagePath: "/hero_cup_splash.png",
-  },
-  {
-    id: "food-bowl",
-    name: "The Organic Grain Bowl",
-    category: "Containers",
-    description: "Rigid, heat-retaining food containers pressed from organic wheat straw and natural fibers. Replaces plastic takeaway bowls for hot soups, salads, and curries.",
-    specs: ["Volume: 16oz / 480ml", "Oven & Microwave Safe", "Naturally Water-Resistant"],
-    material: "Wheat Straw & Sugarcane Bagasse",
-    tempLimit: "Up to 120°C / 248°F",
-    ctaText: "Request Spec Sheet",
-    layoutClass: "md:col-span-5",
-    accentColor: "bg-moss/10 text-moss border-moss/20",
-    imagePath: "/food_bowl.png",
-  },
-  {
-    id: "cutlery-spoon",
-    name: "The Edible Table Spoon",
-    category: "Cutlery",
-    description: "Crunchy, delicious spoons crafted from baked organic oat flour, wheat, and cacao. Provides a satisfying crunch with ice cream, yogurt, or warm soup.",
-    specs: ["Length: 14cm", "100% Baked Cereal Blend", "Flavors: Oats, Chocolate, Spiced"],
-    material: "Baked Oat Flour & Wheat Gluten",
-    tempLimit: "Up to 80°C / 176°F",
-    ctaText: "Order Samples",
-    layoutClass: "md:col-span-5",
-    accentColor: "bg-rust/10 text-rust border-rust/20",
-    imagePath: "/edible_spoon.png",
-  },
-  {
-    id: "eco-packaging",
-    name: "Zero-Waste Plant Wrapping",
-    category: "Packaging",
-    description: "Flexible, translucent protective wrappers synthesized from seaweed extract and plant starch. Dissolves completely in water or composts in 14 days.",
-    specs: ["Thickness: 25-50 microns", "Water Soluble Options", "Direct Food Contact Approved"],
-    material: "Brown Seaweed & Potato Starch",
-    tempLimit: "Up to 60°C / 140°F",
-    ctaText: "Download Brochure",
-    layoutClass: "md:col-span-7",
-    accentColor: "bg-moss-light/10 text-moss-light border-moss-light/20",
-    imagePath: "/seaweed_wrap.png",
-  }
-];
+import { PRODUCTS } from "@/lib/products";
 
 export function Products() {
   const productBorders = [
@@ -175,7 +108,7 @@ export function Products() {
               {/* CTA Row */}
               <div className="mt-8 pt-6 border-t border-stone-300/40 flex justify-between items-center select-none">
                 <Link
-                  href="/contact"
+                  href={`/contact?product=${product.id}`}
                   className="bg-ink text-cream hover:bg-rust rounded-full px-6 py-3 text-xs font-semibold transition-all hover:scale-[1.02] active:scale-[0.98] shadow-sm flex items-center gap-1.5"
                 >
                   <span>{product.ctaText}</span>

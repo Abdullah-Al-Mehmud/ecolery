@@ -1,195 +1,150 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Hammer, Coffee, Apple, Leaf, Compass } from "lucide-react";
+import Image from "next/image";
+import { ArrowRight, Compass } from "lucide-react";
+import Link from "next/link";
 
 interface Step {
-  phase: string;
+  phaseLabel: string;
   title: string;
+  subtitle: string;
   description: string;
-  icon: React.ReactNode;
-  illustration: React.ReactNode;
+  image: string;
 }
 
 const STEPS: Step[] = [
   {
-    phase: "Phase 01",
+    phaseLabel: "01 / HARVEST & FORM",
     title: "Eco-Tech Manufacturing",
-    description: "Reclaimed cork bark and agricultural grain husks are collected. We press and heat-bind them using water vapor, molding the fibers without toxic adhesives or plastics.",
-    icon: <Hammer className="w-5 h-5" />,
-    illustration: (
-      <svg viewBox="0 0 100 100" fill="none" className="w-24 h-24 text-cork">
-        {/* Mold Pressing Graphic */}
-        <path d="M20 20 H80 V30 H20 Z" stroke="currentColor" strokeWidth="2" />
-        <path d="M30 30 L35 70 H65 L70 30 Z" stroke="currentColor" strokeWidth="2" fill="currentColor" opacity="0.1" />
-        {/* Pressure indicators */}
-        <path d="M50 10 V18" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
-        <path d="M45 15 L50 18 L55 15" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
-        <circle cx="50" cy="50" r="12" stroke="currentColor" strokeWidth="1.5" strokeDasharray="3 3" />
-      </svg>
-    )
+    subtitle: "Molding raw agricultural fibers using clean energy.",
+    description: "Reclaimed cork bark and agricultural grain husks are collected. We press and heat-bind them using water vapor, molding the fibers without toxic adhesives, binders, or synthetic plastics.",
+    image: "/how_it_works_phase_01.png"
   },
   {
-    phase: "Phase 02",
+    phaseLabel: "02 / THERMAL USE",
     title: "Premium Use",
-    description: "Serve hot or cold drinks up to 90°C. The natural waterproofing properties of cork keep the cup perfectly sturdy, insulated, and dry for over 45 minutes of sipping.",
-    icon: <Coffee className="w-5 h-5" />,
-    illustration: (
-      <svg viewBox="0 0 100 100" fill="none" className="w-24 h-24 text-moss">
-        {/* Pouring/Drinking Graphic */}
-        <path d="M30 30 H70 L64 80 H36 Z" stroke="currentColor" strokeWidth="2" fill="currentColor" opacity="0.1" />
-        <path d="M70 40 H76 C80 40 82 43 82 47 V53 C82 57 80 60 76 60 H68" stroke="currentColor" strokeWidth="2" />
-        <path d="M40 10 C45 20 35 25 50 35" stroke="currentColor" strokeWidth="2" strokeLinecap="round" opacity="0.4" />
-        <path d="M50 8 Q55 18 45 23" stroke="currentColor" strokeWidth="2" strokeLinecap="round" opacity="0.6" />
-      </svg>
-    )
+    subtitle: "A durable barrier for specialty hot coffee.",
+    description: "Serve hot or cold drinks up to 90°C. The natural waterproofing properties of cork keep the cup perfectly sturdy, insulated, and dry for over 45 minutes of sipping without structural breakdown.",
+    image: "/how_it_works_phase_02.png"
   },
   {
-    phase: "Phase 03",
+    phaseLabel: "03 / CONSUMPTION",
     title: "Edible Snack",
-    description: "After drinking, bite right in. Our cups are baked to have a light, cracker-like crunch. They are high-fiber, vegan, sugar-free, and come in toasted oats or cacao flavors.",
-    icon: <Apple className="w-5 h-5" />,
-    illustration: (
-      <svg viewBox="0 0 100 100" fill="none" className="w-24 h-24 text-rust">
-        {/* Bitten Cup Graphic */}
-        <path d="M30 30 H70 L64 80 H36 Z" stroke="currentColor" strokeWidth="2" fill="currentColor" opacity="0.1" />
-        {/* Bite mark out of the top right */}
-        <path d="M60 30 C60 30 63 20 70 25 C75 30 70 38 70 38" stroke="currentColor" strokeWidth="2" fill="none" />
-        {/* Crunch stars */}
-        <path d="M75 15 L78 20 L83 18 L80 23 L84 27 L79 28" stroke="currentColor" strokeWidth="1" />
-      </svg>
-    )
+    subtitle: "An organic cracker-like treat to enjoy after use.",
+    description: "After drinking, bite right in. Our cups are baked to have a light, satisfying crunch. High-fiber, vegan, and sugar-free, they come in toasted oats or cocoa flavor variations.",
+    image: "/how_it_works_phase_03.png"
   },
   {
-    phase: "Phase 04",
+    phaseLabel: "04 / SOIL RETURN",
     title: "Nutrient Compost",
-    description: "Don't want to eat it? Simply toss it into the compost or directly onto soil. The cup breaks down naturally in 30 days, feeding plants and enriching local biodiversity.",
-    icon: <Leaf className="w-5 h-5" />,
-    illustration: (
-      <svg viewBox="0 0 100 100" fill="none" className="w-24 h-24 text-moss-light">
-        {/* Sprouting compost */}
-        <path d="M20 80 Q50 65 80 80" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" />
-        <path d="M50 72 V50" stroke="currentColor" strokeWidth="2" />
-        {/* Sprouting leaf */}
-        <path d="M50 50 Q58 42 58 50 Z" fill="currentColor" stroke="currentColor" strokeWidth="1.5" />
-        <path d="M50 56 Q42 48 42 56 Z" fill="currentColor" stroke="currentColor" strokeWidth="1.5" />
-        {/* Rain particles */}
-        <line x1="35" y1="20" x2="33" y2="30" stroke="currentColor" strokeWidth="1" strokeLinecap="round" opacity="0.5" />
-        <line x1="50" y1="15" x2="48" y2="25" stroke="currentColor" strokeWidth="1" strokeLinecap="round" opacity="0.5" />
-        <line x1="65" y1="20" x2="63" y2="30" stroke="currentColor" strokeWidth="1" strokeLinecap="round" opacity="0.5" />
-      </svg>
-    )
+    subtitle: "Returning carbon and minerals back to earth.",
+    description: "Don't want to eat it? Simply toss it into your compost or directly onto soil. The cup decomposes naturally in 30 days, feeding plants and enriching local biodiversity.",
+    image: "/how_it_works_phase_04.png"
   }
 ];
 
 export function HowItWorks() {
-  const stepBorders = [
-    "rounded-[2.5rem_1rem_3rem_1rem]",
-    "rounded-[1.5rem_2.5rem_1rem_3rem]",
-    "rounded-[3rem_1.2rem_2.5rem_1.5rem]",
-    "rounded-[1rem_3rem_1.5rem_2.5rem]"
-  ];
-
   return (
-    <section className="py-20 md:py-32 bg-cream px-6 relative overflow-hidden">
+    <section className="py-24 md:py-44 bg-cream px-6 relative overflow-hidden">
       
-      {/* Background Organic Ambient Light */}
+      {/* Background Accent Gradients */}
       <div className="absolute inset-0 pointer-events-none select-none">
-        <div aria-hidden className="absolute top-[20%] right-[-10%] w-[500px] h-[500px] rounded-full bg-moss/5 blur-[120px]" />
+        <div aria-hidden className="absolute top-[10%] right-[-10%] w-[500px] h-[500px] rounded-full bg-moss/5 blur-[120px]" />
         <div aria-hidden className="absolute bottom-[20%] left-[-10%] w-[500px] h-[500px] rounded-full bg-cork/5 blur-[120px]" />
       </div>
 
       <div className="max-w-7xl mx-auto relative z-10">
         
-        {/* Header Block */}
-        <div className="max-w-3xl mb-16 md:mb-24">
-          <span className="font-body text-moss text-xs md:text-sm tracking-[0.2em] uppercase bg-moss/5 px-4 py-1.5 rounded-full inline-block mb-4">
-            the product lifecycle
-          </span>
-          <h2 className="font-display text-4xl sm:text-5xl md:text-6xl text-ink font-bold leading-[1.05] tracking-tight">
-            From the branch to the cup, <br />
-            <span className="text-moss font-light italic">back to the earth.</span>
-          </h2>
-          <p className="text-ink/75 text-sm md:text-base leading-relaxed mt-6 max-w-xl">
-            We close the loop entirely. Ecolery products follow a zero-waste loop. Our packaging does not end in land reclamation or ocean dumps—it returns to natural organic cycle.
-          </p>
+        {/* Section Header */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 mb-16 md:mb-24 items-end">
+          <div className="lg:col-span-7">
+            <span className="font-body text-moss text-xs md:text-sm tracking-[0.2em] uppercase bg-moss/5 px-4 py-1.5 rounded-full inline-block mb-4">
+              the product lifecycle
+            </span>
+            <h2 className="font-display text-4xl sm:text-5xl md:text-6xl text-ink font-bold leading-[1.05] tracking-tight">
+              From the branch to the cup, <br />
+              <span className="text-moss font-light italic">back to the earth.</span>
+            </h2>
+          </div>
+          <div className="lg:col-span-5">
+            <p className="text-ink/75 text-sm md:text-base leading-relaxed max-w-md">
+              We close the loop entirely. Ecolery products follow a zero-waste loop. Our packaging does not end in landfill waste or ocean debris—it returns to natural biological cycle.
+            </p>
+          </div>
         </div>
 
-        {/* Step Cards with Connectors */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 relative">
+        {/* 12-Column Process Index Grid */}
+        <div className="border-t border-[#E9E5DD]">
           
           {STEPS.map((step, idx) => (
             <motion.div
-              key={step.phase}
-              initial={{ opacity: 0, y: 30 }}
+              key={step.phaseLabel}
+              initial={{ opacity: 0, y: 25 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-80px" }}
-              transition={{ duration: 0.8, delay: idx * 0.15, ease: [0.16, 1, 0.3, 1] }}
-              className={`bg-cream-2/70 p-8 border border-clay/30 flex flex-col justify-between items-start relative group shadow-sm hover:shadow-md transition-all duration-300 ${stepBorders[idx]}`}
+              transition={{ duration: 0.8, delay: idx * 0.1, ease: [0.16, 1, 0.3, 1] }}
+              className="border-b border-[#E9E5DD] py-12 md:py-16 grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-start group"
             >
-              
-              {/* Upper Header */}
-              <div className="w-full">
-                <div className="flex justify-between items-center mb-6">
-                  <span className="font-mono text-clay text-[10px] font-bold uppercase tracking-wider">
-                    {step.phase}
-                  </span>
-                  <div className="w-9 h-9 rounded-full bg-cream flex items-center justify-center text-moss group-hover:scale-110 transition-transform duration-350 shadow-sm">
-                    {step.icon}
-                  </div>
-                </div>
-
-                <div className="h-32 flex items-center justify-center mb-6 border-b border-stone-300/40 pb-6 w-full">
-                  {step.illustration}
-                </div>
+              {/* Left Column (Cols 1-3) - Monospace index */}
+              <div className="lg:col-span-3 py-1">
+                <span className="font-mono text-[9px] text-moss bg-moss/5 border border-moss/10 px-2.5 py-1 rounded-md tracking-[0.2em] uppercase font-bold leading-none inline-block">
+                  {step.phaseLabel}
+                </span>
               </div>
 
-              {/* Title & Desc */}
-              <div>
-                <h3 className="font-display text-lg md:text-xl font-bold text-ink mb-3">
+              {/* Middle Column (Cols 5-8) - Title and Narrative */}
+              <div className="lg:col-span-5 lg:col-start-5">
+                <h3 className="font-display text-2xl md:text-3xl font-bold text-ink mb-2 tracking-tight">
                   {step.title}
                 </h3>
-                <p className="text-xs text-ink/70 leading-relaxed">
+                <p className="font-mono text-[9.5px] text-clay font-bold uppercase tracking-wider mb-4 leading-none">
+                  {step.subtitle}
+                </p>
+                <p className="font-body text-xs md:text-sm text-ink/75 leading-relaxed">
                   {step.description}
                 </p>
               </div>
 
-              {/* Connecting arrow indicators on larger screens */}
-              {idx < 3 && (
-                <div className="hidden lg:block absolute top-[50%] right-[-18px] translate-y-[-50%] z-20 pointer-events-none">
-                  <svg width="12" height="24" viewBox="0 0 12 24" fill="none" className="text-stone-300 animate-pulse">
-                    <path d="M2 2 L10 12 L2 22" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
-                  </svg>
+              {/* Right Column (Cols 9-12) - Uniform Visual aspect-4:3 */}
+              <div className="lg:col-span-4 lg:col-start-9 w-full">
+                <div className="relative w-full aspect-[4/3] rounded-[16px] overflow-hidden border border-[#E9E5DD] bg-cream-2/30 shadow-sm group-hover:shadow transition-shadow duration-300">
+                  <Image
+                    src={step.image}
+                    alt={step.title}
+                    fill
+                    className="object-cover group-hover:scale-[1.02] transition-transform duration-700 ease-out"
+                    sizes="(max-w-md) 100vw, 320px"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/5 via-transparent to-transparent pointer-events-none" />
                 </div>
-              )}
+              </div>
 
             </motion.div>
           ))}
-          
+
         </div>
 
-        {/* Informative Cradle-to-Cradle Summary */}
-        <div className="mt-16 bg-cream-2 border border-clay/35 rounded-[2rem_1rem_2.5rem_1rem] p-8 flex flex-col sm:flex-row items-center justify-between gap-6 relative overflow-hidden shadow-sm">
-          <div className="absolute inset-0 bg-stone-900/5 pointer-events-none" style={{ backgroundImage: "radial-gradient(#232017 6%, transparent 7%)", backgroundSize: "10px 10px" }} />
-          <div className="flex items-center gap-4 relative z-10">
-            <div className="w-12 h-12 rounded-full bg-moss/10 flex items-center justify-center text-moss shrink-0">
-              <Compass className="w-6 h-6" />
-            </div>
+        {/* Bottom Material Transparency Link */}
+        <div className="mt-20 border-t border-[#E9E5DD] pt-12 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-6 select-none">
+          <div className="flex items-center gap-3">
+            <Compass className="w-5 h-5 text-moss shrink-0 stroke-[1.5]" />
             <div>
-              <h4 className="font-display font-bold text-base text-ink">
-                Circular Cradle-to-Cradle Loop
-              </h4>
-              <p className="text-xs text-ink/65 mt-0.5">
-                Our materials are 100% renewable, certified pesticide-free, and leave no carbon or toxic trace.
-              </p>
+              <span className="font-mono text-[9px] font-bold text-clay uppercase tracking-[0.2em] block mb-0.5 leading-none">
+                Label 05 // Transparency Register
+              </span>
+              <span className="font-body text-xs md:text-sm font-semibold text-ink">
+                All Ecolery products are certified zero-waste.
+              </span>
             </div>
           </div>
-          <a
+          <Link
             href="/sustainability"
-            className="relative z-10 bg-rust text-cream hover:bg-rust/95 hover:scale-[1.02] active:scale-[0.98] transition-all font-semibold rounded-full px-8 py-3.5 text-xs md:text-sm shadow-md text-center w-full sm:w-auto"
+            className="flex items-center gap-1.5 font-semibold text-xs text-moss hover:text-rust transition-colors group cursor-pointer"
           >
-            Trace Our Materials
-          </a>
+            <span>Trace Material Integrity</span>
+            <ArrowRight className="w-3.5 h-3.5 transition-transform group-hover:translate-x-1" />
+          </Link>
         </div>
 
       </div>

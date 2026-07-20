@@ -1,17 +1,32 @@
 "use client";
 
-import { useState } from "react";
+import { useState, Suspense } from "react";
+import { useSearchParams } from "next/navigation";
 import { FAQ } from "@/components/sections/FAQ";
 import { motion } from "framer-motion";
 import { MapPin, Mail, Phone, Clock, Send, Globe, MessageSquare } from "lucide-react";
 
-export default function ContactPage() {
+const PRODUCT_NAMES: Record<string, string> = {
+  "coffee-cup": "The Edible Coffee Cup",
+  "food-bowl": "The Organic Grain Bowl",
+  "cutlery-spoon": "The Edible Table Spoon",
+  "eco-packaging": "Zero-Waste Plant Wrapping"
+};
+
+function ContactForm() {
+  const searchParams = useSearchParams();
+  const productParam = searchParams.get("product");
+  
+  const selectedProductName = productParam ? PRODUCT_NAMES[productParam] : "";
+
   const [formData, setFormData] = useState({
     name: "",
     email: "",
     company: "",
-    category: "Wholesale Options",
-    message: "",
+    category: productParam ? "Commercial Sample Kits" : "Wholesale Options",
+    message: selectedProductName 
+      ? `We would like to request samples of: ${selectedProductName}. Please advise on sample availability and logistics.`
+      : "",
   });
   const [submitted, setSubmitted] = useState(false);
 
@@ -24,6 +39,100 @@ export default function ContactPage() {
     }, 4500);
   };
 
+  return (
+    <div className="bg-cream-2 border border-clay/35 rounded-[3rem_1rem_4rem_2rem] p-8 md:p-12 shadow-sm flex-1">
+      <div className="flex justify-between items-center text-[10px] font-mono tracking-widest text-clay font-bold border-b border-stone-300/40 pb-4 mb-8">
+        <span>INQUIRY FORM // PARTNER_PORTAL</span>
+        <span>SECURE SSL</span>
+      </div>
+
+      {submitted ? (
+        <motion.div
+          initial={{ opacity: 0, scale: 0.98 }}
+          animate={{ opacity: 1, scale: 1 }}
+          className="bg-moss/10 border border-moss/20 rounded-2xl p-8 text-center text-moss"
+        >
+          <h3 className="font-display font-bold text-xl mb-2">Inquiry Submitted Successfully</h3>
+          <p className="text-xs md:text-sm leading-relaxed max-w-md mx-auto text-ink/75">
+            Thank you. We have logged your request. A circular packaging coordinator will contact you at your business address within 24 hours.
+          </p>
+        </motion.div>
+      ) : (
+        <form onSubmit={handleSubmit} className="space-y-10">
+          
+          {/* Letter-style interactive fields */}
+          <div className="font-display text-lg sm:text-xl md:text-2xl text-ink/90 leading-loose text-justify">
+            Hello Ecolery, my name is{" "}
+            <input
+              type="text"
+              required
+              value={formData.name}
+              onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+              placeholder="Elena Rostova"
+              className="border-b border-stone-400 bg-transparent text-ink placeholder:text-stone-400/50 focus:border-moss focus:placeholder:opacity-30 outline-none rounded-none py-1 px-1 transition-colors font-bold inline-block w-48 text-center"
+              aria-label="Your full name"
+            />{" "}
+            and I represent{" "}
+            <input
+              type="text"
+              required
+              value={formData.company}
+              onChange={(e) => setFormData({ ...formData, company: e.target.value })}
+              placeholder="Nordic Brew"
+              className="border-b border-stone-400 bg-transparent text-ink placeholder:text-stone-400/50 focus:border-moss focus:placeholder:opacity-30 outline-none rounded-none py-1 px-1 transition-colors font-bold inline-block w-44 text-center"
+              aria-label="Your company name"
+            />
+            . You can contact me at my business email{" "}
+            <input
+              type="email"
+              required
+              value={formData.email}
+              onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+              placeholder="elena@brew.dk"
+              className="border-b border-stone-400 bg-transparent text-ink placeholder:text-stone-400/50 focus:border-moss focus:placeholder:opacity-30 outline-none rounded-none py-1 px-1 transition-colors font-bold inline-block w-64 text-center"
+              aria-label="Your business email"
+            />
+            . We are interested in exploring{" "}
+            <select
+              value={formData.category}
+              onChange={(e) => setFormData({ ...formData, category: e.target.value })}
+              className="border-b border-stone-400 bg-transparent text-ink focus:border-moss outline-none rounded-none py-1 px-2 font-bold cursor-pointer inline-block"
+              aria-label="Inquiry category"
+            >
+              <option>Wholesale Options</option>
+              <option>Commercial Sample Kits</option>
+              <option>Sourcing Alliances</option>
+              <option>Media Requests</option>
+            </select>
+            . Here are our specific volume requirements or questions:
+          </div>
+
+          <div className="flex flex-col">
+            <textarea
+              rows={3}
+              required
+              value={formData.message}
+              onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+              placeholder="Describe your project, timeline, or branding requirements..."
+              className="bg-cream border border-stone-300/40 rounded-2xl px-4 py-4 text-xs md:text-sm text-ink outline-none focus:ring-2 focus:ring-moss/45 resize-none placeholder:text-stone-400/60"
+              aria-label="Detailed message"
+            />
+          </div>
+
+          <button
+            type="submit"
+            className="bg-rust text-cream hover:bg-rust/95 hover:scale-[1.02] active:scale-[0.98] transition-all font-semibold rounded-full px-8 py-4 text-xs md:text-sm flex items-center justify-center gap-2 shadow-md w-full sm:w-auto"
+          >
+            Submit Letter Inquiry
+            <Send className="w-4 h-4" />
+          </button>
+        </form>
+      )}
+    </div>
+  );
+}
+
+export default function ContactPage() {
   return (
     <main className="py-20 md:py-32 bg-cream overflow-hidden">
       <div className="max-w-7xl mx-auto px-6">
@@ -50,95 +159,13 @@ export default function ContactPage() {
           {/* Left Column: Letter-Style Interactive Form (col-span-7) */}
           <div className="lg:col-span-7 flex flex-col justify-between space-y-8">
             
-            <div className="bg-cream-2 border border-clay/35 rounded-[3rem_1rem_4rem_2rem] p-8 md:p-12 shadow-sm flex-1">
-              <div className="flex justify-between items-center text-[10px] font-mono tracking-widest text-clay font-bold border-b border-stone-300/40 pb-4 mb-8">
-                <span>INQUIRY FORM // PARTNER_PORTAL</span>
-                <span>SECURE SSL</span>
+            <Suspense fallback={
+              <div className="bg-cream-2 border border-clay/35 rounded-[3rem_1rem_4rem_2rem] p-8 md:p-12 animate-pulse h-[400px] flex items-center justify-center text-clay font-mono text-[10px] tracking-widest">
+                LOADING PORTAL...
               </div>
-
-              {submitted ? (
-                <motion.div
-                  initial={{ opacity: 0, scale: 0.98 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  className="bg-moss/10 border border-moss/20 rounded-2xl p-8 text-center text-moss"
-                >
-                  <h3 className="font-display font-bold text-xl mb-2">Inquiry Submitted Successfully</h3>
-                  <p className="text-xs md:text-sm leading-relaxed max-w-md mx-auto text-ink/75">
-                    Thank you. We have logged your request. A circular packaging coordinator will contact you at your business address within 24 hours.
-                  </p>
-                </motion.div>
-              ) : (
-                <form onSubmit={handleSubmit} className="space-y-10">
-                  
-                  {/* Letter-style interactive fields */}
-                  <div className="font-display text-lg sm:text-xl md:text-2xl text-ink/90 leading-loose text-justify">
-                    Hello Ecolery, my name is{" "}
-                    <input
-                      type="text"
-                      required
-                      value={formData.name}
-                      onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                      placeholder="Elena Rostova"
-                      className="border-b border-stone-400 bg-transparent text-ink placeholder:text-stone-400/50 focus:border-moss focus:placeholder:opacity-30 outline-none rounded-none py-1 px-1 transition-colors font-bold inline-block w-48 text-center"
-                      aria-label="Your full name"
-                    />{" "}
-                    and I represent{" "}
-                    <input
-                      type="text"
-                      required
-                      value={formData.company}
-                      onChange={(e) => setFormData({ ...formData, company: e.target.value })}
-                      placeholder="Nordic Brew"
-                      className="border-b border-stone-400 bg-transparent text-ink placeholder:text-stone-400/50 focus:border-moss focus:placeholder:opacity-30 outline-none rounded-none py-1 px-1 transition-colors font-bold inline-block w-44 text-center"
-                      aria-label="Your company name"
-                    />
-                    . You can contact me at my business email{" "}
-                    <input
-                      type="email"
-                      required
-                      value={formData.email}
-                      onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                      placeholder="elena@brew.dk"
-                      className="border-b border-stone-400 bg-transparent text-ink placeholder:text-stone-400/50 focus:border-moss focus:placeholder:opacity-30 outline-none rounded-none py-1 px-1 transition-colors font-bold inline-block w-64 text-center"
-                      aria-label="Your business email"
-                    />
-                    . We are interested in exploring{" "}
-                    <select
-                      value={formData.category}
-                      onChange={(e) => setFormData({ ...formData, category: e.target.value })}
-                      className="border-b border-stone-400 bg-transparent text-ink focus:border-moss outline-none rounded-none py-1 px-2 font-bold cursor-pointer inline-block"
-                      aria-label="Inquiry category"
-                    >
-                      <option>Wholesale Options</option>
-                      <option>Commercial Sample Kits</option>
-                      <option>Sourcing Alliances</option>
-                      <option>Media Requests</option>
-                    </select>
-                    . Here are our specific volume requirements or questions:
-                  </div>
-
-                  <div className="flex flex-col">
-                    <textarea
-                      rows={3}
-                      required
-                      value={formData.message}
-                      onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                      placeholder="Describe your project, timeline, or branding requirements..."
-                      className="bg-cream border border-stone-300/40 rounded-2xl px-4 py-4 text-xs md:text-sm text-ink outline-none focus:ring-2 focus:ring-moss/45 resize-none placeholder:text-stone-400/60"
-                      aria-label="Detailed message"
-                    />
-                  </div>
-
-                  <button
-                    type="submit"
-                    className="bg-rust text-cream hover:bg-rust/95 hover:scale-[1.02] active:scale-[0.98] transition-all font-semibold rounded-full px-8 py-4 text-xs md:text-sm flex items-center justify-center gap-2 shadow-md w-full sm:w-auto"
-                  >
-                    Submit Letter Inquiry
-                    <Send className="w-4 h-4" />
-                  </button>
-                </form>
-              )}
-            </div>
+            }>
+              <ContactForm />
+            </Suspense>
 
             {/* Quick-action email linkers */}
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
