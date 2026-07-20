@@ -3,68 +3,8 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Search, User, Clock, ArrowRight, BookOpen } from "lucide-react";
-
-interface Article {
-  id: string;
-  title: string;
-  category: string;
-  excerpt: string;
-  author: string;
-  date: string;
-  readTime: string;
-  popular?: boolean;
-}
-
-const ARTICLES_DATABASE: Article[] = [
-  {
-    id: "post-1",
-    title: "The Molecular Chemistry of Edible Tableware",
-    category: "Innovation",
-    excerpt: "How high-pressure steam and natural agricultural cellulose cross-link to mold rigid, heat-safe vessels without synthetic resins, microplastics, or toxic glues.",
-    author: "Dr. Amelia Vance",
-    date: "July 12, 2026",
-    readTime: "5 min read",
-  },
-  {
-    id: "post-2",
-    title: "Why Cork Harvesting Actually Saves Forests",
-    category: "Sourcing",
-    excerpt: "Understanding the unique biology of Mediterranean cork oaks: how stripping bark stimulates tree cellular activity, causing it to absorb up to 5x more atmospheric carbon.",
-    author: "Sofia Diaz",
-    date: "June 28, 2026",
-    readTime: "4 min read",
-    popular: true,
-  },
-  {
-    id: "post-3",
-    title: "Zero-Waste Cafe Guide: Moving Past Paper Cups",
-    category: "Zero Waste",
-    excerpt: "Commercial takeaway dining is overdue for a clean loop upgrade. We map out costs, customer feedback, and soil advantages when switching to edible cups.",
-    author: "Nils Lindqvist",
-    date: "May 15, 2026",
-    readTime: "6 min read",
-    popular: true,
-  },
-  {
-    id: "post-4",
-    title: "Seaweed Starches: The Future of Flexible Wrapping",
-    category: "Innovation",
-    excerpt: "Flexible plastic bags are a massive ecological issue. Discover how brown seaweed extract is synthesized into clear, soluble protective wrappers that degrade in 14 days.",
-    author: "Dr. Amelia Vance",
-    date: "April 09, 2026",
-    readTime: "4 min read",
-  },
-  {
-    id: "post-5",
-    title: "Understanding the Global Biodegradation Protocols",
-    category: "Sourcing",
-    excerpt: "Not all bioplastics are created equal. We break down the differences between industrial composting requirements (PLA) and backyard-safe compostables.",
-    author: "Sofia Diaz",
-    date: "March 22, 2026",
-    readTime: "7 min read",
-    popular: true,
-  }
-];
+import Link from "next/link";
+import { ARTICLES_DATABASE, Article } from "@/lib/blog";
 
 const CATEGORIES = ["All", "Innovation", "Sourcing", "Zero Waste"];
 
@@ -102,7 +42,7 @@ export default function BlogPage() {
           </p>
         </div>
 
-        {/* Large Broadside Featured Cover */}
+        {/* Large Featured Cover Article */}
         {activeCategory === "All" && searchQuery === "" && (
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -121,10 +61,11 @@ export default function BlogPage() {
                 </div>
                 
                 <h2 className="font-display text-4xl sm:text-5xl md:text-6xl font-bold text-ink leading-tight tracking-tight">
-                  {featuredArticle.title}
+                  <Link href={`/blog/${featuredArticle.id}`} className="hover:text-moss transition-colors">
+                    {featuredArticle.title}
+                  </Link>
                 </h2>
                 
-                {/* Comfortable reading line length */}
                 <p className="text-ink/80 text-sm md:text-base leading-relaxed max-w-prose">
                   {featuredArticle.excerpt}
                 </p>
@@ -136,20 +77,20 @@ export default function BlogPage() {
               </div>
 
               <div className="lg:col-span-4 flex lg:justify-end py-4">
-                <a
-                  href={`#read-${featuredArticle.id}`}
+                <Link
+                  href={`/blog/${featuredArticle.id}`}
                   className="w-16 h-16 rounded-full bg-rust hover:bg-rust/95 text-cream flex items-center justify-center transition-all hover:scale-105 shadow-md group"
                   aria-label="Read featured article"
                 >
                   <ArrowRight className="w-6 h-6 transition-transform group-hover:translate-x-1" />
-                </a>
+                </Link>
               </div>
 
             </div>
           </motion.div>
         )}
 
-        {/* Categories Tab & Search (Journal Ledger) */}
+        {/* Categories Tab & Search */}
         <div className="flex flex-col md:flex-row justify-between items-stretch md:items-center gap-6 mb-16 border-b border-stone-300/30 pb-8 select-none">
           
           <div className="flex flex-wrap gap-2">
@@ -157,7 +98,7 @@ export default function BlogPage() {
               <button
                 key={cat}
                 onClick={() => setActiveCategory(cat)}
-                className={`px-5 py-2.5 rounded-full text-xs md:text-sm font-semibold transition-all ${
+                className={`px-5 py-2.5 rounded-full text-xs md:text-sm font-semibold transition-all focus:outline-none ${
                   activeCategory === cat
                     ? "bg-moss text-cream shadow-sm"
                     : "bg-cream-2 text-ink/75 hover:bg-stone-200"
@@ -182,15 +123,14 @@ export default function BlogPage() {
 
         </div>
 
-        {/* Asymmetrical Broadsheet Layout (Left: Post catalog, Right: Sticky sidebar) */}
+        {/* Article Grid & Sticky Sidebar */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
           
-          {/* Left Column: Asymmetric Post Feed (col-span-8) */}
+          {/* Left Column: Post Feed */}
           <div className="lg:col-span-8">
             <AnimatePresence mode="popLayout">
               {filteredArticles.length > 0 ? (
                 <div className="space-y-12">
-                  {/* Alternating list mapping */}
                   {(activeCategory !== "All" || searchQuery !== ""
                     ? filteredArticles
                     : remainingArticles
@@ -203,36 +143,36 @@ export default function BlogPage() {
                         animate={{ opacity: 1, y: 0 }}
                         exit={{ opacity: 0, y: -20 }}
                         transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-                        className={`bg-cream-2/30 hover:bg-cream-2 border border-stone-300/30 rounded-[2.5rem_1rem_2.5rem_1rem] p-8 md:p-12 shadow-sm hover:shadow-md transition-all duration-300 flex flex-col justify-between group`}
+                        className="bg-cream-2/30 hover:bg-cream-2 border border-stone-300/30 rounded-[2.5rem_1rem_2.5rem_1rem] p-8 md:p-12 shadow-sm hover:shadow-md transition-all duration-300 flex flex-col justify-between group cursor-pointer"
                       >
-                        
-                        <div>
-                          <div className="flex items-center gap-4 text-xs font-semibold text-moss mb-4">
-                            <span className="bg-moss/5 px-3 py-1 rounded-full uppercase tracking-wider text-[10px]">
-                              {article.category}
-                            </span>
-                            <span className="text-[11px] text-ink/45 flex items-center gap-1">
-                              <Clock className="w-3.5 h-3.5" />
-                              {article.readTime}
-                            </span>
+                        <Link href={`/blog/${article.id}`}>
+                          <div>
+                            <div className="flex items-center gap-4 text-xs font-semibold text-moss mb-4">
+                              <span className="bg-moss/5 px-3 py-1 rounded-full uppercase tracking-wider text-[10px]">
+                                {article.category}
+                              </span>
+                              <span className="text-[11px] text-ink/45 flex items-center gap-1">
+                                <Clock className="w-3.5 h-3.5" />
+                                {article.readTime}
+                              </span>
+                            </div>
+
+                            <h3 className="font-display text-2xl md:text-3xl font-bold text-ink mb-4 group-hover:text-moss transition-colors leading-snug">
+                              {article.title}
+                            </h3>
+
+                            <p className="text-ink/75 text-xs md:text-sm leading-relaxed max-w-prose mb-8">
+                              {article.excerpt}
+                            </p>
                           </div>
 
-                          <h3 className="font-display text-2xl md:text-3xl font-bold text-ink mb-4 group-hover:text-moss transition-colors leading-snug">
-                            {article.title}
-                          </h3>
-
-                          <p className="text-ink/75 text-xs md:text-sm leading-relaxed max-w-prose mb-8">
-                            {article.excerpt}
-                          </p>
-                        </div>
-
-                        <div className="pt-6 border-t border-stone-300/30 flex justify-between items-center text-xs text-ink/65">
-                          <span className="font-bold text-ink/85 flex items-center gap-1.5">
-                            <User className="w-4 h-4 text-rust" /> {article.author}
-                          </span>
-                          <span>{article.date}</span>
-                        </div>
-
+                          <div className="pt-6 border-t border-stone-300/30 flex justify-between items-center text-xs text-ink/65">
+                            <span className="font-bold text-ink/85 flex items-center gap-1.5">
+                              <User className="w-4 h-4 text-rust" /> {article.author}
+                            </span>
+                            <span>{article.date}</span>
+                          </div>
+                        </Link>
                       </motion.article>
                     );
                   })}
@@ -246,7 +186,7 @@ export default function BlogPage() {
             </AnimatePresence>
           </div>
 
-          {/* Right Column: Sticky Sidebar Highlights & Newsletter (col-span-4) */}
+          {/* Right Column: Sticky Sidebar Highlights & Newsletter */}
           <div className="lg:col-span-4 lg:sticky lg:top-24 space-y-8">
             
             {/* Popular Highlights card */}
@@ -258,16 +198,16 @@ export default function BlogPage() {
 
               <div className="space-y-6">
                 {popularArticles.map((article, idx) => (
-                  <a
+                  <Link
                     key={article.id}
-                    href={`#read-${article.id}`}
+                    href={`/blog/${article.id}`}
                     className="block group border-b border-stone-300/30 pb-4 last:border-b-0 last:pb-0"
                   >
                     <span className="font-mono text-xs text-clay font-bold block">0{idx + 1} {"//"} {article.category}</span>
                     <h4 className="font-display font-bold text-sm text-ink leading-snug mt-1.5 group-hover:text-rust transition-colors">
                       {article.title}
                     </h4>
-                  </a>
+                  </Link>
                 ))}
               </div>
             </div>

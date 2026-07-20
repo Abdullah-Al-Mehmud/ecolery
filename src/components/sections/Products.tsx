@@ -51,7 +51,7 @@ export function Products() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-100px" }}
               transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-              className={`${product.layoutClass} bg-cream-2/70 border border-clay/30 flex flex-col justify-between group transition-all duration-500 shadow-sm hover:shadow-md hover:-translate-y-1 ${productBorders[idx]}`}
+              className={`${product.layoutClass} bg-cream-2/70 border border-clay/30 p-8 md:p-10 flex flex-col justify-between group transition-all duration-500 shadow-sm hover:shadow-md hover:-translate-y-1 ${productBorders[idx]}`}
             >
               
               {/* Product Info Row */}
