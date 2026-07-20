@@ -21,6 +21,18 @@
   /* --- Type roles --- */
   --font-display: var(--font-sora);
   --font-body: var(--font-manrope);
+
+  /* --- Animations --- */
+  --animate-marquee: marquee 40s linear infinite;
+}
+
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
 }
 
 html {
@@ -35,5 +47,9 @@ body {
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
+  }
+
+  .animate-marquee {
+    animation-play-state: paused;
   }
 }

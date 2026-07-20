@@ -2,6 +2,26 @@
 
 import { Ban, Leaf, Recycle, ShieldCheck, Sprout } from "lucide-react";
 import Image from "next/image";
+import { useState, type ComponentProps } from "react";
+
+function ImageWithFallback(props: ComponentProps<typeof Image> & { fallbackLabel?: string }) {
+  const { fallbackLabel, className, ...rest } = props;
+  const [error, setError] = useState(false);
+
+  if (error) {
+    return (
+      <div className={`bg-moss/10 flex items-center justify-center ${className ?? ""}`}>
+        {fallbackLabel && (
+          <span className="font-body text-moss/40 text-xs font-semibold tracking-wider uppercase">
+            {fallbackLabel}
+          </span>
+        )}
+      </div>
+    );
+  }
+
+  return <Image {...rest} className={className} onError={() => setError(true)} />;
+}
 
 const certifications = [
   { icon: Leaf, label: "100% Edible" },
@@ -26,22 +46,46 @@ const impactStats = [
 
 const featureCards = [
   {
-    image: "/feature-hotbrew.jpg",
+    image: "https://picsum.photos/seed/ecolery-hotbrew/1000/1000",
     title: "Built-in spout",
     subtitle: "Hot brews",
-    span: "md:col-span-2",
+    area: "a",
+    fallback: "Hot brew cup",
   },
   {
-    image: "/feature-coldrink.jpg",
+    image: "https://picsum.photos/seed/ecolery-coldrink/600/600",
     title: "Fits any straw",
     subtitle: "Cold drinks",
-    span: "md:col-span-1",
+    area: "b",
+    fallback: "Cold drink cup",
   },
   {
-    image: "/feature-foodtogo.jpg",
+    image: "https://picsum.photos/seed/ecolery-foodtogo/600/600",
     title: "Perfect for food to go",
     subtitle: "On-the-move meals",
-    span: "md:col-span-1",
+    area: "c",
+    fallback: "Food to-go container",
+  },
+  {
+    image: "https://picsum.photos/seed/ecolery-edible/1200/600",
+    title: "100% edible finish",
+    subtitle: "Zero waste after use",
+    area: "d",
+    fallback: "Edible cup finish",
+  },
+  {
+    image: "https://picsum.photos/seed/ecolery-compost/600/600",
+    title: "Compostable in 180 days",
+    subtitle: "Soil-safe design",
+    area: "e",
+    fallback: "Compostable cup",
+  },
+  {
+    image: "https://picsum.photos/seed/ecolery-events/1200/600",
+    title: "Loved at events",
+    subtitle: "Cafés, parties & more",
+    area: "f",
+    fallback: "Cup at events",
   },
 ];
 
@@ -82,12 +126,13 @@ export function ImpactSection() {
             </div>
           </div>
 
-          <div className="relative aspect-[4/5] w-full overflow-hidden rounded-[2rem]">
-            <Image
+          <div className="bg-moss/10 relative aspect-[4/5] w-full overflow-hidden rounded-[2rem]">
+            <ImageWithFallback
               src="/mission-cup.jpg"
               alt="Ecolery edible cup in use"
               fill
               className="object-cover"
+              fallbackLabel="Ecolery Cup"
             />
           </div>
         </div>
@@ -175,24 +220,30 @@ export function ImpactSection() {
             </h3>
           </div>
 
-          <div className="grid gap-5 md:grid-cols-3">
+          <div
+            className="grid auto-rows-[180px] grid-cols-3 gap-5 md:auto-rows-[220px]"
+            style={{ gridTemplateAreas: `"a b c" "a d d" "e f f"` }}
+          >
             {featureCards.map((card) => (
               <div
                 key={card.title}
-                className={`group relative aspect-[4/3] overflow-hidden rounded-3xl ${card.span}`}
+                className="group relative overflow-hidden rounded-3xl"
+                style={{ gridArea: card.area }}
               >
-                <Image
+                <ImageWithFallback
                   src={card.image}
                   alt={card.title}
                   fill
-                  className="object-cover transition-transform duration-700 group-hover:scale-105"
+                  sizes="(min-width: 768px) 33vw, 100vw"
+                  className="object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+                  fallbackLabel={card.fallback}
                 />
-                <div className="from-ink/80 absolute inset-0 bg-gradient-to-t via-transparent to-transparent" />
-                <div className="absolute bottom-0 left-0 p-6">
-                  <p className="font-body text-[12px] font-semibold tracking-[0.14em] text-white/70 uppercase">
+                <div className="from-ink/85 absolute inset-0 bg-gradient-to-t via-transparent to-transparent opacity-80 transition-opacity duration-500 group-hover:opacity-95" />
+                <div className="absolute bottom-0 left-0 p-5 md:p-6">
+                  <p className="font-body text-[11px] font-semibold tracking-[0.14em] text-white/70 uppercase">
                     {card.subtitle}
                   </p>
-                  <p className="font-display mt-1 text-xl font-bold text-white md:text-2xl">
+                  <p className="font-display mt-1 text-base font-bold text-white md:text-xl">
                     {card.title}
                   </p>
                 </div>
