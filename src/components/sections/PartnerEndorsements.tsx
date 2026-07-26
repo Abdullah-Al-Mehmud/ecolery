@@ -25,16 +25,9 @@ const endorsements = [
 export function PartnerEndorsements() {
   return (
     <section className="bg-moss relative overflow-hidden px-6 py-20 md:py-28">
-      <span
-        aria-hidden
-        className="font-display pointer-events-none absolute -left-10 -bottom-10 text-[9rem] leading-none font-bold whitespace-nowrap text-white/[0.04] select-none"
-      >
-        partners
-      </span>
-
       <div className="relative mx-auto max-w-6xl">
         <div className="mb-14 text-center">
-          <span className="font-body text-[13px] font-semibold tracking-[0.2em] uppercase text-white/50">
+          <span className="font-body text-[13px] font-semibold tracking-[0.2em] text-white/50 uppercase">
             Trusted by
           </span>
           <h2 className="font-display mt-4 text-2xl font-bold text-white md:text-3xl">
@@ -53,8 +46,8 @@ export function PartnerEndorsements() {
               </div>
 
               <div className="mt-6">
-                <p className="font-display text-white text-sm font-bold">{e.name}</p>
-                <p className="font-body mt-0.5 text-[12px] font-semibold text-white/50 uppercase tracking-wider">
+                <p className="font-display text-sm font-bold text-white">{e.name}</p>
+                <p className="font-body mt-0.5 text-[12px] font-semibold tracking-wider text-white/50 uppercase">
                   {e.company}
                 </p>
               </div>

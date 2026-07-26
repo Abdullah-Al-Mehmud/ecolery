@@ -126,9 +126,9 @@ export function ImpactSection() {
             </div>
           </div>
 
-          <div className="bg-moss/10 relative aspect-[4/5] w-full overflow-hidden rounded-[2rem]">
+          <div className="relative aspect-[4/5] w-full overflow-hidden rounded-[2rem]">
             <ImageWithFallback
-              src="/mission-cup.jpg"
+              src="/cup.png"
               alt="Ecolery edible cup in use"
               fill
               className="object-cover"
@@ -155,13 +155,6 @@ export function ImpactSection() {
 
       {/* ---------- IMPACT METRICS BAND ---------- */}
       <section className="bg-moss relative overflow-hidden px-6 py-20">
-        <span
-          aria-hidden
-          className="font-display pointer-events-none absolute -right-10 -bottom-10 text-[9rem] leading-none font-bold whitespace-nowrap text-white/[0.04] select-none"
-        >
-          circular
-        </span>
-
         <div className="relative mx-auto max-w-6xl">
           <h3 className="font-display text-center text-2xl font-bold text-white md:text-3xl">
             The metrics that tell our circular journey
