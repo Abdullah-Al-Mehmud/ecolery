@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Fraunces, Manrope, Sora } from "next/font/google";
+import { Navbar } from "@/components/shared/Navbar";
 import "./globals.css";
 
 const sora = Sora({
@@ -29,7 +30,10 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en" className={`${sora.variable} ${manrope.variable} ${fraunces.variable}`}>
-      <body className="font-body antialiased">{children}</body>
+      <body className="font-body antialiased">
+        <Navbar />
+        {children}
+      </body>
     </html>
   );
 }

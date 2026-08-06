@@ -1,7 +1,10 @@
 import { CareersCTA } from "@/components/sections/CareersCTA";
 import { ComparisonSection } from "@/components/sections/ComparisonSection";
+import { FeaturesGrid } from "@/components/sections/FeaturesGrid";
 import { Hero } from "@/components/sections/Hero";
 import { HowItsMadeSection } from "@/components/sections/HowItsMadeSection";
+import { ImpactStory } from "@/components/sections/ImpactStory";
+import { NewsletterStrip } from "@/components/sections/NewsletterStrip";
 import { PartnerEndorsements } from "@/components/sections/PartnerEndorsements";
 import { ProblemStatementStrip } from "@/components/sections/ProblemStatementStrip";
 import { PartnerMarquee } from "@/components/sections/PartnerMarquee";
@@ -16,13 +19,16 @@ export default function Home() {
       <Hero />
       <ProblemStatementStrip />
       <ImpactSection />
+      <ImpactStory />
       <ComparisonSection />
+      <FeaturesGrid />
       <HowItsMadeSection />
       <CareersCTA />
       <PartnerEndorsements />
       <PartnerMarquee />
       <SDGStrip />
       <TestimonialsSection />
+      <NewsletterStrip />
       <SiteFooter />
     </main>
   );

@@ -1,5 +1,3 @@
-"use client";
-
 const logos = [
   "bKash",
   "Perfetti Van Melle",
@@ -25,8 +23,8 @@ export function PartnerMarquee() {
   return (
     <section className="bg-cream-2 border-y border-black/5 px-6 py-16">
       <div className="mx-auto max-w-6xl">
-        <p className="font-body text-ink text-center text-[13px] font-semibold tracking-[0.14em] uppercase">
-          A growing family of companies investing in the next generation of professionals.
+        <p className="font-body text-ink/60 text-center text-[13px] font-semibold tracking-[0.18em] uppercase">
+          Trusted by cafés &amp; businesses
         </p>
 
         <div className="group relative mt-10 overflow-hidden">
@@ -37,9 +35,9 @@ export function PartnerMarquee() {
             {[...logos, ...logos].map((name, i) => (
               <div
                 key={`${name}-${i}`}
-                className="text-ink/25 hover:text-ink flex h-14 w-36 shrink-0 items-center justify-center rounded-xl border border-black/5 bg-white/60 px-5 transition-colors duration-300"
+                className="text-ink/30 hover:text-ink flex h-12 w-40 shrink-0 items-center justify-center rounded-xl border border-black/5 bg-white/60 px-5 transition-colors duration-300"
               >
-                <span className="font-display text-[13px] font-bold tracking-wide text-center leading-tight">
+                <span className="font-display text-center text-[13px] font-bold tracking-wide leading-tight">
                   {name}
                 </span>
               </div>
