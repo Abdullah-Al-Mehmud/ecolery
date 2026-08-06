@@ -64,9 +64,9 @@ export function Navbar() {
           backgroundColor: { duration: 0.3, ease: "easeOut" },
           borderBottomColor: { duration: 0.3, ease: "easeOut" },
         }}
-        className="fixed inset-x-0 top-0 z-50 border-b"
+        className="fixed inset-x-0 top-0 z-50 h-18 border-b"
       >
-        <div className="mx-auto flex w-full max-w-6xl items-center justify-between px-6 py-3 md:grid md:grid-cols-[auto_1fr_auto]">
+        <div className="mx-auto flex h-full w-full max-w-6xl items-center justify-between px-6 md:grid md:grid-cols-[auto_1fr_auto]">
           <a href="#" aria-label="Ecolery home" className="flex items-center">
             <Image
               src="/logo.png"

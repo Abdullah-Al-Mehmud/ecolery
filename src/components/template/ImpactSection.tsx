@@ -95,7 +95,7 @@ export function ImpactSection() {
       {/* ---------- ABOUT / MISSION ---------- */}
       <section
         id="about"
-        className="bg-cream relative scroll-mt-24 overflow-hidden px-6 py-24 md:py-32"
+        className="bg-cream relative scroll-mt-28 overflow-hidden px-6 py-24 md:py-32"
       >
         <div className="relative mx-auto grid max-w-6xl items-center gap-14 md:grid-cols-2">
           <div>
@@ -157,7 +157,7 @@ export function ImpactSection() {
       </section>
 
       {/* ---------- IMPACT METRICS BAND ---------- */}
-      <section id="impact" className="bg-moss relative scroll-mt-24 overflow-hidden px-6 py-20">
+      <section id="impact" className="bg-moss relative scroll-mt-28 overflow-hidden px-6 py-20">
         <div className="relative mx-auto max-w-6xl">
           <h3 className="font-display text-center text-2xl font-bold text-white md:text-3xl">
             The metrics that tell our circular journey

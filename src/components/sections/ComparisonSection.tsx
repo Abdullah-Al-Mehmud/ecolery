@@ -21,7 +21,7 @@ export function ComparisonSection() {
   return (
     <section
       id="products"
-      className="relative min-h-screen w-full scroll-mt-24 overflow-hidden"
+      className="relative min-h-screen w-full scroll-mt-28 overflow-hidden"
     >
       {/* ---------- BACKGROUND SPLIT ---------- */}
       <div className="absolute inset-0 grid md:grid-cols-2">

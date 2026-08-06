@@ -12,7 +12,7 @@ export function Hero() {
       />
       <Navbar />
 
-      <div className="relative z-40 mt-10 flex flex-col items-center px-6 text-center">
+      <div className="relative z-40 flex flex-col items-center px-6 pt-36 text-center">
         <h1 className="font-display text-[2.75rem] leading-[1.05] font-bold tracking-tight text-gray-900 sm:text-6xl md:text-7xl">
           Eat, Re-eat <span className="text-primary-dark">and Forget.</span>
         </h1>
