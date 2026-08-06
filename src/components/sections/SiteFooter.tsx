@@ -26,7 +26,7 @@ const quickLinks = [
 
 export function SiteFooter() {
   return (
-    <footer className="relative overflow-hidden bg-[#07120D] px-6 pt-24 pb-8">
+    <footer id="contact" className="relative overflow-hidden bg-[#07120D] px-6 pt-24 pb-8">
       {/* faint oversized watermark, consistent with the moss band elsewhere on the site */}
 
       {/* subtle radial glow so the dark field doesn't read flat */}

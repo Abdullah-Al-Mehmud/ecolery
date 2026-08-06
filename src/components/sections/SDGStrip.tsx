@@ -11,7 +11,10 @@ const sdgGoals = [
 
 export function SDGStrip() {
   return (
-    <section className="bg-cream border-y border-black/5 px-6 py-20 md:py-24">
+    <section
+      id="explore"
+      className="bg-cream border-y border-black/5 px-6 py-20 scroll-mt-24 md:py-24"
+    >
       <div className="mx-auto max-w-6xl text-center">
         <span className="font-body text-primary text-[13px] font-semibold tracking-[0.2em] uppercase">
           Aligned with the UN SDGs

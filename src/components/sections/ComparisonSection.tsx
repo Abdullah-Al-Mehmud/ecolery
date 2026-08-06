@@ -19,7 +19,10 @@ const ecoleryReasons = [
 
 export function ComparisonSection() {
   return (
-    <section className="relative min-h-screen w-full overflow-hidden">
+    <section
+      id="products"
+      className="relative min-h-screen w-full scroll-mt-24 overflow-hidden"
+    >
       {/* ---------- BACKGROUND SPLIT ---------- */}
       <div className="absolute inset-0 grid md:grid-cols-2">
         <div style={{ background: "linear-gradient(180deg, #EDF0F1 0%, #DADFE1 100%)" }} />
