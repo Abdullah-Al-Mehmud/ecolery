@@ -6,11 +6,12 @@ import Image from "next/image";
 import { useEffect, useState } from "react";
 
 const NAV_LINKS = [
+  { label: "Home", href: "/" },
   { label: "About", href: "/about" },
   { label: "Products", href: "/product" },
-  { label: "Impact", href: "#impact" },
-  { label: "Explore", href: "#explore" },
-  { label: "Contact Us", href: "#contact" },
+  { label: "Impact", href: "/impact" },
+  { label: "Explore", href: "/explore" },
+  { label: "Contact Us", href: "/contact" },
 ];
 
 const EASE: [number, number, number, number] = [0.22, 1, 0.36, 1];
@@ -92,7 +93,7 @@ export function Navbar() {
 
           <div className="flex items-center justify-end gap-3">
             <a
-              href="#contact"
+              href="/product#quote"
               className="hidden rounded-full bg-primary px-5 py-2.5 text-[13px] font-medium text-cream transition-colors duration-300 hover:bg-primary-dark md:inline-block"
             >
               Get a Quote
@@ -167,7 +168,7 @@ export function Navbar() {
               </nav>
 
               <a
-                href="#contact"
+                href="/product#quote"
                 onClick={() => setMenuOpen(false)}
                 className="mt-auto rounded-full bg-primary px-5 py-3 text-center text-[13px] font-medium text-cream transition-colors duration-300 hover:bg-primary-dark"
               >
