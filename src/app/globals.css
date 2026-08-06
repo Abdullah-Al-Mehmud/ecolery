@@ -21,6 +21,7 @@
   /* --- Type roles --- */
   --font-display: var(--font-sora);
   --font-body: var(--font-manrope);
+  --font-fraunces: var(--font-fraunces); /* statement-serif exception, statement headlines only */
 
   /* --- Animations --- */
   --animate-marquee: marquee 40s linear infinite;

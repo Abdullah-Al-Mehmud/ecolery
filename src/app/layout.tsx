@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Manrope, Sora } from "next/font/google";
+import { Fraunces, Manrope, Sora } from "next/font/google";
 import "./globals.css";
 
 const sora = Sora({
@@ -14,6 +14,12 @@ const manrope = Manrope({
   weight: ["400", "500", "600"],
 });
 
+const fraunces = Fraunces({
+  subsets: ["latin"],
+  variable: "--font-fraunces",
+  axes: ["opsz"],
+});
+
 export const metadata: Metadata = {
   title: "Ecolery — Compostable tableware",
   description:
@@ -22,7 +28,7 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={`${sora.variable} ${manrope.variable}`}>
+    <html lang="en" className={`${sora.variable} ${manrope.variable} ${fraunces.variable}`}>
       <body className="font-body antialiased">{children}</body>
     </html>
   );
