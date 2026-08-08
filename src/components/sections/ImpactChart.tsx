@@ -81,7 +81,7 @@ export function ImpactChart() {
 
         <motion.div
           variants={itemVariants}
-          className="border-black/5 bg-white relative mt-16 rounded-2xl border p-6 shadow-sm md:p-10"
+          className="bg-white relative mt-16 rounded-2xl p-6 shadow-sm md:p-10"
         >
           <div className="mb-8 flex flex-wrap items-center justify-between gap-x-8 gap-y-4">
             <div>
@@ -194,7 +194,7 @@ export function ImpactChart() {
               ))}
             </svg>
 
-            <div className="border-white/10 bg-moss text-cream absolute top-6 left-[3.5rem] hidden rounded-2xl border px-5 py-4 shadow-lg md:block">
+            <div className="bg-moss text-cream absolute top-6 left-[3.5rem] hidden rounded-2xl px-5 py-4 shadow-lg md:block">
               <p className="font-fraunces text-primary-light text-3xl font-semibold tracking-tight">13×</p>
               <p className="font-body text-white/50 mt-1 text-[11px] font-semibold tracking-[0.14em] uppercase">
                 growth since 2023

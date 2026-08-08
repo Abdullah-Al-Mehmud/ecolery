@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Fraunces, Manrope, Sora } from "next/font/google";
 import { Navbar } from "@/components/shared/Navbar";
+import { SiteFooter } from "@/components/sections/SiteFooter";
 import "./globals.css";
 
 const sora = Sora({
@@ -33,6 +34,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <body className="font-body antialiased">
         <Navbar />
         {children}
+        <SiteFooter />
       </body>
     </html>
   );

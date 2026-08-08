@@ -43,7 +43,7 @@ export function FeaturesGrid() {
             <motion.div
               key={title}
               whileHover="hover"
-              className="bg-cream-2 hover:border-primary rounded-2xl border border-ink/15 p-8 transition-colors duration-300"
+              className="bg-cream-2 rounded-2xl p-8 transition-colors duration-300"
             >
               <motion.div
                 variants={{ hover: { scale: 1.08 } }}

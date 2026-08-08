@@ -37,7 +37,7 @@ export function OfficeMapEmbed() {
           whileInView={{ opacity: 1, y: 0, rotate: -1 }}
           viewport={{ once: true, amount: 0.2 }}
           transition={{ duration: 0.8, ease: EASE }}
-          className="border-ink/15 bg-white mt-12 overflow-hidden rounded-[2rem] border shadow-sm lg:rotate-[0.75deg]"
+          className="bg-white mt-12 overflow-hidden rounded-[2rem] shadow-sm lg:rotate-[0.75deg]"
         >
           <div className="relative">
             <iframe

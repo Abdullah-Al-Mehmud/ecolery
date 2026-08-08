@@ -88,7 +88,7 @@ export function ExploreAwards() {
               <motion.div
                 key={title}
                 variants={itemVariants}
-                className="border-ink/15 bg-cream-2 hover:border-primary/30 group rounded-2xl border p-6 transition-all duration-300 hover:-translate-y-1 md:p-7"
+                className="bg-cream-2 group rounded-2xl p-6 transition-all duration-300 hover:-translate-y-1 md:p-7"
               >
                 <div className="flex items-start justify-between gap-4">
                   <span className="border-primary/25 bg-white text-primary group-hover:bg-primary group-hover:text-cream flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl border transition-colors duration-300">

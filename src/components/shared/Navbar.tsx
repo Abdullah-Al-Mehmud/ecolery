@@ -50,13 +50,13 @@ export function Navbar() {
         initial={{
           opacity: 0,
           y: -16,
-          backgroundColor: "#f6f2e9",
+          backgroundColor: "rgba(246, 242, 233, 0)",
           borderBottomColor: "rgba(28, 32, 24, 0)",
         }}
         animate={{
           opacity: 1,
           y: 0,
-          backgroundColor: scrolled ? "#efe9da" : "#f6f2e9",
+          backgroundColor: scrolled ? "#efe9da" : "rgba(246, 242, 233, 0)",
           borderBottomColor: scrolled ? "rgba(28, 32, 24, 0.1)" : "rgba(28, 32, 24, 0)",
         }}
         transition={{
@@ -83,27 +83,36 @@ export function Navbar() {
               <a
                 key={link.label}
                 href={link.href}
-                className="group relative text-[13px] font-semibold tracking-[0.08em] text-ink uppercase transition-colors duration-300 hover:text-primary"
+                className="group text-ink hover:text-primary relative text-[13px] font-semibold tracking-[0.08em] uppercase transition-colors duration-300"
               >
                 {link.label}
-                <span className="absolute -bottom-1.5 left-0 h-px w-full origin-left scale-x-0 bg-primary transition-transform duration-300 group-hover:scale-x-100" />
+                <span className="bg-primary absolute -bottom-1.5 left-0 h-px w-full origin-left scale-x-0 transition-transform duration-300 group-hover:scale-x-100" />
               </a>
             ))}
           </nav>
 
           <div className="flex items-center justify-end gap-3">
-            <a
+            {/* <a
               href="/product#quote"
               className="hidden rounded-full bg-primary px-5 py-2.5 text-[13px] font-medium text-cream transition-colors duration-300 hover:bg-primary-dark md:inline-block"
             >
               Get a Quote
+            </a> */}
+            <a href="/product#quote" className="hidden md:block">
+              <Image
+                src="/btn.png"
+                alt="Get a quote"
+                width={120}
+                height={60}
+                className="h-auto w-auto"
+              />
             </a>
             <button
               type="button"
               aria-label="Open menu"
               aria-expanded={menuOpen}
               onClick={() => setMenuOpen(true)}
-              className="text-ink rounded-full p-2 transition-colors duration-300 hover:bg-ink/5 md:hidden"
+              className="text-ink hover:bg-ink/5 rounded-full p-2 transition-colors duration-300 md:hidden"
             >
               <Menu className="h-6 w-6" strokeWidth={1.75} />
             </button>
@@ -123,7 +132,7 @@ export function Navbar() {
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               transition={{ duration: 0.3 }}
-              className="fixed inset-0 z-[60] bg-ink/30"
+              className="bg-ink/30 fixed inset-0 z-[60]"
             />
             <motion.aside
               key="nav-panel"
@@ -147,7 +156,7 @@ export function Navbar() {
                   type="button"
                   aria-label="Close menu"
                   onClick={() => setMenuOpen(false)}
-                  className="text-ink rounded-full p-2 transition-colors duration-300 hover:bg-ink/5"
+                  className="text-ink hover:bg-ink/5 rounded-full p-2 transition-colors duration-300"
                 >
                   <X className="h-6 w-6" strokeWidth={1.75} />
                 </button>
@@ -159,10 +168,10 @@ export function Navbar() {
                     key={link.label}
                     href={link.href}
                     onClick={() => setMenuOpen(false)}
-                    className="group relative w-fit text-[14px] font-semibold tracking-[0.08em] text-ink uppercase transition-colors duration-300 hover:text-primary"
+                    className="group text-ink hover:text-primary relative w-fit text-[14px] font-semibold tracking-[0.08em] uppercase transition-colors duration-300"
                   >
                     {link.label}
-                    <span className="absolute -bottom-1 left-0 h-px w-full origin-left scale-x-0 bg-primary transition-transform duration-300 group-hover:scale-x-100" />
+                    <span className="bg-primary absolute -bottom-1 left-0 h-px w-full origin-left scale-x-0 transition-transform duration-300 group-hover:scale-x-100" />
                   </a>
                 ))}
               </nav>
@@ -170,7 +179,7 @@ export function Navbar() {
               <a
                 href="/product#quote"
                 onClick={() => setMenuOpen(false)}
-                className="mt-auto rounded-full bg-primary px-5 py-3 text-center text-[13px] font-medium text-cream transition-colors duration-300 hover:bg-primary-dark"
+                className="bg-primary text-cream hover:bg-primary-dark mt-auto rounded-full px-5 py-3 text-center text-[13px] font-medium transition-colors duration-300"
               >
                 Get a Quote
               </a>

@@ -140,7 +140,7 @@ export function AboutTeam() {
               <motion.div
                 key={member.name}
                 variants={itemVariants}
-                className="border-black/5 bg-white group flex flex-col items-center gap-5 rounded-2xl border p-6 text-center sm:flex-row sm:text-left"
+                className="bg-white group flex flex-col items-center gap-5 rounded-2xl p-6 text-center sm:flex-row sm:text-left"
               >
                 <div className="w-24 shrink-0 sm:w-28">
                   <TeamAvatar member={member} />

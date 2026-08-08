@@ -72,7 +72,7 @@ export function ProductSpecs() {
           whileInView="visible"
           viewport={{ once: true, amount: 0.2 }}
           variants={containerVariants}
-          className="border-black/5 bg-white rounded-2xl border p-8 shadow-sm md:p-10"
+          className="bg-white rounded-2xl p-8 shadow-sm md:p-10"
         >
           {specs.map(({ icon: Icon, label, value }) => (
             <motion.div

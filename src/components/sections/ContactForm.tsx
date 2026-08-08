@@ -59,7 +59,7 @@ export function ContactForm() {
           transition={{ duration: 0.8, ease: EASE, delay: 0.1 }}
           className="lg:col-span-7"
         >
-          <div className="border-black/5 bg-white relative overflow-hidden rounded-[2rem] border p-8 shadow-sm md:p-12">
+          <div className="bg-white relative overflow-hidden rounded-[2rem] p-8 shadow-sm md:p-12">
             <span
               aria-hidden
               className="font-fraunces text-ink/[0.04] pointer-events-none absolute -top-10 -right-4 text-[14rem] leading-none font-semibold tracking-tight select-none"

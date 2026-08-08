@@ -167,7 +167,7 @@ export function ImpactSection() {
             {metrics.map((m) => (
               <div
                 key={m.label}
-                className="rounded-2xl border border-white/10 bg-white/[0.06] px-8 py-10 text-center backdrop-blur-sm"
+                className="rounded-2xl bg-white/[0.06] px-8 py-10 text-center backdrop-blur-sm"
               >
                 <p className="font-display text-4xl font-bold text-white md:text-5xl">
                   {m.value}

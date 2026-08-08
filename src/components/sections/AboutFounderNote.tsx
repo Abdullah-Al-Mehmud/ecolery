@@ -20,10 +20,10 @@ export function AboutFounderNote() {
   const [error, setError] = useState(false);
 
   return (
-    <section className="bg-moss relative overflow-hidden px-6 py-24 md:py-32">
+    <section className="bg-moss relative mb-20 overflow-hidden px-6 py-24 md:py-32">
       <div
         aria-hidden
-        className="bg-[radial-gradient(60%_100%_at_50%_0%,rgba(140,199,140,0.06),transparent)] absolute inset-x-0 top-0 h-full"
+        className="absolute inset-x-0 top-0 h-full bg-[radial-gradient(60%_100%_at_50%_0%,rgba(140,199,140,0.06),transparent)]"
       />
 
       <motion.div
@@ -53,14 +53,14 @@ export function AboutFounderNote() {
 
           <div className="mt-8 text-center">
             <p className="font-display text-cream text-lg font-bold">Nafesa Anzum Helaly</p>
-            <p className="font-body text-white/50 mt-1.5 text-[12px] font-semibold tracking-[0.18em] uppercase">
+            <p className="font-body mt-1.5 text-[12px] font-semibold tracking-[0.18em] text-white/50 uppercase">
               Co-founder
             </p>
           </div>
         </motion.div>
 
         <motion.div variants={itemVariants}>
-          <span className="font-body text-white/50 text-[13px] font-semibold tracking-[0.2em] uppercase">
+          <span className="font-body text-[13px] font-semibold tracking-[0.2em] text-white/50 uppercase">
             From our founder
           </span>
 

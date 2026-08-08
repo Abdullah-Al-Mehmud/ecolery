@@ -56,7 +56,7 @@ export function ProductWhereToBuy() {
             {stockists.map((stockist) => (
               <div
                 key={stockist.name}
-                className="group border-black/5 bg-white rounded-2xl border p-5 transition-colors duration-300 hover:border-primary/30"
+                className="group bg-white rounded-2xl p-5 transition-colors duration-300"
               >
                 <div className="flex items-center gap-4">
                   <span className="border-primary/20 bg-primary/5 text-primary flex h-11 w-11 shrink-0 items-center justify-center rounded-full border">

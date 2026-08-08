@@ -61,12 +61,12 @@ export function ProductComingSoon() {
           </p>
         </motion.div>
 
-        <div className="mt-16 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="mt-16 grid auto-rows-fr items-stretch gap-5 sm:grid-cols-2 lg:grid-cols-4">
           {products.map(({ icon: Icon, title, copy }) => (
             <motion.div
               key={title}
               variants={itemVariants}
-              className="group border-black/5 bg-cream-2 relative flex flex-col overflow-hidden rounded-3xl border p-8 transition-all duration-300 hover:-translate-y-1 hover:border-primary/30"
+              className="group bg-cream-2 relative flex flex-col overflow-hidden rounded-3xl p-8 transition-all duration-300 hover:-translate-y-1"
             >
               <div
                 aria-hidden
@@ -88,13 +88,15 @@ export function ProductComingSoon() {
                 {copy}
               </p>
 
-              <a
-                href="#quote"
-                className="border-ink/20 text-ink mt-8 inline-flex w-fit items-center gap-2 rounded-full border px-5 py-2.5 text-[13px] font-semibold transition-colors duration-300 hover:bg-ink hover:text-cream"
-              >
-                Notify me
-                <ArrowRight className="h-3.5 w-3.5" strokeWidth={1.75} />
-              </a>
+              <div className="mt-auto pt-8">
+                <a
+                  href="#quote"
+                  className="border-ink/20 text-ink inline-flex w-fit items-center gap-2 rounded-full border px-5 py-2.5 text-[13px] font-semibold transition-colors duration-300 hover:bg-ink hover:text-cream"
+                >
+                  Notify me
+                  <ArrowRight className="h-3.5 w-3.5" strokeWidth={1.75} />
+                </a>
+              </div>
             </motion.div>
           ))}
         </div>

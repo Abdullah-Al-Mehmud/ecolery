@@ -10,7 +10,7 @@ export function Hero() {
         className="bg-primary/20 pointer-events-none absolute top-[38%] left-1/2 h-[420px] w-[420px] -translate-x-1/2 -translate-y-1/2 rounded-full blur-[110px]"
       />
 
-      <div className="relative z-40 flex flex-col items-center px-6 pt-36 text-center">
+      <div className="relative z-40 flex flex-col items-center px-6 pt-28 text-center">
         <h1 className="font-display text-[2.75rem] leading-[1.05] font-bold tracking-tight text-gray-900 sm:text-6xl md:text-7xl">
           Eat, Re-eat <span className="text-primary-dark">and Forget.</span>
         </h1>

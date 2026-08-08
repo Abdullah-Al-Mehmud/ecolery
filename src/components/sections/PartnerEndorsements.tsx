@@ -37,10 +37,7 @@ export function PartnerEndorsements() {
 
         <div className="grid gap-5 md:grid-cols-3">
           {endorsements.map((e) => (
-            <div
-              key={e.company}
-              className="rounded-2xl border border-white/10 bg-white/[0.06] p-8 backdrop-blur-sm"
-            >
+            <div key={e.company} className="rounded-2xl bg-white/[0.06] p-8 backdrop-blur-sm">
               <div className="bg-primary/20 flex h-12 w-12 items-center justify-center rounded-full">
                 <span className="font-display text-primary text-sm font-bold">{e.initials}</span>
               </div>

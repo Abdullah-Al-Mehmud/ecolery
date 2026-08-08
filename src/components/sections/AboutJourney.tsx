@@ -107,7 +107,7 @@ export function AboutJourney() {
                   variants={isLeft ? leftVariants : rightVariants}
                   className="pl-12 md:w-[calc(50%-4rem)] md:pl-0"
                 >
-                  <div className="border-black/5 bg-white relative overflow-hidden rounded-2xl border p-6 md:p-8">
+                  <div className="bg-white relative overflow-hidden rounded-2xl p-6 md:p-8">
                     <span
                       aria-hidden
                       className="font-fraunces text-transparent absolute -top-4 right-4 text-7xl font-semibold select-none [-webkit-text-stroke:1.5px_var(--color-primary)]"

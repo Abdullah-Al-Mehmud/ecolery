@@ -57,7 +57,7 @@ export function ProductQuoteForm() {
           </ul>
         </div>
 
-        <form className="border-black/5 bg-white rounded-2xl border p-6 shadow-sm md:p-8">
+        <form className="bg-white rounded-2xl p-6 shadow-sm md:p-8">
           <h3 className="font-fraunces text-ink text-2xl font-semibold tracking-tight">
             Request your quote
           </h3>

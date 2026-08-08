@@ -53,7 +53,7 @@ const itemVariants = {
 
 export function ImpactSDGs() {
   return (
-    <section className="bg-cream-2 px-6 py-24 md:py-32">
+    <section className="bg-cream px-6 py-24 md:py-32">
       <motion.div
         initial="hidden"
         whileInView="visible"
@@ -81,7 +81,7 @@ export function ImpactSDGs() {
             <motion.div
               key={goal.number}
               variants={itemVariants}
-              className="border-black/5 bg-white hover:border-primary/30 overflow-hidden rounded-2xl border transition-colors duration-300"
+              className="bg-white overflow-hidden rounded-2xl transition-colors duration-300"
             >
               <div className={`h-1.5 w-full ${goal.bar}`} />
               <div className="p-6">

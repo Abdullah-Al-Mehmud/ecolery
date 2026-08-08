@@ -127,7 +127,7 @@ export function TestimonialsSection() {
               data-card
               className="w-[85%] shrink-0 snap-start sm:w-[46%] lg:w-[calc(33.333%-1rem)]"
             >
-              <div className="bg-cream hover:border-primary flex h-full flex-col rounded-3xl border border-ink/15 p-8 transition-colors duration-300">
+              <div className="bg-cream flex h-full flex-col rounded-3xl p-8 transition-colors duration-300">
                 <div className="flex gap-1" aria-label="5 out of 5 stars">
                   {Array.from({ length: 5 }).map((_, i) => (
                     <Star

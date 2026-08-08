@@ -98,7 +98,7 @@ export function ProductFAQ() {
               <motion.div
                 key={faq.question}
                 variants={itemVariants}
-                className={`overflow-hidden rounded-2xl border bg-white transition-colors duration-300 ${open ? "border-primary/30" : "border-black/5"}`}
+                className={`overflow-hidden rounded-2xl bg-white transition-colors duration-300`}
               >
                 <button
                   type="button"

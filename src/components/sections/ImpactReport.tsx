@@ -18,12 +18,7 @@ const itemVariants = {
 
 export function ImpactReport() {
   return (
-    <section className="bg-moss relative overflow-hidden px-6 py-24 md:py-32">
-      <div
-        aria-hidden
-        className="bg-[radial-gradient(60%_100%_at_50%_0%,rgba(140,199,140,0.07),transparent)] absolute inset-x-0 top-0 h-full"
-      />
-
+    <section className="bg-cream relative mb-20 overflow-hidden px-6 py-24 md:py-32">
       <motion.div
         initial="hidden"
         whileInView="visible"
@@ -32,19 +27,19 @@ export function ImpactReport() {
         className="relative mx-auto grid max-w-6xl items-center gap-14 lg:grid-cols-2 lg:gap-20"
       >
         <motion.div variants={itemVariants}>
-          <span className="border-primary/20 bg-primary/10 text-primary-light flex h-14 w-14 items-center justify-center rounded-2xl border">
+          <span className="border-primary/20 bg-primary/5 text-primary flex h-14 w-14 items-center justify-center rounded-2xl border">
             <FileText className="h-6 w-6" strokeWidth={1.75} />
           </span>
 
-          <span className="font-body text-white/50 mt-8 block text-[13px] font-semibold tracking-[0.2em] uppercase">
+          <span className="font-body text-primary mt-8 block text-[13px] font-semibold tracking-[0.2em] uppercase">
             Impact report
           </span>
 
-          <h2 className="font-fraunces text-cream mt-4 text-3xl leading-[1.1] font-semibold tracking-tight md:text-5xl">
-            Download our 2025 <span className="text-primary-light">Impact Report.</span>
+          <h2 className="font-fraunces text-ink mt-4 text-3xl leading-[1.1] font-semibold tracking-tight md:text-5xl">
+            Download our 2025 <span className="text-primary-dark">Impact Report.</span>
           </h2>
 
-          <p className="font-body text-white/70 mt-6 max-w-md text-[15px] leading-relaxed font-semibold">
+          <p className="font-body text-ink/80 mt-6 max-w-md text-[15px] leading-relaxed font-semibold">
             Every cup, every lesson, every livelihood — documented, measured and verified. A full
             look at what we built in 2025 and where we&apos;re headed next.
           </p>
@@ -64,7 +59,7 @@ export function ImpactReport() {
             className="border-primary/15 absolute -inset-6 -z-10 rounded-[2rem] border"
           />
 
-          <div className="border-white/10 bg-cream rounded-2xl p-8 shadow-xl md:p-10">
+          <div className="bg-white rounded-2xl border-black/5 p-8 shadow-xl md:p-10">
             <div className="flex items-center justify-between">
               <Image
                 src="/logo.png"
