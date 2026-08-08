@@ -3,14 +3,15 @@
 import { AnimatePresence, motion, useMotionValueEvent, useScroll } from "framer-motion";
 import { Menu, X } from "lucide-react";
 import Image from "next/image";
+import Link from "next/link";
 import { useEffect, useState } from "react";
 
 const NAV_LINKS = [
   { label: "Home", href: "/" },
-  { label: "About", href: "/about" },
   { label: "Products", href: "/product" },
   { label: "Impact", href: "/impact" },
   { label: "Explore", href: "/explore" },
+  { label: "About", href: "/about" },
   { label: "Contact Us", href: "/contact" },
 ];
 
@@ -68,7 +69,7 @@ export function Navbar() {
         className="fixed inset-x-0 top-0 z-50 h-18 border-b"
       >
         <div className="mx-auto flex h-full w-full max-w-6xl items-center justify-between px-6 md:grid md:grid-cols-[auto_1fr_auto]">
-          <a href="#" aria-label="Ecolery home" className="flex items-center">
+          <Link href="/" aria-label="Ecolery home" className="flex items-center">
             <Image
               src="/logo.png"
               alt="Ecolery logo"
@@ -76,7 +77,7 @@ export function Navbar() {
               height={92}
               className="h-12 w-12 object-contain"
             />
-          </a>
+          </Link>
 
           <nav className="hidden items-center justify-center gap-9 md:flex">
             {NAV_LINKS.map((link) => (

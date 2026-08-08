@@ -1,3 +1,5 @@
+import { Mail, MapPin, Phone } from "lucide-react";
+
 import { StellarWormCredit } from "@/components/sections/StellarWormCredit";
 
 function FacebookIcon({ className }: { className?: string }) {
@@ -16,98 +18,135 @@ function LinkedinIcon({ className }: { className?: string }) {
   );
 }
 
+const quickLinks = [
+  { label: "About US", href: "#about" },
+  { label: "Our Products", href: "#product" },
+  { label: "Impact", href: "#impact" },
+  { label: "Explore", href: "#explore" },
+  { label: "Contact", href: "#contact" },
+];
+
 export function SiteFooter() {
   return (
-    <footer id="contact" className="bg-moss relative overflow-hidden px-6 pt-24 pb-8">
-      <div className="mx-auto max-w-6xl">
-        <div className="grid gap-12 md:grid-cols-2 lg:grid-cols-[1.2fr_1fr_0.8fr_1fr]">
-          {/* ---- Mission ---- */}
+    <footer className="relative overflow-hidden bg-[#07120D] px-6 pt-24 pb-8">
+      {/* subtle radial glow so the dark field doesn't read flat */}
+      <div
+        aria-hidden
+        className="pointer-events-none absolute inset-x-0 top-0 h-[420px]"
+        style={{
+          background:
+            "radial-gradient(60% 100% at 50% 0%, rgba(140,199,140,0.06) 0%, rgba(140,199,140,0) 70%)",
+        }}
+      />
+
+      <div className="relative mx-auto max-w-6xl">
+        {/* ---- Top: brand + CTA ---- */}
+        <div className="flex flex-col items-start justify-center gap-10 border-b border-white/10 pb-14 text-center md:flex-row md:items-end">
+          <div className="max-w-lg">
+            <span className="font-body text-primary text-[13px] font-semibold tracking-[0.2em] uppercase">
+              Eat, re-eat, forget
+            </span>
+            <h3 className="font-display mt-4 text-3xl font-bold tracking-tight text-white md:text-4xl">
+              Sustainability, <span className="text-white/60">served fresh.</span>
+            </h3>
+          </div>
+        </div>
+
+        {/* ---- Middle: mission / links / contact ---- */}
+        <div className="grid gap-12 py-14 md:grid-cols-[1.2fr_0.8fr_1fr]">
+          {/* Mission */}
           <div>
-            <p className="font-body text-cream/60 text-[12px] font-semibold tracking-[0.18em] uppercase">
-              Our mission
+            <p className="font-body text-[14px] leading-relaxed font-semibold text-white/60">
+              Driven by a passion for environmental advocacy and community transformation, we
+              combine eco-friendly innovation with deep social impact by creating green jobs for
+              underprivileged rural women and educating the next generation on the vital importance
+              of sustainability.
             </p>
-            <p className="font-body mt-5 max-w-xs text-[14px] leading-relaxed font-semibold text-cream/60">
-              Driven by a passion for environmental advocacy, we combine eco-friendly innovation
-              with deep social impact — creating green jobs for rural women and educating the next
-              generation on the importance of sustainability.
+            <p className="font-body mt-6 text-[12px] font-semibold tracking-[0.14em] text-white/30 uppercase">
+              Patent filed · 2019
             </p>
           </div>
 
-          {/* ---- Office Location ---- */}
+          {/* Quick links */}
           <div>
-            <p className="font-body text-cream/60 text-[12px] font-semibold tracking-[0.18em] uppercase">
-              Office location
+            <p className="font-body mb-5 text-[12px] font-semibold tracking-[0.18em] text-white/40 uppercase">
+              Explore
             </p>
-            <p className="font-body mt-5 text-[14px] leading-relaxed font-semibold text-cream/60">
-              12, Hasina Badar Villa,
-              <br />
-              Sheikh Shaheb Bazar,
-              <br />
-              Dhaka-1211
-            </p>
+            <ul className="space-y-3">
+              {quickLinks.map((link) => (
+                <li key={link.label}>
+                  <a
+                    href={link.href}
+                    className="font-body text-[14px] font-semibold text-white/70 transition-colors hover:text-white"
+                  >
+                    {link.label}
+                  </a>
+                </li>
+              ))}
+            </ul>
           </div>
 
-          {/* ---- Follow Us ---- */}
-          <div>
-            <p className="font-body text-cream/60 text-[12px] font-semibold tracking-[0.18em] uppercase">
-              Follow us
+          {/* Contact */}
+          <div className="space-y-5">
+            <p className="font-body mb-1 text-[12px] font-semibold tracking-[0.18em] text-white/40 uppercase">
+              Reach us
             </p>
-            <div className="mt-5 flex gap-3">
+
+            <div className="flex items-start gap-3">
+              <MapPin className="text-primary mt-0.5 h-4 w-4 shrink-0" strokeWidth={1.75} />
+              <p className="font-body text-[14px] font-semibold text-white/70">
+                12, Hasina Badar Villa, Sheikh Shaheb Bazar, Dhaka – 1211
+              </p>
+            </div>
+
+            <div className="flex items-center gap-3">
+              <Phone className="text-primary h-4 w-4 shrink-0" strokeWidth={1.75} />
               <a
-                href="https://linkedin.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="LinkedIn"
-                className="hover:border-primary-light/40 hover:text-primary-light flex h-10 w-10 items-center justify-center rounded-full border border-white/15 text-cream transition-colors duration-300"
+                href="tel:+881326677272"
+                className="font-body text-[14px] font-semibold text-white/70 transition-colors hover:text-white"
               >
-                <LinkedinIcon className="h-4 w-4" />
+                +088 1326677272
               </a>
+            </div>
+
+            <div className="flex items-center gap-3">
+              <Mail className="text-primary h-4 w-4 shrink-0" strokeWidth={1.75} />
+              <a
+                href="mailto:ecolery.bangladesh@gmail.com"
+                className="font-body text-[14px] font-semibold text-white/70 transition-colors hover:text-white"
+              >
+                ecolery.bangladesh@gmail.com
+              </a>
+            </div>
+
+            <div className="flex items-center gap-4 pt-3">
               <a
                 href="https://facebook.com"
                 target="_blank"
                 rel="noopener noreferrer"
+                className="flex h-9 w-9 items-center justify-center rounded-full border border-white/10 text-white/50 transition-colors hover:border-white/30 hover:text-white"
                 aria-label="Facebook"
-                className="hover:border-primary-light/40 hover:text-primary-light flex h-10 w-10 items-center justify-center rounded-full border border-white/15 text-cream transition-colors duration-300"
               >
                 <FacebookIcon className="h-4 w-4" />
               </a>
-            </div>
-          </div>
-
-          {/* ---- Contact ---- */}
-          <div>
-            <p className="font-body text-cream/60 text-[12px] font-semibold tracking-[0.18em] uppercase">
-              Contact
-            </p>
-            <div className="mt-5 space-y-3">
               <a
-                href="tel:+881326677272"
-                className="font-body block text-[14px] font-semibold text-cream/60 transition-colors duration-300 hover:text-cream"
+                href="https://linkedin.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex h-9 w-9 items-center justify-center rounded-full border border-white/10 text-white/50 transition-colors hover:border-white/30 hover:text-white"
+                aria-label="LinkedIn"
               >
-                +088 1326677272
-              </a>
-              <a
-                href="mailto:ecolery.bangladesh@gmail.com"
-                className="font-body block text-[14px] font-semibold text-cream/60 transition-colors duration-300 hover:text-cream"
-              >
-                ecolery.bangladesh@gmail.com
+                <LinkedinIcon className="h-4 w-4" />
               </a>
             </div>
           </div>
         </div>
 
         {/* ---- Bottom bar ---- */}
-        <div className="mt-16 flex flex-col items-center justify-between gap-4 border-t border-white/15 pt-8 md:flex-row">
-          <p className="font-body text-[12px] font-semibold text-cream/60">
+        <div className="flex flex-col items-center justify-between gap-4 border-t border-white/10 pt-8 md:flex-row">
+          <p className="font-body text-[12px] font-semibold text-white/30">
             &copy; {new Date().getFullYear()} Ecolery. All rights reserved.
           </p>
-          <p className="font-body text-[12px] font-semibold text-cream/60">
-            Designed and built in Dhaka, Bangladesh.
-          </p>
-        </div>
-
-        {/* ---- Credit ---- */}
-        <div className="mt-6 flex justify-center border-t border-white/10 pt-6">
           <StellarWormCredit />
         </div>
       </div>

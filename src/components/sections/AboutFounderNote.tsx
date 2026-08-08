@@ -20,7 +20,7 @@ export function AboutFounderNote() {
   const [error, setError] = useState(false);
 
   return (
-    <section className="bg-moss relative mb-20 overflow-hidden px-6 py-24 md:py-32">
+    <section className="bg-moss relative overflow-hidden px-6 py-24 md:py-32">
       <div
         aria-hidden
         className="absolute inset-x-0 top-0 h-full bg-[radial-gradient(60%_100%_at_50%_0%,rgba(140,199,140,0.06),transparent)]"
