@@ -40,11 +40,9 @@ export function AboutHero() {
             variants={itemVariants}
             className="font-fraunces text-ink mt-6 text-4xl leading-[1.05] font-semibold tracking-tight sm:text-5xl lg:text-6xl"
           >
-            Shaping a{" "}
             <span className="bg-gradient-to-r from-primary-light to-primary-dark bg-clip-text text-transparent">
-              Zero-Plastic
-            </span>{" "}
-            Tomorrow, Together
+              Shaping a Zero-Plastic Tomorrow, Together
+            </span>
           </motion.h1>
 
           <motion.p

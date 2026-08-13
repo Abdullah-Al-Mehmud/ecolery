@@ -11,20 +11,90 @@ type Member = {
   role: string;
   seed: string;
   initials: string;
+  image?: string;
+  linkedin?: string;
 };
 
 const team: Member[] = [
-  { name: "Nafesa Anzum Helaly", role: "Co-founder", seed: "ecolery-nafesa", initials: "NH" },
-  { name: "Shabiha Sultana Nuha", role: "Co-founder", seed: "ecolery-nuha", initials: "SN" },
-  { name: "Sharif Bin Abu Shahriar", role: "Co-founder", seed: "ecolery-sharif", initials: "SS" },
-  { name: "Yeamin Islam Tabin", role: "COO", seed: "ecolery-tabin", initials: "YT" },
-  { name: "Rakib Hassan Siam", role: "Chief Sustainability Officer", seed: "ecolery-siam", initials: "RS" },
-  { name: "Sabrin Akter Riha", role: "Chief Business Officer", seed: "ecolery-riha", initials: "SR" },
-  { name: "Tabia Tahsin", role: "Chief International Officer", seed: "ecolery-tahsin", initials: "TT" },
-  { name: "Ramim Al Rafi Nasim", role: "Head of Operations", seed: "ecolery-ramim", initials: "RN" },
-  { name: "SM Anirban Azad", role: "Head of Finance", seed: "ecolery-anirban", initials: "SA" },
-  { name: "Sameer", role: "Global Partnerships Lead", seed: "ecolery-sameer", initials: "S" },
-  { name: "Hasnat Zahin", role: "Volunteer", seed: "ecolery-zahin", initials: "HZ" },
+  {
+    name: "Nafesa Anzum Helaly",
+    role: "Co-founder",
+    seed: "ecolery-nafesa",
+    initials: "NH",
+    linkedin: "https://www.linkedin.com/in/nahelaly/",
+  },
+  {
+    name: "Shabiha Sultana Nuha",
+    role: "Co-founder",
+    seed: "ecolery-nuha",
+    initials: "SN",
+    linkedin: "https://www.linkedin.com/in/shabiha-sultana-nuha-2054132a7/",
+  },
+  {
+    name: "Sharif Bin Abu Shahriar",
+    role: "Co-founder",
+    seed: "ecolery-sharif",
+    initials: "SS",
+    image: "/Shahriar Shajal.jpg",
+    linkedin: "https://www.linkedin.com/in/shahriarsajal/",
+  },
+  {
+    name: "Yeamin Islam Tabin",
+    role: "Chief Operating Officer",
+    seed: "ecolery-tabin",
+    initials: "YT",
+    image: "/Yeamin Islam Tabin.jpg",
+    linkedin: "https://www.linkedin.com/in/yeamin-islam-tabin-383723223/",
+  },
+  {
+    name: "Rakib Hassan Siam",
+    role: "Chief Sustainability Officer",
+    seed: "ecolery-siam",
+    initials: "RS",
+    linkedin: "https://www.linkedin.com/in/rakib-hassan-siam/",
+  },
+  {
+    name: "Sabrin Akter Riha",
+    role: "Chief Business Officer",
+    seed: "ecolery-riha",
+    initials: "SR",
+    image: "/Sabrin Akter Riha.jpg",
+    linkedin: "https://www.linkedin.com/in/sabrinakter/",
+  },
+  {
+    name: "Tabia Tahsin",
+    role: "Chief International Officer",
+    seed: "ecolery-tahsin",
+    initials: "TT",
+    linkedin: "https://www.linkedin.com/in/tabia-tahsin-b50307227/",
+  },
+  {
+    name: "Ramim Al Rafi Nasim",
+    role: "Head of Operations",
+    seed: "ecolery-ramim",
+    initials: "RN",
+    linkedin: "https://www.linkedin.com/in/ramim-al-rafi-612672301/",
+  },
+  {
+    name: "SM Anirban Azad",
+    role: "Head of Finance",
+    seed: "ecolery-anirban",
+    initials: "SA",
+    image: "/SM Anirban Azad.jpeg",
+    linkedin: "https://www.linkedin.com/in/smanirbanazad16013/",
+  },
+  {
+    name: "Sameer",
+    role: "Global Partnerships Lead",
+    seed: "ecolery-sameer",
+    initials: "S",
+  },
+  {
+    name: "Hasnat Zahin",
+    role: "Volunteer",
+    seed: "ecolery-zahin",
+    initials: "HZ",
+  },
 ];
 
 const containerVariants = {
@@ -70,7 +140,7 @@ function TeamAvatar({ member }: { member: Member }) {
   return (
     <div className="ring-black/10 relative aspect-square w-full overflow-hidden rounded-full ring-1 transition-all duration-500 group-hover:ring-primary/50">
       <Image
-        src={`https://picsum.photos/seed/${member.seed}/400/400`}
+        src={member.image ?? `https://picsum.photos/seed/${member.seed}/400/400`}
         alt={`Portrait of ${member.name}`}
         fill
         sizes="(min-width: 1024px) 25vw, (min-width: 768px) 33vw, 50vw"
@@ -82,9 +152,13 @@ function TeamAvatar({ member }: { member: Member }) {
 }
 
 function LinkedInChip({ member }: { member: Member }) {
+  if (!member.linkedin) {
+    return null;
+  }
+
   return (
     <a
-      href="https://www.linkedin.com/"
+      href={member.linkedin}
       target="_blank"
       rel="noopener noreferrer"
       aria-label={`${member.name} on LinkedIn`}
