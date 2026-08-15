@@ -1,14 +1,12 @@
-import type { Metadata } from "next";
 import { ImpactChart } from "@/components/sections/ImpactChart";
 import { ImpactHero } from "@/components/sections/ImpactHero";
 import { ImpactPillars } from "@/components/sections/ImpactPillars";
-import { ImpactReport } from "@/components/sections/ImpactReport";
 import { ImpactSDGs } from "@/components/sections/ImpactSDGs";
+import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Impact · Ecolery",
-  description:
-    "Real numbers, real change. Cups replaced, plastic avoided, children educated.",
+  description: "Real numbers, real change. Cups replaced, plastic avoided, children educated.",
 };
 
 export default function ImpactPage() {
@@ -18,7 +16,7 @@ export default function ImpactPage() {
       <ImpactPillars />
       <ImpactSDGs />
       <ImpactChart />
-      <ImpactReport />
+      {/* <ImpactReport /> */}
     </main>
   );
 }

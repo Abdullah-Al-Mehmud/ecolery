@@ -31,7 +31,7 @@ const metrics = [
 const impactStats = [
   { value: "160,000+", label: "Plastic Cups Replaced" },
   { value: "962+", label: "Orders Delivered" },
-  { value: "1,500+", label: "Children Educated on Sustainability" },
+  { value: "1,500+", label: "Educational Sustainability" },
 ];
 
 const featureCards = [

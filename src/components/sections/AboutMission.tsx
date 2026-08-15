@@ -16,7 +16,7 @@ const itemVariants = {
 
 export function AboutMission() {
   return (
-    <section className="bg-cream px-6 py-24 md:py-32">
+    <section className="bg-cream-2 px-6 py-24 md:py-32">
       <motion.div
         initial="hidden"
         whileInView="visible"
@@ -38,9 +38,9 @@ export function AboutMission() {
           <p className="font-body text-ink/80 text-[15px] leading-relaxed font-semibold">
             Every single year, Bangladesh alone suffocates under a staggering 87,000 tonnes of
             single-use plastic waste, with billions of disposable cups dumped into our lands, our
-            fragile waterways, and the irreplaceable ecosystems of the Sundarbans. Shockingly,
-            less than 1% of these items are ever recycled, leaving a trail of environmental
-            destruction in their wake.
+            fragile waterways, and the irreplaceable ecosystems of the Sundarbans. Shockingly, less
+            than 1% of these items are ever recycled, leaving a trail of environmental destruction
+            in their wake.
           </p>
           <p className="font-body text-ink/80 mt-6 text-[15px] leading-relaxed font-semibold">
             Ecolery was born to disrupt this devastating cycle. We are an award-winning social
@@ -51,14 +51,14 @@ export function AboutMission() {
             employing underprivileged women across 4 rural villages.
           </p>
           <p className="font-body text-ink/80 mt-6 text-[15px] leading-relaxed font-semibold">
-            We are not just waiting for a cleaner tomorrow; we are actively engineering a
-            zero-waste world where the planet and its people thrive hand in hand.
+            We are not just waiting for a cleaner tomorrow; we are actively engineering a zero-waste
+            world where the planet and its people thrive hand in hand.
           </p>
 
           <div className="border-primary/25 mt-10 border-l-2 pl-6">
             <p className="font-fraunces text-primary-dark text-xl leading-[1.3] font-semibold md:text-2xl">
-              A zero-waste world isn&apos;t an idealistic dream - it&apos;s a future we are
-              actively building together.
+              A zero-waste world isn&apos;t an idealistic dream - it&apos;s a future we are actively
+              building together.
             </p>
           </div>
         </motion.div>

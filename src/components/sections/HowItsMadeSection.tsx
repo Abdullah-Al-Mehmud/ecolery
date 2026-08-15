@@ -21,7 +21,7 @@ const steps: Step[] = [
     step: "02",
     icon: Stamp,
     title: "Molding",
-    copy: "Heat and pressure shape the grain into cups and cutlery. No petroleum, no plastic, just precision.",
+    copy: "Heat and pressure shape the grain into cups and cutlery. no plastic, just precision.",
   },
   {
     step: "03",
@@ -66,11 +66,11 @@ export function HowItsMadeSection() {
             <motion.div
               key={step}
               variants={stepVariants}
-              className="relative md:border-l md:border-ink/15 md:pl-8 md:first:border-l-0 md:first:pl-0"
+              className="md:border-ink/15 relative md:border-l md:pl-8 md:first:border-l-0 md:first:pl-0"
             >
               <span
                 aria-hidden
-                className="font-fraunces text-transparent block text-6xl leading-[0.9] tracking-tight md:text-7xl [-webkit-text-stroke:1.5px_var(--color-primary)]"
+                className="font-fraunces block text-6xl leading-[0.9] tracking-tight text-transparent [-webkit-text-stroke:1.5px_var(--color-primary)] md:text-7xl"
               >
                 {step}
               </span>

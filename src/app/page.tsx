@@ -1,7 +1,6 @@
 import { ComparisonSection } from "@/components/sections/ComparisonSection";
 import { FeaturesGrid } from "@/components/sections/FeaturesGrid";
 import { Hero } from "@/components/sections/Hero";
-import { HowItsMadeSection } from "@/components/sections/HowItsMadeSection";
 import { ImpactStory } from "@/components/sections/ImpactStory";
 import { NewsletterStrip } from "@/components/sections/NewsletterStrip";
 import { PartnerEndorsements } from "@/components/sections/PartnerEndorsements";
@@ -20,7 +19,7 @@ export default function Home() {
       <ImpactStory />
       <ComparisonSection />
       <FeaturesGrid />
-      <HowItsMadeSection />
+      {/* <HowItsMadeSection /> */}
       {/* <CareersCTA /> */}
       <PartnerEndorsements />
       <PartnerMarquee />

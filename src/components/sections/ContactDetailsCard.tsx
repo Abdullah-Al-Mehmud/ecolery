@@ -67,7 +67,7 @@ export function ContactDetailsCard() {
     <section className="bg-moss relative overflow-hidden px-6 py-24 md:py-32">
       <div
         aria-hidden
-        className="bg-[radial-gradient(60%_100%_at_50%_0%,rgba(140,199,140,0.07),transparent)] absolute inset-x-0 top-0 h-full"
+        className="absolute inset-x-0 top-0 h-full bg-[radial-gradient(60%_100%_at_50%_0%,rgba(140,199,140,0.07),transparent)]"
       />
 
       <motion.div
@@ -78,11 +78,11 @@ export function ContactDetailsCard() {
         className="relative mx-auto max-w-6xl"
       >
         <motion.div variants={itemVariants} className="max-w-2xl">
-          <span className="font-body text-white/50 text-[13px] font-semibold tracking-[0.2em] uppercase">
+          <span className="font-body text-[13px] font-semibold tracking-[0.2em] text-white/50 uppercase">
             Direct lines
           </span>
           <h2 className="font-fraunces text-cream mt-4 text-3xl leading-[1.1] font-semibold tracking-tight md:text-5xl">
-            Find the right <span className="text-primary-light">door.</span>
+            Get in <span className="text-primary-light">touch</span> with us
           </h2>
         </motion.div>
 
@@ -97,20 +97,20 @@ export function ContactDetailsCard() {
                 href={channel.href}
                 {...(isExternal ? { target: "_blank", rel: "noopener noreferrer" } : {})}
                 variants={itemVariants}
-                className={`group flex items-center gap-5 py-6 transition-colors duration-300 hover:bg-white/[0.06] md:gap-8 md:px-6 md:-mx-6 md:py-7 ${
-                  index > 0 ? "border-white/10 border-t" : ""
+                className={`group flex items-center gap-5 py-6 transition-colors duration-300 hover:bg-white/[0.06] md:-mx-6 md:gap-8 md:px-6 md:py-7 ${
+                  index > 0 ? "border-t border-white/10" : ""
                 }`}
               >
-                <span className="font-fraunces text-white/20 w-10 shrink-0 text-2xl font-semibold">
+                <span className="font-fraunces w-10 shrink-0 text-2xl font-semibold text-white/20">
                   {String(index + 1).padStart(2, "0")}
                 </span>
 
-                <span className="border-primary-light/25 bg-white/[0.04] text-primary-light flex h-12 w-12 shrink-0 items-center justify-center rounded-full border transition-colors duration-300 group-hover:bg-primary-light group-hover:text-moss">
+                <span className="border-primary-light/25 text-primary-light group-hover:bg-primary-light group-hover:text-moss flex h-12 w-12 shrink-0 items-center justify-center rounded-full border bg-white/[0.04] transition-colors duration-300">
                   <Icon className="h-5 w-5" strokeWidth={1.75} />
                 </span>
 
                 <span className="min-w-0 flex-1">
-                  <span className="font-body text-white/50 block text-[12px] font-semibold uppercase tracking-[0.14em]">
+                  <span className="font-body block text-[12px] font-semibold tracking-[0.14em] text-white/50 uppercase">
                     {channel.label}
                   </span>
                   <span className="font-body text-cream mt-1 block text-[15px] leading-snug font-semibold break-words">
@@ -118,7 +118,7 @@ export function ContactDetailsCard() {
                   </span>
                 </span>
 
-                <span className="border-white/15 text-white/70 group-hover:border-primary-light group-hover:bg-primary-light group-hover:text-moss hidden shrink-0 rounded-full border p-2.5 transition-colors duration-300 sm:inline-flex">
+                <span className="group-hover:border-primary-light group-hover:bg-primary-light group-hover:text-moss hidden shrink-0 rounded-full border border-white/15 p-2.5 text-white/70 transition-colors duration-300 sm:inline-flex">
                   <ArrowUpRight className="h-4 w-4" strokeWidth={1.75} />
                 </span>
               </motion.a>

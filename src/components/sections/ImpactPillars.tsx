@@ -8,39 +8,36 @@ const EASE: [number, number, number, number] = [0.22, 1, 0.36, 1];
 const pillars: {
   icon: LucideIcon;
   title: string;
-  stat: string;
-  statLabel: string;
-  story: string;
+  statValue?: string;
+  statLabel?: string;
+  copy: string;
 }[] = [
   {
     icon: Leaf,
     title: "Environmental Impact",
-    stat: "180 days",
-    statLabel: "to fully decompose, no trace left behind",
-    story:
-      "Every cup replaces a single-use plastic that would outlive all of us. Ours returns to soil in 180 days, measured, certified and gone without a trace.",
+    statValue: "180 days",
+    statLabel: "to fully decompose — no trace left behind",
+    copy: "Every cup replaces a single-use plastic that would outlive us. Ours returns to soil in 180 days — measured, certified, and gone without a trace.",
   },
   {
     icon: HeartHandshake,
     title: "Social Impact",
-    stat: "1,500+",
+    statValue: "1,500+",
     statLabel: "children educated through school visits",
-    story:
-      "Impact that compounds through people: green jobs for rural women across our supply chain, and sustainability education that turns students into climate champions.",
+    copy: "Impact that compounds through people: green jobs for rural women across our supply chain, and sustainability education that turns students into climate champions.",
   },
   {
     icon: TrendingUp,
     title: "Economic Impact",
-    stat: "4",
+    statValue: "4",
     statLabel: "rural villages building green livelihoods",
-    story:
-      "Waste turned into value. An award-winning model that keeps products affordable, pays fair wages, and proves sustainability can be good business.",
+    copy: "Waste turned into value. An award-winning model that keeps products affordable, pays fair wages, and proves sustainability can be good business.",
   },
 ];
 
 const containerVariants = {
   hidden: {},
-  visible: { transition: { staggerChildren: 0.1 } },
+  visible: { transition: { staggerChildren: 0.15 } },
 };
 
 const itemVariants = {
@@ -50,82 +47,65 @@ const itemVariants = {
 
 export function ImpactPillars() {
   return (
-    <section className="relative overflow-hidden bg-moss px-6 py-24 md:py-32">
-      <div
-        aria-hidden
-        className="bg-[radial-gradient(60%_100%_at_50%_0%,rgba(140,199,140,0.07),transparent)] absolute inset-x-0 top-0 h-full"
-      />
+    <section className="bg-cream-2 px-6 py-24 md:py-32">
       <motion.div
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true, amount: 0.2 }}
         variants={containerVariants}
-        className="relative mx-auto max-w-6xl"
+        className="mx-auto max-w-6xl"
       >
-        <motion.div variants={itemVariants} className="max-w-2xl">
-          <span className="font-body text-primary-light text-[13px] font-semibold tracking-[0.2em] uppercase">
-            How impact works
-          </span>
-          <h2 className="font-fraunces text-cream mt-4 text-3xl leading-[1.1] font-semibold tracking-tight md:text-5xl">
-            Three pillars, one <span className="text-primary-light">promise.</span>
-          </h2>
-          <p className="font-body text-white/70 mt-6 max-w-lg text-[15px] leading-relaxed font-semibold">
-            Environment, people and economy. No single win matters unless all three move
-            together.
-          </p>
-        </motion.div>
+        <div className="grid gap-8 md:grid-cols-2 md:items-end">
+          <motion.div variants={itemVariants}>
+            <span className="font-body text-primary text-[13px] font-semibold tracking-[0.2em] uppercase">
+              What we stand for
+            </span>
+            <h2 className="font-fraunces text-ink mt-4 text-3xl leading-[1.1] font-semibold tracking-tight md:text-5xl">
+              Three pillars of <span className="text-primary-dark">impact.</span>
+            </h2>
+          </motion.div>
 
-        <div className="mt-16">
-          {pillars.map((pillar, index) => {
-            const alternate = index % 2 === 1;
-            const { icon: Icon, title, stat, statLabel, story } = pillar;
+          <motion.p
+            variants={itemVariants}
+            className="font-body text-ink/80 text-[15px] leading-relaxed font-semibold md:max-w-md md:justify-self-end"
+          >
+            Every product carries the weight of its footprint, and we make sure ours is measured in
+            people and planet, not just profit.
+          </motion.p>
+        </div>
 
-            return (
-              <motion.div
-                key={title}
-                variants={itemVariants}
-                className={`relative overflow-hidden border-t border-white/10 py-16 first:border-t-0 md:py-24 ${alternate ? "bg-white/[0.03]" : ""}`}
-              >
-                <span
-                  aria-hidden
-                  className="font-fraunces text-transparent absolute -top-6 left-2 text-[10rem] leading-none font-semibold select-none opacity-[0.15] [-webkit-text-stroke:1px_rgba(255,255,255,0.4)] md:text-[15rem]"
-                >
-                  0{index + 1}
-                </span>
+        <div className="mt-16 grid gap-12 md:grid-cols-3 md:gap-0">
+          {pillars.map(({ icon: Icon, title, statValue, statLabel, copy }) => (
+            <motion.div
+              key={title}
+              variants={itemVariants}
+              className="border-ink/15 border-t pt-10 first:border-t-0 first:pt-0 md:border-t-0 md:border-l md:pt-0 md:pl-8 md:first:border-l-0 md:first:pl-0"
+            >
+              <div className="border-primary/20 bg-primary/5 flex h-16 w-16 items-center justify-center rounded-2xl border">
+                <Icon className="text-primary h-7 w-7" strokeWidth={1.75} />
+              </div>
 
-                <div className="relative mx-auto grid max-w-6xl gap-10 md:grid-cols-12 md:gap-12">
-                  <div className="flex items-start gap-5 md:col-span-5">
-                    <span className="border-primary/20 bg-primary/10 text-primary-light flex h-12 w-12 shrink-0 items-center justify-center rounded-full border">
-                      <Icon className="h-5 w-5" strokeWidth={1.75} />
-                    </span>
-                    <div>
-                      <p className="font-body text-primary-light text-[12px] font-semibold tracking-[0.2em] uppercase">
-                        Pillar {String(index + 1).padStart(2, "0")}
-                      </p>
-                      <h3 className="font-fraunces text-cream mt-2 text-3xl leading-[1.1] font-semibold tracking-tight md:text-4xl">
-                        {title}
-                      </h3>
-                    </div>
+              {statValue && (
+                <div className="mt-6">
+                  <div className="font-fraunces text-ink text-3xl font-semibold leading-none">
+                    {statValue}
                   </div>
-
-                  <div className="md:col-span-7">
-                    <p className="font-fraunces text-primary-light text-6xl leading-[1.05] font-semibold tracking-tight md:text-7xl">
-                      {stat}
-                    </p>
-                    <p className="font-body text-white/50 mt-3 text-[12px] font-semibold tracking-[0.14em] uppercase">
+                  {statLabel && (
+                    <div className="font-body text-ink/70 text-[13px] mt-1 font-semibold">
                       {statLabel}
-                    </p>
-
-                    <div className="bg-primary/30 mt-8 h-px w-full max-w-xs" />
-
-                    <p className="font-body text-white/70 mt-6 max-w-2xl text-[15px] leading-relaxed font-semibold">
-                      {story}
-                    </p>
-                  </div>
+                    </div>
+                  )}
                 </div>
-              </motion.div>
-            );
-          })}
+              )}
+
+              <h3 className="font-fraunces text-ink mt-6 text-2xl font-semibold tracking-tight">
+                {title}
+              </h3>
+              <p className="font-body text-ink/80 mt-3 max-w-xs text-[15px] leading-relaxed font-semibold">
+                {copy}
+              </p>
+            </motion.div>
+          ))}
         </div>
       </motion.div>
     </section>
