@@ -87,11 +87,11 @@ export function ImpactPillars() {
 
               {statValue && (
                 <div className="mt-6">
-                  <div className="font-fraunces text-ink text-3xl font-semibold leading-none">
+                  <div className="font-fraunces text-ink text-3xl leading-none font-semibold">
                     {statValue}
                   </div>
                   {statLabel && (
-                    <div className="font-body text-ink/70 text-[13px] mt-1 font-semibold">
+                    <div className="font-body text-ink/70 mt-1 text-[13px] font-semibold">
                       {statLabel}
                     </div>
                   )}
