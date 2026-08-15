@@ -62,8 +62,11 @@ export function ComparisonSection() {
               <ul className="comparison-copy-list mt-8 max-w-xl space-y-5 md:space-y-6">
                 {plasticReasons.map((reason) => (
                   <li key={reason} className="flex items-start gap-3">
-                    <X className="comparison-copy-icon mt-1 h-5 w-5 shrink-0 text-black/40 md:h-6 md:w-6" strokeWidth={2.5} />
-                    <span className="comparison-copy-item font-body text-[15px] font-semibold leading-relaxed text-black/60 md:text-[18px]">
+                    <X
+                      className="comparison-copy-icon mt-1 h-5 w-5 shrink-0 text-black/40 md:h-6 md:w-6"
+                      strokeWidth={2.5}
+                    />
+                    <span className="comparison-copy-item font-body text-[15px] leading-relaxed font-semibold text-black/60 md:text-[18px]">
                       {reason}
                     </span>
                   </li>
@@ -81,8 +84,11 @@ export function ComparisonSection() {
               <ul className="comparison-copy-list mt-8 max-w-xl space-y-5 md:space-y-6">
                 {ecoleryReasons.map((reason) => (
                   <li key={reason} className="flex items-start gap-3 md:flex-row-reverse">
-                    <Check className="comparison-copy-icon mt-1 h-5 w-5 shrink-0 text-white md:h-6 md:w-6" strokeWidth={2.5} />
-                    <span className="comparison-copy-item font-body text-[15px] font-semibold leading-relaxed text-white/85 md:text-[18px]">
+                    <Check
+                      className="comparison-copy-icon mt-1 h-5 w-5 shrink-0 text-white md:h-6 md:w-6"
+                      strokeWidth={2.5}
+                    />
+                    <span className="comparison-copy-item font-body text-[15px] leading-relaxed font-semibold text-white/85 md:text-[18px]">
                       {reason}
                     </span>
                   </li>
@@ -135,7 +141,7 @@ export function ComparisonSection() {
                   {plasticReasons.map((reason) => (
                     <li key={reason} className="flex items-start gap-3">
                       <X className="mt-1 h-5 w-5 shrink-0 text-black/40" strokeWidth={2.5} />
-                      <span className="font-body text-[15px] font-semibold leading-relaxed text-black/60 sm:text-[16px]">
+                      <span className="font-body text-[15px] leading-relaxed font-semibold text-black/60 sm:text-[16px]">
                         {reason}
                       </span>
                     </li>
@@ -183,7 +189,7 @@ export function ComparisonSection() {
                   {ecoleryReasons.map((reason) => (
                     <li key={reason} className="flex items-start gap-3">
                       <Check className="mt-1 h-5 w-5 shrink-0 text-white" strokeWidth={2.5} />
-                      <span className="font-body text-[15px] font-semibold leading-relaxed text-white/85 sm:text-[16px]">
+                      <span className="font-body text-[15px] leading-relaxed font-semibold text-white/85 sm:text-[16px]">
                         {reason}
                       </span>
                     </li>
