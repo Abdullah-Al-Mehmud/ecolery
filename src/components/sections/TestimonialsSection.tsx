@@ -1,7 +1,6 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Star } from "lucide-react";
 
 interface Review {
   name: string;
@@ -43,12 +42,6 @@ function ReviewCard({ name, role, text }: Review) {
   return (
     <article data-card className="w-[260px] shrink-0 sm:w-[300px]">
       <div className="bg-cream flex h-full flex-col rounded-3xl p-8">
-        <div className="flex gap-1" aria-label="5 out of 5 stars">
-          {Array.from({ length: 5 }).map((_, i) => (
-            <Star key={i} className="text-primary h-4 w-4" strokeWidth={1.75} fill="currentColor" />
-          ))}
-        </div>
-
         <p className="font-body text-ink/85 mt-6 text-[15px] leading-relaxed font-semibold">
           &ldquo;{text}&rdquo;
         </p>

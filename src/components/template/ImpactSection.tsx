@@ -4,7 +4,7 @@ import Image from "next/image";
 import { useState, type ComponentProps } from "react";
 
 function ImageWithFallback(props: ComponentProps<typeof Image> & { fallbackLabel?: string }) {
-  const { fallbackLabel, className, ...rest } = props;
+  const { fallbackLabel, className, alt, ...rest } = props;
   const [error, setError] = useState(false);
 
   if (error) {
@@ -19,7 +19,7 @@ function ImageWithFallback(props: ComponentProps<typeof Image> & { fallbackLabel
     );
   }
 
-  return <Image {...rest} className={className} onError={() => setError(true)} />;
+  return <Image {...rest} alt={alt ?? ""} className={className} onError={() => setError(true)} />;
 }
 
 const certifications = [
@@ -111,24 +111,9 @@ export function ImpactSection() {
               pollution and inspire a zero-waste future, designed for everyday dining, built to
               disappear responsibly.
             </p>
-
-            <div className="mt-10 grid grid-cols-2 gap-6 border-t border-black/5 pt-8 sm:max-w-sm">
-              <div>
-                <p className="font-display text-ink text-3xl font-bold">2019</p>
-                <p className="font-body mt-1 text-[13px] font-semibold text-gray-600">
-                  Patent filed
-                </p>
-              </div>
-              <div>
-                <p className="font-display text-ink text-3xl font-bold">100%</p>
-                <p className="font-body mt-1 text-[13px] font-semibold text-gray-600">
-                  Compostable design
-                </p>
-              </div>
-            </div>
           </div>
 
-          <div className="relative aspect-[4/5] w-full overflow-hidden rounded-[2rem]">
+          <div className="relative aspect-4/5 w-full overflow-hidden rounded-4xl">
             <ImageWithFallback
               src="/cup.png"
               alt="Ecolery edible cup in use"
@@ -141,15 +126,17 @@ export function ImpactSection() {
       </section>
 
       {/* ---------- CERTIFICATION STRIP ---------- */}
-      <section className="bg-cream border-y border-black/5 px-6">
-        <div className="mx-auto flex max-w-6xl flex-wrap items-center justify-between gap-y-8">
-          {certifications.map(({ img: Img, label }) => (
-            <div
-              key={label}
-              className="items-bottom flex min-w-[140px] flex-1 flex-col gap-2 text-center"
-            >
-              <Image width={400} height={400} src={Img} />
-              {/* <span className="font-body text-ink text-[13px] font-bold">{label}</span> */}
+      <section className="bg-cream border-y border-black/5 px-6 py-10">
+        <div className="mx-auto flex max-w-7xl flex-wrap items-end justify-center gap-14 gap-y-8 px-3 md:px-6">
+          {certifications.map(({ img, label }) => (
+            <div key={label} className="flex flex-col items-center justify-end gap-0 text-center">
+              <Image
+                src={img}
+                alt={label}
+                width={256}
+                height={256}
+                className="h-28 w-28 object-contain md:h-36 md:w-36"
+              />
             </div>
           ))}
         </div>
@@ -166,7 +153,7 @@ export function ImpactSection() {
             {metrics.map((m) => (
               <div
                 key={m.label}
-                className="rounded-2xl bg-white/[0.06] px-8 py-10 text-center backdrop-blur-sm"
+                className="rounded-2xl bg-white/6 px-8 py-10 text-center backdrop-blur-sm"
               >
                 <p className="font-display text-4xl font-bold text-white md:text-5xl">
                   {m.value}
@@ -195,9 +182,7 @@ export function ImpactSection() {
                 <p className="font-display text-primary-dark text-4xl font-bold md:text-5xl">
                   {s.value}
                 </p>
-                <p className="font-body text-ink mt-2 text-[14px] font-semibold text-gray-600">
-                  {s.label}
-                </p>
+                <p className="font-body mt-2 text-[14px] font-semibold text-gray-600">{s.label}</p>
               </div>
             ))}
           </div>
@@ -216,7 +201,7 @@ export function ImpactSection() {
           </div>
 
           <div
-            className="grid auto-rows-[180px] grid-cols-3 gap-5 md:auto-rows-[220px]"
+            className="grid auto-rows-45 grid-cols-3 gap-5 md:auto-rows-55"
             style={{ gridTemplateAreas: `"a b c" "a d d" "e f f"` }}
           >
             {featureCards.map((card) => (
@@ -233,7 +218,7 @@ export function ImpactSection() {
                   className="object-cover transition-transform duration-700 ease-out group-hover:scale-105"
                   fallbackLabel={card.fallback}
                 />
-                <div className="from-ink/85 absolute inset-0 bg-gradient-to-t via-transparent to-transparent opacity-80 transition-opacity duration-500 group-hover:opacity-95" />
+                <div className="from-ink/85 absolute inset-0 bg-linear-to-t via-transparent to-transparent opacity-80 transition-opacity duration-500 group-hover:opacity-95" />
                 <div className="absolute bottom-0 left-0 p-5 md:p-6">
                   <p className="font-body text-[11px] font-semibold tracking-[0.14em] text-white/70 uppercase">
                     {card.subtitle}
