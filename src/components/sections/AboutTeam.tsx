@@ -196,7 +196,7 @@ export function AboutTeam() {
             variants={itemVariants}
             className="font-body text-ink/80 text-[15px] leading-relaxed font-semibold md:max-w-md md:justify-self-end"
           >
-            The people turning everyday choices into environmental change — from our co-founders to
+            The people turning everyday choices into environmental change, from our co-founders to
             the volunteers who make it possible.
           </motion.p>
         </div>

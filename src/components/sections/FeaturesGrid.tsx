@@ -13,7 +13,7 @@ const features: Feature[] = [
   {
     icon: Droplets,
     title: "Leak-proof",
-    copy: "Holds hot and cold without a drop escaping — sealed tight, sip after sip.",
+    copy: "Holds hot and cold without a drop escaping, sealed tight, sip after sip.",
   },
   {
     icon: Flame,
@@ -23,12 +23,12 @@ const features: Feature[] = [
   {
     icon: Leaf,
     title: "Biodegradable",
-    copy: "Fully compostable in 180 days — it returns to the earth, never the landfill.",
+    copy: "Fully compostable in 180 days. It returns to the earth, never the landfill.",
   },
   {
     icon: Cookie,
     title: "Tasty",
-    copy: "Edible to the last bite — our cups are made to be enjoyed, then eaten.",
+    copy: "Edible to the last bite. Our cups are made to be enjoyed, then eaten.",
   },
 ];
 

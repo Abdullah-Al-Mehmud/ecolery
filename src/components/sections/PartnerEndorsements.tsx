@@ -4,7 +4,7 @@ const endorsements = [
     name: "Md. Muyeed Hasan",
     company: "Recover™",
     quote:
-      "As a circular fashion model, we found Ecolery a true collaborator in packaging design — their commitment to sustainability aligns perfectly with our mission to close the loop.",
+      "As a circular fashion model, we found Ecolery a true collaborator in packaging design. Their commitment to sustainability aligns perfectly with our mission to close the loop.",
   },
   {
     initials: "RUMC",

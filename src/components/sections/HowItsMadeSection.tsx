@@ -15,13 +15,13 @@ const steps: Step[] = [
     step: "01",
     icon: Wheat,
     title: "Grain Sourcing",
-    copy: "Every cup starts with renewable, plant-derived grain — farm-friendly and kind to the soil from the very first seed.",
+    copy: "Every cup starts with renewable, plant-derived grain, farm-friendly and kind to the soil from the very first seed.",
   },
   {
     step: "02",
     icon: Stamp,
     title: "Molding",
-    copy: "Heat and pressure shape the grain into cups and cutlery — no petroleum, no plastic, just precision.",
+    copy: "Heat and pressure shape the grain into cups and cutlery. No petroleum, no plastic, just precision.",
   },
   {
     step: "03",

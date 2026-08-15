@@ -4,9 +4,9 @@ import { ContactForm } from "@/components/sections/ContactForm";
 import { OfficeMapEmbed } from "@/components/sections/OfficeMapEmbed";
 
 export const metadata: Metadata = {
-  title: "Contact — Ecolery",
+  title: "Contact · Ecolery",
   description:
-    "Partnership, bulk orders, press or school visits — reach Ecolery by phone, email or in person at our Dhaka office.",
+    "Partnership, bulk orders, press or school visits. Reach Ecolery by phone, email or in person at our Dhaka office.",
 };
 
 export default function ContactPage() {

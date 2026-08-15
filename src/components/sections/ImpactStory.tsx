@@ -84,7 +84,7 @@ export function ImpactStory() {
             variants={textItemVariants}
             className="font-body text-ink/80 mt-6 max-w-md text-[15px] leading-relaxed font-semibold"
           >
-            Ecolery pairs eco-innovation with real community change — creating green jobs for
+            Ecolery pairs eco-innovation with real community change, creating green jobs for
             rural women across our supply chain and bringing sustainability education into
             classrooms, one school visit at a time.
           </motion.p>

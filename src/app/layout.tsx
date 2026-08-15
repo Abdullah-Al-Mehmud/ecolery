@@ -23,7 +23,7 @@ const fraunces = Fraunces({
 });
 
 export const metadata: Metadata = {
-  title: "Ecolery — Compostable tableware",
+  title: "Ecolery · Compostable tableware",
   description:
     "Ecolery makes cork-pressed, fully compostable cups and cutlery that return to the earth after use.",
 };

@@ -21,7 +21,7 @@ export function NewsletterStrip() {
 
         {submitted ? (
           <p className="font-body text-primary-dark mt-6 text-[15px] font-semibold">
-            Thanks — you&apos;re on the list. We&apos;ll be in touch.
+            Thanks, you&apos;re on the list. We&apos;ll be in touch.
           </p>
         ) : (
           <form

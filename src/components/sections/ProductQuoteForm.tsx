@@ -15,7 +15,7 @@ const trustPoints: { icon: LucideIcon; title: string; copy: string }[] = [
   {
     icon: BadgeCheck,
     title: "Honest minimums",
-    copy: "Bulk pricing starts at 1,000 cups — no hidden fees.",
+    copy: "Bulk pricing starts at 1,000 cups, no hidden fees.",
   },
   {
     icon: ShieldCheck,
@@ -36,7 +36,7 @@ export function ProductQuoteForm() {
             Let&apos;s talk <span className="text-primary-dark">volume.</span>
           </h2>
           <p className="font-body text-ink/80 mt-6 max-w-md text-[15px] leading-relaxed font-semibold">
-            Tell us how many cups you need and we&apos;ll handle the rest — from pricing to
+            Tell us how many cups you need and we&apos;ll handle the rest, from pricing to
             nationwide delivery.
           </p>
 

@@ -54,7 +54,7 @@ export function ProductSpecs() {
             variants={itemVariants}
             className="font-body text-white/70 mt-6 max-w-sm text-[15px] leading-relaxed font-semibold"
           >
-            A spec sheet with a conscience — every figure measured so the product can vanish without
+            A spec sheet with a conscience. Every figure measured so the product can vanish without
             a trace.
           </motion.p>
 

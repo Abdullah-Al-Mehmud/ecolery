@@ -18,7 +18,7 @@ const reviews: Review[] = [
   {
     name: "Zubair Hossain",
     role: "Event Manager",
-    text: "Used for a corporate CSR event — it became the talking point of the entire evening.",
+    text: "Used for a corporate CSR event. It became the talking point of the entire evening.",
   },
   {
     name: "Reza Abdullah",

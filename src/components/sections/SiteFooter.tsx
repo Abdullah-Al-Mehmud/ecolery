@@ -95,7 +95,7 @@ export function SiteFooter() {
             <div className="flex items-start gap-3">
               <MapPin className="text-primary mt-0.5 h-4 w-4 shrink-0" strokeWidth={1.75} />
               <p className="font-body text-[14px] font-semibold text-white/70">
-                12, Hasina Badar Villa, Sheikh Shaheb Bazar, Dhaka – 1211
+                12, Hasina Badar Villa, Sheikh Shaheb Bazar, Dhaka 1211
               </p>
             </div>
 

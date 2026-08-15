@@ -50,7 +50,7 @@ export function AboutHero() {
             className="font-body text-ink/80 mt-8 max-w-lg text-[15px] leading-relaxed font-semibold"
           >
             From a Dhaka hackathon to a community-rooted movement, we are proving that everyday
-            choices can restore the planet — one compostable cup at a time.
+            choices can restore the planet, one compostable cup at a time.
           </motion.p>
 
           <motion.div variants={itemVariants} className="mt-10 flex flex-wrap items-center gap-6">

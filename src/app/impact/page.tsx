@@ -6,9 +6,9 @@ import { ImpactReport } from "@/components/sections/ImpactReport";
 import { ImpactSDGs } from "@/components/sections/ImpactSDGs";
 
 export const metadata: Metadata = {
-  title: "Impact — Ecolery",
+  title: "Impact · Ecolery",
   description:
-    "Real numbers, real change — cups replaced, plastic avoided, children educated.",
+    "Real numbers, real change. Cups replaced, plastic avoided, children educated.",
 };
 
 export default function ImpactPage() {

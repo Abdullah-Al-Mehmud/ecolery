@@ -82,7 +82,7 @@ export function ImpactHero() {
           </h1>
 
           <p className="font-body text-ink/80 mt-8 max-w-xl text-[15px] leading-relaxed font-semibold">
-            Behind every figure is a real swap, a real lesson, a real livelihood — and the numbers
+            Behind every figure is a real swap, a real lesson, a real livelihood, and the numbers
             keep climbing every single week.
           </p>
 

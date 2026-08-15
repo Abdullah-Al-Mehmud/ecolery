@@ -51,7 +51,7 @@ export function AboutStats() {
             variants={itemVariants}
             className="font-body text-white/70 text-[15px] leading-relaxed font-semibold md:max-w-md md:justify-self-end"
           >
-            These aren&apos;t vanity metrics — every number tracks a real swap, a real lesson, a
+            These aren&apos;t vanity metrics. Every number tracks a real swap, a real lesson, a
             real livelihood. And they grow every single week.
           </motion.p>
         </div>

@@ -40,7 +40,7 @@ export function ImpactReport() {
           </h2>
 
           <p className="font-body text-ink/80 mt-6 max-w-md text-[15px] leading-relaxed font-semibold">
-            Every cup, every lesson, every livelihood — documented, measured and verified. A full
+            Every cup, every lesson, every livelihood, documented, measured and verified. A full
             look at what we built in 2025 and where we&apos;re headed next.
           </p>
 

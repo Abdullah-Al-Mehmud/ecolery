@@ -43,7 +43,7 @@ export function PressNewsGrid() {
             Ecolery in the world&apos;s <span className="text-primary-dark">headlines.</span>
           </h2>
           <p className="font-body text-ink/80 mt-6 max-w-lg text-[15px] leading-relaxed font-semibold">
-            Grants, programs and campaigns — a running record of where the mission has taken us.
+            Grants, programs and campaigns, a running record of where the mission has taken us.
           </p>
         </motion.div>
 

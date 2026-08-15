@@ -71,7 +71,7 @@ export function ImpactSDGs() {
             </h2>
           </div>
           <p className="font-body text-ink/80 text-[15px] leading-relaxed font-semibold md:mb-1 md:max-w-sm md:justify-self-end">
-            Our work maps directly to four Sustainable Development Goals — measured, reported and
+            Our work maps directly to four Sustainable Development Goals, measured, reported and
             audited every year.
           </p>
         </motion.div>

@@ -71,7 +71,7 @@ export function AboutJourney() {
           </div>
 
           <p className="font-body text-ink/80 text-[15px] leading-relaxed font-semibold md:max-w-md md:justify-self-end">
-            From a hackathon pitch to an award-winning movement — three years, one clear
+            From a hackathon pitch to an award-winning movement. Three years, one clear
             direction.
           </p>
         </motion.div>

@@ -1,6 +1,5 @@
 "use client";
 
-import { Ban, Leaf, Recycle, ShieldCheck, Sprout } from "lucide-react";
 import Image from "next/image";
 import { useState, type ComponentProps } from "react";
 
@@ -24,12 +23,12 @@ function ImageWithFallback(props: ComponentProps<typeof Image> & { fallbackLabel
 }
 
 const certifications = [
-  { icon: Leaf, label: "100% Edible" },
-  { icon: Recycle, label: "Recyclable Packaging" },
-  { icon: Ban, label: "No Petroleum" },
-  { icon: Recycle, label: "Recyclable" },
-  { icon: Sprout, label: "Biodegradable" },
-  { icon: ShieldCheck, label: "Food-Safe" },
+  { img: "/icons/edible.png", label: "100% Edible" },
+  { img: "/icons/recycleablePackaging.png", label: "Recyclable Packaging" },
+  { img: "/icons/petroleum.png", label: "No Petroleum" },
+  { img: "/icons/recycle.png", label: "Recyclable" },
+  { img: "/icons/biodegradable.png", label: "Biodegradable" },
+  { img: "/icons/foodSafe.png", label: "Food-Safe" },
 ];
 
 const metrics = [
@@ -109,7 +108,7 @@ export function ImpactSection() {
             </h2>
             <p className="font-body mt-6 max-w-md text-[15px] leading-relaxed font-semibold text-gray-600">
               Ecolery is redefining sustainability with edible products that help reduce plastic
-              pollution and inspire a zero-waste future — designed for everyday dining, built to
+              pollution and inspire a zero-waste future, designed for everyday dining, built to
               disappear responsibly.
             </p>
 
@@ -142,15 +141,15 @@ export function ImpactSection() {
       </section>
 
       {/* ---------- CERTIFICATION STRIP ---------- */}
-      <section className="bg-cream border-y border-black/5 px-6 py-10">
+      <section className="bg-cream border-y border-black/5 px-6">
         <div className="mx-auto flex max-w-6xl flex-wrap items-center justify-between gap-y-8">
-          {certifications.map(({ icon: Icon, label }) => (
+          {certifications.map(({ img: Img, label }) => (
             <div
               key={label}
-              className="flex min-w-[140px] flex-1 flex-col items-center gap-2 text-center"
+              className="items-bottom flex min-w-[140px] flex-1 flex-col gap-2 text-center"
             >
-              <Icon className="text-primary h-6 w-6" strokeWidth={1.75} />
-              <span className="font-body text-ink text-[13px] font-bold">{label}</span>
+              <Image width={400} height={400} src={Img} />
+              {/* <span className="font-body text-ink text-[13px] font-bold">{label}</span> */}
             </div>
           ))}
         </div>

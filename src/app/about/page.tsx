@@ -8,7 +8,7 @@ import { AboutStats } from "@/components/sections/AboutStats";
 import { AboutTeam } from "@/components/sections/AboutTeam";
 
 export const metadata: Metadata = {
-  title: "About — Ecolery",
+  title: "About · Ecolery",
   description: "Shaping a zero-plastic tomorrow together.",
 };
 

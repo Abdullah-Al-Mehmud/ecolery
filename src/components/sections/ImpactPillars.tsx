@@ -16,9 +16,9 @@ const pillars: {
     icon: Leaf,
     title: "Environmental Impact",
     stat: "180 days",
-    statLabel: "to fully decompose — no trace left behind",
+    statLabel: "to fully decompose, no trace left behind",
     story:
-      "Every cup replaces a single-use plastic that would outlive all of us. Ours returns to soil in 180 days — measured, certified and gone without a trace.",
+      "Every cup replaces a single-use plastic that would outlive all of us. Ours returns to soil in 180 days, measured, certified and gone without a trace.",
   },
   {
     icon: HeartHandshake,
@@ -70,7 +70,7 @@ export function ImpactPillars() {
             Three pillars, one <span className="text-primary-light">promise.</span>
           </h2>
           <p className="font-body text-white/70 mt-6 max-w-lg text-[15px] leading-relaxed font-semibold">
-            Environment, people and economy — no single win matters unless all three move
+            Environment, people and economy. No single win matters unless all three move
             together.
           </p>
         </motion.div>
