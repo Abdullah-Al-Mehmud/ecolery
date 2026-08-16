@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Sprout, TrendingUp, Trophy, type LucideIcon } from "lucide-react";
+import { Sprout, TrendingUp, Trophy, Zap, type LucideIcon } from "lucide-react";
 
 const EASE: [number, number, number, number] = [0.22, 1, 0.36, 1];
 
@@ -16,22 +16,33 @@ const milestones: {
     year: "2023",
     step: "01",
     icon: Sprout,
-    title: "The founding",
-    detail: "Orange Corners Bangladesh Hackathon Champion",
+    title: "Ideation and prototype",
+    detail:
+      "Ecolery began in the ideation and prototype stage, transforming an early concept for edible alternatives into a validated vision for a zero-waste future.",
   },
   {
     year: "2024",
     step: "02",
     icon: TrendingUp,
-    title: "Early backing",
-    detail: "Orange Corners Track-1 Funding",
+    title: "First steps as a business",
+    detail:
+      "Ecolery took its first steps as a business, establishing operations and moving into in-house production to turn its sustainable goals into reality.",
   },
   {
     year: "2025",
     step: "03",
     icon: Trophy,
-    title: "Recognition",
-    detail: "Generation Hope Goals, #Change100 & Green Woman Entrepreneur Award wins",
+    title: "Expanded impact",
+    detail:
+      "Ecolery expanded its impact beyond products, creating opportunities for women artisans and strengthening its role within Bangladesh’s growing sustainability ecosystem.",
+  },
+  {
+    year: "2026",
+    step: "04",
+    icon: Zap,
+    title: "New phase of growth",
+    detail:
+      "Ecolery entered a new phase of growth, expanding its international exposure, strengthening its operations, and bringing sustainability into new communities.",
   },
 ];
 
@@ -71,8 +82,7 @@ export function AboutJourney() {
           </div>
 
           <p className="font-body text-ink/80 text-[15px] leading-relaxed font-semibold md:max-w-md md:justify-self-end">
-            From a hackathon pitch to an award-winning movement. Three years, one clear
-            direction.
+            From a hackathon pitch to an award-winning movement. Three years, one clear direction.
           </p>
         </motion.div>
 
@@ -107,10 +117,10 @@ export function AboutJourney() {
                   variants={isLeft ? leftVariants : rightVariants}
                   className="pl-12 md:w-[calc(50%-4rem)] md:pl-0"
                 >
-                  <div className="bg-white relative overflow-hidden rounded-2xl p-6 md:p-8">
+                  <div className="relative overflow-hidden rounded-2xl bg-white p-6 md:p-8">
                     <span
                       aria-hidden
-                      className="font-fraunces text-transparent absolute -top-4 right-4 text-7xl font-semibold select-none [-webkit-text-stroke:1.5px_var(--color-primary)]"
+                      className="font-fraunces text-primary/[0.07] absolute right-4 text-7xl font-bold select-none"
                     >
                       {step}
                     </span>

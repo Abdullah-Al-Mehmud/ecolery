@@ -1,26 +1,9 @@
 "use client";
 
 import Image from "next/image";
-import { useState, type ComponentProps } from "react";
-
-function ImageWithFallback(props: ComponentProps<typeof Image> & { fallbackLabel?: string }) {
-  const { fallbackLabel, className, alt, ...rest } = props;
-  const [error, setError] = useState(false);
-
-  if (error) {
-    return (
-      <div className={`bg-moss/10 flex items-center justify-center ${className ?? ""}`}>
-        {fallbackLabel && (
-          <span className="font-body text-moss/40 text-xs font-semibold tracking-wider uppercase">
-            {fallbackLabel}
-          </span>
-        )}
-      </div>
-    );
-  }
-
-  return <Image {...rest} alt={alt ?? ""} className={className} onError={() => setError(true)} />;
-}
+import { ImageWithFallback } from "@/components/shared/ImageWithFallback";
+import { ArrowUpRight } from "lucide-react";
+import Link from "next/link";
 
 const metrics = [
   { value: "180", unit: "days", label: "Decomposition cycle in soil" },
@@ -36,46 +19,46 @@ const impactStats = [
 
 const featureCards = [
   {
-    image: "https://picsum.photos/seed/ecolery-hotbrew/1000/1000",
-    title: "Built-in spout",
-    subtitle: "Hot brews",
+    image: "/gallery/Recognition%20for%20Work/With%20Dr%20Yunus.jpg",
+    title: "With Dr. Yunus",
+    subtitle: "Recognition",
     area: "a",
-    fallback: "Hot brew cup",
+    fallback: "Recognition — With Dr. Yunus",
   },
   {
-    image: "https://picsum.photos/seed/ecolery-coldrink/600/600",
-    title: "Fits any straw",
-    subtitle: "Cold drinks",
+    image: "/gallery/Project%20ASHAA/Training%20women%20Mymensingh.jpg",
+    title: "Training women in Mymensingh",
+    subtitle: "Project ASHAA",
     area: "b",
-    fallback: "Cold drink cup",
+    fallback: "Project ASHAA training",
   },
   {
-    image: "https://picsum.photos/seed/ecolery-foodtogo/600/600",
-    title: "Perfect for food to go",
-    subtitle: "On-the-move meals",
+    image: "/gallery/InternationalRelationships/IMG-20260511-WA0004.jpg",
+    title: "Relationships across borders",
+    subtitle: "International",
     area: "c",
-    fallback: "Food to-go container",
+    fallback: "International relationships",
   },
   {
-    image: "https://picsum.photos/seed/ecolery-edible/1200/600",
-    title: "100% edible finish",
-    subtitle: "Zero waste after use",
+    image: "/gallery/UNESCO%20Green%20Generation%20Campaign%20/IMG_0225.jpg",
+    title: "Campaigns that move crowds",
+    subtitle: "UNESCO Green Generation",
     area: "d",
-    fallback: "Edible cup finish",
+    fallback: "UNESCO campaign",
   },
   {
-    image: "https://picsum.photos/seed/ecolery-compost/600/600",
-    title: "Compostable in 180 days",
-    subtitle: "Soil-safe design",
+    image: "/gallery/Some%20Partnerships/NL1A5447-1.JPG",
+    title: "Grown together",
+    subtitle: "Partnerships",
     area: "e",
-    fallback: "Compostable cup",
+    fallback: "Partnership moment",
   },
   {
-    image: "https://picsum.photos/seed/ecolery-events/1200/600",
-    title: "Loved at events",
-    subtitle: "Cafés, parties & more",
+    image: "/gallery/UNESCO%20Green%20Generation%20Campaign%20/IMG20260115154539.jpg",
+    title: "On the ground",
+    subtitle: "Field moments",
     area: "f",
-    fallback: "Cup at events",
+    fallback: "Field moment",
   },
 ];
 
@@ -226,12 +209,19 @@ export function ImpactSection() {
       {/* ---------- FEATURE BENTO GALLERY ---------- */}
       <section className="bg-cream px-6 pb-24">
         <div className="mx-auto max-w-6xl">
-          <div className="mb-10 flex items-end justify-between">
+          <div className="mb-10 flex items-end justify-between gap-6">
             <h3 className="font-display text-ink text-3xl font-bold tracking-tight md:text-4xl">
-              Made for every sip
+              Moments that move
               <br />
-              <span className="text-primary-dark">and every bite.</span>
+              <span className="text-primary-dark">the mission forward.</span>
             </h3>
+            <Link
+              href="/gallery"
+              className="group border-black/10 bg-white text-ink hover:border-primary hover:bg-primary hover:text-cream flex shrink-0 items-center gap-2 rounded-full border px-5 py-2.5 text-[13px] font-semibold transition-colors duration-300"
+            >
+              View gallery
+              <ArrowUpRight className="h-4 w-4" strokeWidth={1.75} />
+            </Link>
           </div>
 
           <div

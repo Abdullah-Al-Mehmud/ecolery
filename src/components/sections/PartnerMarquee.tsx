@@ -79,16 +79,8 @@ export function PartnerMarquee() {
       <div className="mx-auto max-w-6xl">
         <div className="flex flex-col items-center gap-4 text-center">
           <span className="font-body text-ink/50 inline-flex items-center gap-2 text-[11px] font-semibold tracking-[0.24em] uppercase">
-            <span className="h-1 w-1 rounded-full bg-[#2f6f62]" />
             Partnered with
-            <span className="h-1 w-1 rounded-full bg-[#2f6f62]" />
           </span>
-
-          {/* Signature element: a signal line with a traveling pulse — 
-              a quiet nod to "network of partners" rather than a decorative flourish */}
-          <div className="relative h-px w-40 overflow-hidden bg-black/[0.08]">
-            <div className="motion-safe:animate-signal absolute inset-y-0 left-0 w-10 bg-gradient-to-r from-transparent via-[#2f6f62] to-transparent motion-reduce:hidden" />
-          </div>
         </div>
 
         <div className="mt-12 space-y-6">

@@ -1,10 +1,10 @@
 "use client";
 
+import { ArticleDetailModal } from "@/components/shared/ArticleDetailModal";
+import { pressArticles, pressCategoryStyles, type PressArticle } from "@/lib/press";
 import { motion } from "framer-motion";
 import { ArrowUpRight } from "lucide-react";
 import { useState } from "react";
-import { ArticleDetailModal } from "@/components/shared/ArticleDetailModal";
-import { pressArticles, pressCategoryStyles, type PressArticle } from "@/lib/press";
 
 const EASE: [number, number, number, number] = [0.22, 1, 0.36, 1];
 
@@ -49,7 +49,7 @@ export function PressNewsGrid() {
 
         <motion.div variants={itemVariants} className="mt-14 flex items-center gap-3">
           <div className="bg-primary h-1 w-8 rounded-full" />
-          <p className="font-body text-primary text-[12px] font-semibold uppercase tracking-[0.14em]">
+          <p className="font-body text-primary text-[12px] font-semibold tracking-[0.14em] uppercase">
             Featured story
           </p>
         </motion.div>
@@ -62,7 +62,7 @@ export function PressNewsGrid() {
         >
           <div
             aria-hidden
-            className="bg-[radial-gradient(60%_100%_at_100%_0%,rgba(140,199,140,0.08),transparent)] absolute inset-0"
+            className="absolute inset-0 bg-[radial-gradient(60%_100%_at_100%_0%,rgba(140,199,140,0.08),transparent)]"
           />
           <div
             aria-hidden
@@ -78,11 +78,11 @@ export function PressNewsGrid() {
           <div className="relative">
             <div className="flex flex-wrap items-center gap-4">
               <span
-                className={`rounded-full px-3 py-1 text-[10px] font-bold uppercase tracking-[0.14em] ${pressCategoryStyles[featured.category]}`}
+                className={`rounded-full px-3 py-1 text-[10px] font-bold tracking-[0.14em] uppercase ${pressCategoryStyles[featured.category]}`}
               >
                 {featured.category}
               </span>
-              <span className="font-body text-white/50 text-[12px] font-semibold">
+              <span className="font-body text-[12px] font-semibold text-white/50">
                 {featured.date}
               </span>
             </div>
@@ -91,12 +91,12 @@ export function PressNewsGrid() {
               {featured.headline}
             </h3>
 
-            <p className="font-body text-white/70 mt-6 max-w-xl text-[15px] leading-relaxed font-semibold">
+            <p className="font-body mt-6 max-w-xl text-[15px] leading-relaxed font-semibold text-white/70">
               {featured.excerpt}
             </p>
 
             <div className="mt-9 flex items-center gap-2">
-              <span className="font-body text-primary-light text-[12px] font-bold uppercase tracking-[0.14em]">
+              <span className="font-body text-primary-light text-[12px] font-bold tracking-[0.14em] uppercase">
                 Read the story
               </span>
               <span className="border-primary-light/30 text-primary-light group-hover:bg-primary-light group-hover:text-moss rounded-full border p-2 transition-colors duration-300">
@@ -107,8 +107,8 @@ export function PressNewsGrid() {
         </motion.button>
 
         <motion.div variants={itemVariants} className="mt-16">
-          <div className="border-black/10 flex items-center justify-between border-b pb-3">
-            <p className="font-body text-ink/50 text-[12px] font-semibold uppercase tracking-[0.14em]">
+          <div className="flex items-center justify-between border-b border-black/10 pb-3">
+            <p className="font-body text-ink/50 text-[12px] font-semibold tracking-[0.14em] uppercase">
               More stories
             </p>
             <p className="font-body text-ink/50 text-[12px] font-semibold">{rest.length} items</p>
@@ -120,8 +120,8 @@ export function PressNewsGrid() {
               type="button"
               variants={itemVariants}
               onClick={() => setSelected(article)}
-              className={`group grid w-full items-center gap-4 rounded-2xl py-8 text-left transition-colors duration-300 hover:bg-white/60 md:grid-cols-12 md:gap-8 md:px-6 md:-mx-6 ${
-                index < rest.length - 1 ? "border-black/10 border-b" : ""
+              className={`group grid w-full items-center gap-4 rounded-2xl py-8 text-left transition-colors duration-300 hover:bg-white/60 md:-mx-6 md:grid-cols-12 md:gap-8 md:px-6 ${
+                index < rest.length - 1 ? "border-b border-black/10" : ""
               }`}
             >
               <span className="font-fraunces text-primary-dark text-3xl font-semibold tracking-tight md:col-span-2 md:text-5xl">
@@ -130,7 +130,7 @@ export function PressNewsGrid() {
 
               <div className="flex flex-col items-start gap-3 md:col-span-3">
                 <span
-                  className={`rounded-full px-3 py-1 text-[10px] font-bold uppercase tracking-[0.14em] ${pressCategoryStyles[article.category]}`}
+                  className={`rounded-full px-3 py-1 text-[10px] font-bold tracking-[0.14em] uppercase ${pressCategoryStyles[article.category]}`}
                 >
                   {article.category}
                 </span>
@@ -140,7 +140,7 @@ export function PressNewsGrid() {
               </div>
 
               <div className="md:col-span-6">
-                <h3 className="font-fraunces text-ink text-xl leading-snug font-semibold transition-colors duration-300 group-hover:text-primary-dark md:text-2xl">
+                <h3 className="font-fraunces text-ink group-hover:text-primary-dark text-xl leading-snug font-semibold transition-colors duration-300 md:text-2xl">
                   {article.headline}
                 </h3>
                 <p className="font-body text-ink/60 mt-2 hidden text-[13px] leading-relaxed font-semibold lg:block">
