@@ -1,8 +1,10 @@
 "use client";
 
+import { motion, useScroll, useTransform } from "framer-motion";
 import Image from "next/image";
+import { useEffect, useRef } from "react";
 import { ImageWithFallback } from "@/components/shared/ImageWithFallback";
-import { ArrowUpRight } from "lucide-react";
+import { ArrowUpRight, Leaf } from "lucide-react";
 import Link from "next/link";
 
 const metrics = [
@@ -12,9 +14,9 @@ const metrics = [
 ];
 
 const impactStats = [
-  { value: "160,000+", label: "Plastic Cups Replaced" },
-  { value: "962+", label: "Orders Delivered" },
-  { value: "1,500+", label: "Educational Sustainability" },
+  { value: "160,000+", unit: "", label: "Plastic Cups Replaced" },
+  { value: "962+", unit: "", label: "Orders Delivered" },
+  { value: "1,500+", unit: "", label: "Educational Sustainability" },
 ];
 
 const featureCards = [
@@ -62,42 +64,90 @@ const featureCards = [
   },
 ];
 
-export function ImpactSection() {
+function MissionSection() {
+  const sectionRef = useRef<HTMLElement>(null);
+  const videoRef = useRef<HTMLVideoElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: sectionRef,
+    offset: ["start end", "end start"],
+  });
+  const videoY = useTransform(scrollYProgress, [0, 1], ["-8%", "8%"]);
+  const textY = useTransform(scrollYProgress, [0, 1], ["4%", "-4%"]);
+
+  useEffect(() => {
+    const el = sectionRef.current;
+    const video = videoRef.current;
+    if (!el || !video) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          video.play();
+        } else {
+          video.pause();
+          video.currentTime = 0;
+        }
+      },
+      { threshold: 0.3 }
+    );
+
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, []);
+
   return (
-    <>
-      {/* ---------- ABOUT / MISSION ---------- */}
-      <section
-        id="about"
-        className="bg-cream relative scroll-mt-28 overflow-hidden px-6 py-24 md:py-32"
-      >
-        <div className="relative mx-auto grid max-w-6xl items-center gap-14 md:grid-cols-2">
-          <div>
+    <section
+      ref={sectionRef}
+      id="about"
+      className="bg-cream relative scroll-mt-28 overflow-hidden px-6 py-24 md:py-32"
+    >
+      <div className="relative mx-auto grid max-w-6xl items-center gap-14 md:grid-cols-2">
+        <motion.div style={{ y: textY }}>
+          <div className="flex items-center gap-3">
+            <div className="bg-primary/10 flex h-10 w-10 items-center justify-center rounded-full">
+              <Leaf className="text-primary h-5 w-5" strokeWidth={1.75} />
+            </div>
             <span className="font-body text-primary text-[13px] font-semibold tracking-[0.2em] uppercase">
               Our mission
             </span>
-            <h2 className="font-display text-ink mt-4 text-4xl leading-[1.1] font-bold tracking-tight md:text-5xl">
-              Eat the cup.
-              <br />
-              <span className="text-primary-dark">Eliminate the waste.</span>
-            </h2>
-            <p className="font-body mt-6 max-w-md text-[15px] leading-relaxed font-semibold text-gray-600">
-              Ecolery is redefining sustainability with edible products that help reduce plastic
-              pollution and inspire a zero-waste future, designed for everyday dining, built to
-              disappear responsibly.
-            </p>
           </div>
+          <h2 className="font-display text-ink mt-5 text-4xl leading-[1.1] font-bold tracking-tight md:text-5xl">
+            Eat the cup.
+            <br />
+            <span className="text-primary-dark">Eliminate the waste.</span>
+          </h2>
+          <p className="font-body mt-6 max-w-md text-[15px] leading-relaxed font-semibold text-gray-600">
+            Ecolery is redefining sustainability with edible products that help reduce plastic
+            pollution and inspire a zero-waste future, designed for everyday dining, built to
+            disappear responsibly.
+          </p>
+        </motion.div>
 
-          <div className="relative aspect-4/5 w-full overflow-hidden rounded-4xl">
-            <ImageWithFallback
-              src="/cup.png"
-              alt="Ecolery edible cup in use"
-              fill
-              className="object-cover"
-              fallbackLabel="Ecolery Cup"
+        <motion.div
+          style={{ y: videoY }}
+          className="relative"
+        >
+          <div className="relative aspect-video overflow-hidden rounded-[2rem] shadow-2xl shadow-ink/15 -rotate-1 transition-transform duration-500 hover:rotate-0 hover:scale-[1.02]">
+            <video
+              ref={videoRef}
+              src="/Product feature.mp4"
+              loop
+              muted
+              playsInline
+              className="absolute inset-0 h-full w-full object-cover"
             />
           </div>
-        </div>
-      </section>
+          <div className="absolute -inset-4 -z-10 rounded-[2.5rem] bg-primary/5 blur-xl" />
+        </motion.div>
+      </div>
+    </section>
+  );
+}
+
+export function ImpactSection() {
+  return (
+    <>
+      <MissionSection />
 
       {/* ---------- CERTIFICATION STRIP ---------- */}
       <section className="bg-cream border-y border-black/5 px-6 py-10">
@@ -160,46 +210,29 @@ export function ImpactSection() {
       </section>
 
       {/* ---------- IMPACT METRICS BAND ---------- */}
-      <section id="impact" className="bg-moss relative scroll-mt-28 overflow-hidden px-6 py-20">
-        <div className="relative mx-auto max-w-6xl">
-          <h3 className="font-display text-center text-2xl font-bold text-white md:text-3xl">
+      <section id="impact" className="bg-moss relative scroll-mt-28 overflow-hidden px-6 py-24 md:py-32">
+        <div className="relative mx-auto max-w-5xl text-center">
+          <div className="flex items-center justify-center gap-3">
+            <div className="h-px w-12 bg-white/20" />
+            <span className="font-body text-primary-light text-[12px] font-semibold tracking-[0.25em] uppercase">
+              Our impact
+            </span>
+            <div className="h-px w-12 bg-white/20" />
+          </div>
+
+          <h3 className="font-display text-3xl font-bold text-white md:text-4xl">
             The metrics that tell our circular journey
           </h3>
 
-          <div className="mt-12 grid gap-5 sm:grid-cols-3">
-            {metrics.map((m) => (
-              <div
-                key={m.label}
-                className="rounded-2xl bg-white/6 px-8 py-10 text-center backdrop-blur-sm"
-              >
-                <p className="font-display text-4xl font-bold text-white md:text-5xl">
+          <div className="mt-16 grid items-start gap-10 sm:grid-cols-3 sm:gap-0 sm:divide-x sm:divide-white/10">
+            {impactStats.map((m) => (
+              <div key={m.label} className="flex flex-col items-center px-6">
+                <p className="font-display text-5xl font-bold text-white md:text-6xl">
                   {m.value}
-                  {m.unit && (
-                    <span className="ml-1 text-xl font-semibold text-white/70">{m.unit}</span>
-                  )}
                 </p>
-                <p className="font-body mt-3 text-[13px] font-semibold text-white/70">{m.label}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ---------- STATS / PLASTIC-FREE FUTURE ---------- */}
-      <section className="bg-cream px-6 py-24">
-        <div className="mx-auto max-w-6xl text-center">
-          <h3 className="font-display text-ink text-3xl font-bold tracking-tight md:text-4xl">
-            Building a <span className="text-primary-dark">plastic-free future</span>, one cup at a
-            time
-          </h3>
-
-          <div className="mt-14 grid gap-10 sm:grid-cols-3">
-            {impactStats.map((s) => (
-              <div key={s.label}>
-                <p className="font-display text-primary-dark text-4xl font-bold md:text-5xl">
-                  {s.value}
+                <p className="font-body mt-3 text-[13px] font-semibold text-white/50">
+                  {m.label}
                 </p>
-                <p className="font-body mt-2 text-[14px] font-semibold text-gray-600">{s.label}</p>
               </div>
             ))}
           </div>
@@ -207,7 +240,7 @@ export function ImpactSection() {
       </section>
 
       {/* ---------- FEATURE BENTO GALLERY ---------- */}
-      <section className="bg-cream px-6 pb-24">
+      <section className="bg-cream px-6 pt-24 pb-24 md:pt-32 md:pb-28">
         <div className="mx-auto max-w-6xl">
           <div className="mb-10 flex items-end justify-between gap-6">
             <h3 className="font-display text-ink text-3xl font-bold tracking-tight md:text-4xl">

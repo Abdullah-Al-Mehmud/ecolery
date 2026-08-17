@@ -1,30 +1,41 @@
 import { BlogSection } from "@/components/sections/BlogSection";
 import { ComparisonSection } from "@/components/sections/ComparisonSection";
-import { FeaturesGrid } from "@/components/sections/FeaturesGrid";
 import { Hero } from "@/components/sections/Hero";
 import { ImpactStory } from "@/components/sections/ImpactStory";
 import { NewsletterStrip } from "@/components/sections/NewsletterStrip";
-import { PartnerEndorsements } from "@/components/sections/PartnerEndorsements";
 import { PartnerMarquee } from "@/components/sections/PartnerMarquee";
 import { ProblemStatementStrip } from "@/components/sections/ProblemStatementStrip";
-import { SDGStrip } from "@/components/sections/SDGStrip";
 import { TestimonialsSection } from "@/components/sections/TestimonialsSection";
 import { ImpactSection } from "@/components/template/ImpactSection";
 
 export default function Home() {
   return (
     <main>
+      {/* 1. Hook */}
       <Hero />
+
+      {/* 2. Pain point */}
       <ProblemStatementStrip />
+
+      {/* 3. Solution */}
       <ComparisonSection />
-      <FeaturesGrid />
+
+      {/* 4. Proof — metrics + gallery */}
       <ImpactSection />
-      <ImpactStory />
+
+      {/* 5. Consumer social proof */}
       <TestimonialsSection />
-      <PartnerEndorsements />
+
+      {/* 6. Human story */}
+      <ImpactStory />
+
+      {/* 7. Trust — logo wall */}
       <PartnerMarquee />
-      <SDGStrip />
+
+      {/* 8. Content */}
       <BlogSection />
+
+      {/* 9. CTA */}
       <NewsletterStrip />
     </main>
   );

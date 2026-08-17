@@ -13,14 +13,14 @@ export function NewsletterStrip() {
   };
 
   return (
-    <section className="bg-cream-2 border-t border-black/5 px-6 py-20 md:py-28">
+    <section className="bg-moss border-t border-white/10 px-6 py-20 md:py-28">
       <div className="mx-auto max-w-3xl text-center">
-        <h2 className="font-fraunces text-ink text-3xl font-semibold tracking-tight md:text-4xl">
+        <h2 className="font-fraunces text-white text-3xl font-semibold tracking-tight md:text-4xl">
           Stay in the loop
         </h2>
 
         {submitted ? (
-          <p className="font-body text-primary-dark mt-6 text-[15px] font-semibold">
+          <p className="font-body text-primary-light mt-6 text-[15px] font-semibold">
             Thanks, you&apos;re on the list. We&apos;ll be in touch.
           </p>
         ) : (

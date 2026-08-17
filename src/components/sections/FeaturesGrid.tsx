@@ -36,7 +36,7 @@ const EASE: [number, number, number, number] = [0.22, 1, 0.36, 1];
 
 export function FeaturesGrid() {
   return (
-    <section className="bg-cream px-6 py-24 md:py-32">
+    <section className="bg-cream-2 px-6 py-24 md:py-32">
       <div className="mx-auto max-w-6xl">
         <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
           {features.map(({ icon: Icon, title, copy }) => (
