@@ -17,6 +17,7 @@ interface GalleryImage {
 
 const EASE: [number, number, number, number] = [0.22, 1, 0.36, 1];
 const INITIAL_VISIBLE = 12;
+const CHUNK_SIZE = 12;
 
 const containerVariants = {
   hidden: {},
@@ -44,10 +45,15 @@ export function GallerySection({ categories }: { categories: GalleryCategory[] }
   }, [active, allImages, categories]);
 
   const visible = filtered.slice(0, visibleCount);
+  const hasMore = visibleCount < filtered.length;
 
   const handleSelect = (slug: string) => {
     setActive(slug);
     setVisibleCount(INITIAL_VISIBLE);
+  };
+
+  const handleLoadMore = () => {
+    setVisibleCount((count) => Math.min(count + CHUNK_SIZE, filtered.length));
   };
 
   const pills = [{ slug: "all", label: "All" }, ...categories];
@@ -71,50 +77,40 @@ export function GallerySection({ categories }: { categories: GalleryCategory[] }
               </h1>
             </div>
             <p className="font-body text-ink/80 text-[15px] leading-relaxed font-semibold md:mb-1 md:max-w-sm md:justify-self-end">
-              Field visits, partnerships, campaigns and recognition — a visual record of the
-              mission in motion.
+              Field visits, partnerships, campaigns and recognition — a visual record of the mission
+              in motion.
             </p>
           </motion.div>
 
-          <motion.div
-            variants={itemVariants}
-            className="mt-12 flex flex-wrap items-center justify-between gap-4"
-          >
-            <div className="flex flex-wrap items-center gap-3">
-              {pills.map((pill) => (
-                <button
-                  key={pill.slug}
-                  type="button"
-                  onClick={() => handleSelect(pill.slug)}
-                  aria-pressed={active === pill.slug}
-                  className={`rounded-full px-5 py-2.5 text-[13px] font-semibold transition-colors duration-300 ${
-                    active === pill.slug
-                      ? "bg-ink text-cream"
-                      : "border-black/10 bg-white text-ink hover:border-black/25 hover:bg-cream-2"
-                  }`}
-                >
-                  {pill.label}
-                </button>
-              ))}
-            </div>
-            <p className="font-body text-ink/50 text-[12px] font-semibold tracking-[0.14em] uppercase">
-              Showing {visible.length} of {filtered.length} photos
-            </p>
+          <motion.div variants={itemVariants} className="mt-12 flex flex-wrap items-center gap-3">
+            {pills.map((pill) => (
+              <button
+                key={pill.slug}
+                type="button"
+                onClick={() => handleSelect(pill.slug)}
+                aria-pressed={active === pill.slug}
+                className={`rounded-full px-5 py-2.5 text-[13px] font-semibold transition-colors duration-300 ${
+                  active === pill.slug
+                    ? "bg-moss text-cream"
+                    : "text-ink hover:bg-cream-2 border-black/10 bg-white hover:border-black/25"
+                }`}
+              >
+                {pill.label}
+              </button>
+            ))}
           </motion.div>
         </motion.div>
 
         <motion.div
-          key={active}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: false, amount: 0.05 }}
-          variants={containerVariants}
+          key={`${active}-${visibleCount}`}
+          initial={{ opacity: 0, y: 16 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, ease: EASE }}
           className="mt-10 grid grid-cols-2 gap-5 md:grid-cols-3"
         >
           {visible.map((img) => (
-            <motion.figure
+            <figure
               key={img.src}
-              variants={itemVariants}
               className="bg-moss/10 group relative aspect-[4/3] overflow-hidden rounded-2xl"
             >
               <ImageWithFallback
@@ -131,18 +127,18 @@ export function GallerySection({ categories }: { categories: GalleryCategory[] }
                   {img.label}
                 </p>
               </figcaption>
-            </motion.figure>
+            </figure>
           ))}
         </motion.div>
 
-        {visibleCount < filtered.length && (
+        {hasMore && (
           <div className="mt-14 text-center">
             <button
               type="button"
-              onClick={() => setVisibleCount(filtered.length)}
-              className="bg-ink text-cream hover:bg-moss rounded-full px-8 py-3.5 text-[14px] font-semibold transition-colors"
+              onClick={handleLoadMore}
+              className="bg-moss text-cream hover:bg-moss rounded-full px-8 py-3.5 text-[14px] font-semibold transition-colors"
             >
-              Load all {filtered.length - visible.length} more
+              Load more
             </button>
           </div>
         )}

@@ -18,10 +18,10 @@
   --color-rust: #c1622b;
   --color-cork: #c08a54;
 
-  /* --- Type roles --- */
-  --font-display: var(--font-sora);
-  --font-body: var(--font-manrope);
-  --font-fraunces: var(--font-fraunces); /* statement-serif exception, statement headlines only */
+  /* --- Type roles (single family, loaded via Google Fonts @import) --- */
+  --font-display: "Montserrat", sans-serif;
+  --font-body: "Montserrat", sans-serif;
+  --font-fraunces: "Montserrat", sans-serif; /* alias kept so all class names keep working */
 
   /* --- Animations --- */
   --animate-marquee: marquee 40s linear infinite;
