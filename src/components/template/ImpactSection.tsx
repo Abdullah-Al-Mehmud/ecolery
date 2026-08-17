@@ -6,6 +6,7 @@ import { useEffect, useRef } from "react";
 import { ImageWithFallback } from "@/components/shared/ImageWithFallback";
 import { ArrowUpRight, Leaf } from "lucide-react";
 import Link from "next/link";
+import { StaggerChildren, staggerItem } from "@/components/shared/StaggerChildren";
 
 const metrics = [
   { value: "180", unit: "days", label: "Decomposition cycle in soil" },
@@ -224,18 +225,18 @@ export function ImpactSection() {
             The metrics that tell our circular journey
           </h3>
 
-          <div className="mt-16 grid items-start gap-10 sm:grid-cols-3 sm:gap-0 sm:divide-x sm:divide-white/10">
+          <StaggerChildren className="mt-16 grid items-start gap-10 sm:grid-cols-3 sm:gap-0 sm:divide-x sm:divide-white/10" staggerDelay={0.15}>
             {impactStats.map((m) => (
-              <div key={m.label} className="flex flex-col items-center px-6">
+              <motion.div key={m.label} variants={staggerItem} className="flex flex-col items-center px-6">
                 <p className="font-display text-5xl font-bold text-white md:text-6xl">
                   {m.value}
                 </p>
                 <p className="font-body mt-3 text-[13px] font-semibold text-white/50">
                   {m.label}
                 </p>
-              </div>
+              </motion.div>
             ))}
-          </div>
+          </StaggerChildren>
         </div>
       </section>
 
@@ -257,13 +258,15 @@ export function ImpactSection() {
             </Link>
           </div>
 
-          <div
+          <StaggerChildren
             className="grid auto-rows-45 grid-cols-3 gap-5 md:auto-rows-55"
             style={{ gridTemplateAreas: `"a b c" "a d d" "e f f"` }}
+            staggerDelay={0.1}
           >
             {featureCards.map((card) => (
-              <div
+              <motion.div
                 key={card.title}
+                variants={staggerItem}
                 className="group relative overflow-hidden rounded-3xl"
                 style={{ gridArea: card.area }}
               >
@@ -284,9 +287,9 @@ export function ImpactSection() {
                     {card.title}
                   </p>
                 </div>
-              </div>
+              </motion.div>
             ))}
-          </div>
+          </StaggerChildren>
         </div>
       </section>
     </>

@@ -7,6 +7,7 @@ import { PartnerMarquee } from "@/components/sections/PartnerMarquee";
 import { ProblemStatementStrip } from "@/components/sections/ProblemStatementStrip";
 import { TestimonialsSection } from "@/components/sections/TestimonialsSection";
 import { ImpactSection } from "@/components/template/ImpactSection";
+import { FadeIn } from "@/components/shared/FadeIn";
 
 export default function Home() {
   return (
@@ -15,28 +16,42 @@ export default function Home() {
       <Hero />
 
       {/* 2. Pain point */}
-      <ProblemStatementStrip />
+      <FadeIn>
+        <ProblemStatementStrip />
+      </FadeIn>
 
       {/* 3. Solution */}
-      <ComparisonSection />
+      <FadeIn>
+        <ComparisonSection />
+      </FadeIn>
 
       {/* 4. Proof — metrics + gallery */}
       <ImpactSection />
 
       {/* 5. Consumer social proof */}
-      <TestimonialsSection />
+      <FadeIn>
+        <TestimonialsSection />
+      </FadeIn>
 
       {/* 6. Human story */}
-      <ImpactStory />
+      <FadeIn>
+        <ImpactStory />
+      </FadeIn>
 
       {/* 7. Trust — logo wall */}
-      <PartnerMarquee />
+      <FadeIn>
+        <PartnerMarquee />
+      </FadeIn>
 
       {/* 8. Content */}
-      <BlogSection />
+      <FadeIn>
+        <BlogSection />
+      </FadeIn>
 
       {/* 9. CTA */}
-      <NewsletterStrip />
+      <FadeIn>
+        <NewsletterStrip />
+      </FadeIn>
     </main>
   );
 }
