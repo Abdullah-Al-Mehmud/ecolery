@@ -1,3 +1,4 @@
+import { BlogSection } from "@/components/sections/BlogSection";
 import { ComparisonSection } from "@/components/sections/ComparisonSection";
 import { FeaturesGrid } from "@/components/sections/FeaturesGrid";
 import { Hero } from "@/components/sections/Hero";
@@ -15,16 +16,15 @@ export default function Home() {
     <main>
       <Hero />
       <ProblemStatementStrip />
-      <ImpactSection />
-      <ImpactStory />
       <ComparisonSection />
       <FeaturesGrid />
-      {/* <HowItsMadeSection /> */}
-      {/* <CareersCTA /> */}
+      <ImpactSection />
+      <ImpactStory />
+      <TestimonialsSection />
       <PartnerEndorsements />
       <PartnerMarquee />
       <SDGStrip />
-      <TestimonialsSection />
+      <BlogSection />
       <NewsletterStrip />
     </main>
   );
