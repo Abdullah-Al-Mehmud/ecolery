@@ -4,6 +4,7 @@ import { AnimatePresence, motion, useMotionValueEvent, useScroll } from "framer-
 import { Menu, X } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 
 const NAV_LINKS = [
@@ -20,6 +21,7 @@ const EASE: [number, number, number, number] = [0.22, 1, 0.36, 1];
 export function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
+  const pathname = usePathname();
 
   const { scrollY } = useScroll();
 
@@ -80,33 +82,37 @@ export function Navbar() {
           </Link>
 
           <nav className="hidden items-center justify-center gap-9 md:flex">
-            {NAV_LINKS.map((link) => (
-              <a
-                key={link.label}
-                href={link.href}
-                className="group text-ink hover:text-primary relative text-[13px] font-semibold tracking-[0.08em] uppercase transition-colors duration-300"
-              >
-                {link.label}
-                <span className="bg-primary absolute -bottom-1.5 left-0 h-px w-full origin-left scale-x-0 transition-transform duration-300 group-hover:scale-x-100" />
-              </a>
-            ))}
+            {NAV_LINKS.map((link) => {
+              const isActive = pathname === link.href;
+              return (
+                <a
+                  key={link.label}
+                  href={link.href}
+                  className={`group relative text-[13px] font-semibold tracking-[0.08em] uppercase transition-colors duration-300 ${
+                    isActive
+                      ? "text-primary"
+                      : "text-ink hover:text-primary"
+                  }`}
+                >
+                  {link.label}
+                  <span
+                    className={`bg-primary absolute -bottom-1.5 left-0 h-px w-full transition-transform duration-300 ${
+                      isActive
+                        ? "scale-x-100 origin-left"
+                        : "origin-left scale-x-0 group-hover:scale-x-100"
+                    }`}
+                  />
+                </a>
+              );
+            })}
           </nav>
 
           <div className="flex items-center justify-end gap-3">
-            {/* <a
+            <a
               href="/product#quote"
               className="hidden rounded-full bg-primary px-5 py-2.5 text-[13px] font-medium text-cream transition-colors duration-300 hover:bg-primary-dark md:inline-block"
             >
               Get a Quote
-            </a> */}
-            <a href="/product#quote" className="hidden md:block">
-              <Image
-                src="/btn.png"
-                alt="Get a quote"
-                width={120}
-                height={60}
-                className="h-auto w-auto"
-              />
             </a>
             <button
               type="button"
@@ -164,17 +170,30 @@ export function Navbar() {
               </div>
 
               <nav className="mt-10 flex flex-col gap-6">
-                {NAV_LINKS.map((link) => (
-                  <a
-                    key={link.label}
-                    href={link.href}
-                    onClick={() => setMenuOpen(false)}
-                    className="group text-ink hover:text-primary relative w-fit text-[14px] font-semibold tracking-[0.08em] uppercase transition-colors duration-300"
-                  >
-                    {link.label}
-                    <span className="bg-primary absolute -bottom-1 left-0 h-px w-full origin-left scale-x-0 transition-transform duration-300 group-hover:scale-x-100" />
-                  </a>
-                ))}
+                {NAV_LINKS.map((link) => {
+                  const isActive = pathname === link.href;
+                  return (
+                    <a
+                      key={link.label}
+                      href={link.href}
+                      onClick={() => setMenuOpen(false)}
+                      className={`group relative w-fit text-[14px] font-semibold tracking-[0.08em] uppercase transition-colors duration-300 ${
+                        isActive
+                          ? "text-primary"
+                          : "text-ink hover:text-primary"
+                      }`}
+                    >
+                      {link.label}
+                      <span
+                        className={`bg-primary absolute -bottom-1 left-0 h-px w-full transition-transform duration-300 ${
+                          isActive
+                            ? "scale-x-100 origin-left"
+                            : "origin-left scale-x-0 group-hover:scale-x-100"
+                        }`}
+                      />
+                    </a>
+                  );
+                })}
               </nav>
 
               <a

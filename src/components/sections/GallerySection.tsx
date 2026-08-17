@@ -1,8 +1,9 @@
 "use client";
 
 import { ImageWithFallback } from "@/components/shared/ImageWithFallback";
-import { motion } from "framer-motion";
-import { useMemo, useState } from "react";
+import { AnimatePresence, motion } from "framer-motion";
+import { ChevronLeft, ChevronRight, X } from "lucide-react";
+import { useCallback, useEffect, useMemo, useState } from "react";
 
 export interface GalleryCategory {
   slug: string;
@@ -32,6 +33,7 @@ const itemVariants = {
 export function GallerySection({ categories }: { categories: GalleryCategory[] }) {
   const [active, setActive] = useState("all");
   const [visibleCount, setVisibleCount] = useState(INITIAL_VISIBLE);
+  const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
 
   const allImages: GalleryImage[] = useMemo(
     () => categories.flatMap((c) => c.images.map((src) => ({ src, label: c.label }))),
@@ -55,6 +57,29 @@ export function GallerySection({ categories }: { categories: GalleryCategory[] }
   const handleLoadMore = () => {
     setVisibleCount((count) => Math.min(count + CHUNK_SIZE, filtered.length));
   };
+
+  const closeLightbox = useCallback(() => setSelectedIndex(null), []);
+
+  const goNext = useCallback(() => {
+    if (selectedIndex === null) return;
+    setSelectedIndex((i) => (i! + 1) % visible.length);
+  }, [selectedIndex, visible.length]);
+
+  const goPrev = useCallback(() => {
+    if (selectedIndex === null) return;
+    setSelectedIndex((i) => (i! - 1 + visible.length) % visible.length);
+  }, [selectedIndex, visible.length]);
+
+  useEffect(() => {
+    if (selectedIndex === null) return;
+    const onKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "Escape") closeLightbox();
+      if (e.key === "ArrowRight") goNext();
+      if (e.key === "ArrowLeft") goPrev();
+    };
+    window.addEventListener("keydown", onKeyDown);
+    return () => window.removeEventListener("keydown", onKeyDown);
+  }, [selectedIndex, closeLightbox, goNext, goPrev]);
 
   const pills = [{ slug: "all", label: "All" }, ...categories];
 
@@ -108,10 +133,11 @@ export function GallerySection({ categories }: { categories: GalleryCategory[] }
           transition={{ duration: 0.5, ease: EASE }}
           className="mt-10 grid grid-cols-2 gap-5 md:grid-cols-3"
         >
-          {visible.map((img) => (
+          {visible.map((img, idx) => (
             <figure
               key={img.src}
-              className="bg-moss/10 group relative aspect-[4/3] overflow-hidden rounded-2xl"
+              onClick={() => setSelectedIndex(idx)}
+              className="bg-moss/10 group relative aspect-[4/3] cursor-pointer overflow-hidden rounded-2xl"
             >
               <ImageWithFallback
                 src={img.src}
@@ -143,6 +169,87 @@ export function GallerySection({ categories }: { categories: GalleryCategory[] }
           </div>
         )}
       </div>
+
+      <AnimatePresence>
+        {selectedIndex !== null && (
+          <>
+            <motion.button
+              key="lightbox-backdrop"
+              type="button"
+              aria-label="Close preview"
+              onClick={closeLightbox}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.25 }}
+              className="bg-ink/80 fixed inset-0 z-[80]"
+            />
+            <motion.div
+              key="lightbox-content"
+              role="dialog"
+              aria-label="Image preview"
+              initial={{ opacity: 0, scale: 0.95 }}
+              animate={{ opacity: 1, scale: 1 }}
+              exit={{ opacity: 0, scale: 0.95 }}
+              transition={{ duration: 0.3, ease: EASE }}
+              className="fixed inset-0 z-[90] flex items-center justify-center p-4 md:p-8"
+            >
+              <button
+                type="button"
+                aria-label="Close preview"
+                onClick={closeLightbox}
+                className="absolute top-4 right-4 z-[100] rounded-full bg-white/10 p-2 text-white backdrop-blur-sm transition-colors hover:bg-white/20 md:top-6 md:right-6"
+              >
+                <X className="h-6 w-6" strokeWidth={1.75} />
+              </button>
+
+              <button
+                type="button"
+                aria-label="Previous image"
+                onClick={(e) => {
+                  e.stopPropagation();
+                  goPrev();
+                }}
+                className="absolute left-2 z-[100] rounded-full bg-white/10 p-2 text-white backdrop-blur-sm transition-colors hover:bg-white/20 md:left-4 md:p-3"
+              >
+                <ChevronLeft className="h-6 w-6" strokeWidth={1.75} />
+              </button>
+
+              <button
+                type="button"
+                aria-label="Next image"
+                onClick={(e) => {
+                  e.stopPropagation();
+                  goNext();
+                }}
+                className="absolute right-2 z-[100] rounded-full bg-white/10 p-2 text-white backdrop-blur-sm transition-colors hover:bg-white/20 md:right-4 md:p-3"
+              >
+                <ChevronRight className="h-6 w-6" strokeWidth={1.75} />
+              </button>
+
+              <div className="relative h-full max-h-[80vh] w-full max-w-5xl">
+                <ImageWithFallback
+                  src={visible[selectedIndex].src}
+                  alt={`${visible[selectedIndex].label} photo`}
+                  fill
+                  sizes="100vw"
+                  className="object-contain"
+                  fallbackLabel={visible[selectedIndex].label}
+                />
+              </div>
+
+              <div className="absolute bottom-4 left-1/2 -translate-x-1/2 rounded-full bg-white/10 px-4 py-2 backdrop-blur-sm">
+                <p className="font-body text-[12px] font-semibold tracking-[0.14em] text-white uppercase">
+                  {visible[selectedIndex].label}
+                  <span className="ml-3 text-white/50">
+                    {selectedIndex + 1} / {visible.length}
+                  </span>
+                </p>
+              </div>
+            </motion.div>
+          </>
+        )}
+      </AnimatePresence>
     </section>
   );
 }
