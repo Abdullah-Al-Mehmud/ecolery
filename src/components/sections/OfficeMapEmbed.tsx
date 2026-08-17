@@ -27,17 +27,17 @@ export function OfficeMapEmbed() {
           <span className="font-body text-primary text-[13px] font-semibold tracking-[0.2em] uppercase">
             Visit us
           </span>
-          <h2 className="font-fraunces text-ink mt-4 text-3xl leading-[1.1] font-semibold tracking-tight md:text-5xl">
+          <h2 className="font-display text-ink mt-4 text-4xl leading-[1.1] font-bold tracking-tight md:text-5xl">
             Postcard from <span className="text-primary-dark">Dhaka.</span>
           </h2>
         </motion.div>
 
         <motion.div
-          initial={{ opacity: 0, y: 32, rotate: -1 }}
-          whileInView={{ opacity: 1, y: 0, rotate: -1 }}
+          initial={{ opacity: 0, y: 32 }}
+          whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.2 }}
           transition={{ duration: 0.8, ease: EASE }}
-          className="bg-white mt-12 overflow-hidden rounded-[2rem] shadow-sm lg:rotate-[0.75deg]"
+          className="bg-white mt-12 overflow-hidden rounded-3xl shadow-sm"
         >
           <div className="relative">
             <iframe
@@ -48,19 +48,6 @@ export function OfficeMapEmbed() {
               allowFullScreen
               className="h-[380px] w-full border-0 md:h-[440px]"
             />
-
-            <div
-              aria-hidden
-              className="bg-moss text-cream absolute top-5 right-5 flex h-20 w-16 rotate-6 flex-col items-center justify-center rounded-md shadow-lg"
-            >
-              <p className="font-body text-white/50 text-[8px] font-semibold tracking-[0.18em]">
-                POST
-              </p>
-              <div className="border-white/30 mt-1.5 h-9 w-9 rounded-full border-2 border-dashed" />
-              <p className="font-body text-white/70 mt-1.5 text-[8px] font-semibold tracking-[0.14em]">
-                DHAKA
-              </p>
-            </div>
           </div>
 
           <div className="flex flex-col gap-4 border-t border-black/5 p-5 sm:flex-row sm:items-center sm:justify-between md:p-6">
@@ -80,11 +67,11 @@ export function OfficeMapEmbed() {
               href={DIRECTIONS_HREF}
               target="_blank"
               rel="noopener noreferrer"
-              className="border-ink/15 bg-cream-2 hover:border-primary group inline-flex shrink-0 items-center gap-2 rounded-full border px-5 py-2.5 text-[13px] font-semibold text-ink transition-colors duration-300"
+              className="border-ink/15 bg-cream-2 hover:border-primary hover:bg-primary hover:text-cream group inline-flex shrink-0 items-center gap-2 rounded-full border px-5 py-2.5 text-[13px] font-semibold text-ink transition-colors duration-300"
             >
               Get directions
               <ArrowUpRight
-                className="h-4 w-4 text-primary transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
+                className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
                 strokeWidth={1.75}
               />
             </a>
