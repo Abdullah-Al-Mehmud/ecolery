@@ -1,12 +1,12 @@
 "use client";
 
-import { motion, useScroll, useTransform } from "framer-motion";
-import Image from "next/image";
-import { useEffect, useRef } from "react";
 import { ImageWithFallback } from "@/components/shared/ImageWithFallback";
-import { ArrowUpRight, Leaf } from "lucide-react";
-import Link from "next/link";
 import { StaggerChildren, staggerItem } from "@/components/shared/StaggerChildren";
+import { motion, useScroll, useTransform } from "framer-motion";
+import { ArrowUpRight, Leaf } from "lucide-react";
+import Image from "next/image";
+import Link from "next/link";
+import { useEffect, useRef } from "react";
 
 const metrics = [
   { value: "180", unit: "days", label: "Decomposition cycle in soil" },
@@ -29,35 +29,35 @@ const featureCards = [
     fallback: "Recognition — With Dr. Yunus",
   },
   {
-    image: "/gallery/Project%20ASHAA/Training%20women%20Mymensingh.jpg",
+    image: "/bentoGrid/bento1.jpg",
     title: "Training women in Mymensingh",
     subtitle: "Project ASHAA",
     area: "b",
     fallback: "Project ASHAA training",
   },
   {
-    image: "/gallery/InternationalRelationships/IMG-20260511-WA0004.jpg",
+    image: "/bentoGrid/p6.jpg",
     title: "Relationships across borders",
     subtitle: "International",
     area: "c",
     fallback: "International relationships",
   },
   {
-    image: "/gallery/UNESCO%20Green%20Generation%20Campaign%20/IMG_0225.jpg",
+    image: "/bentoGrid/long1.jpg",
     title: "Campaigns that move crowds",
     subtitle: "UNESCO Green Generation",
     area: "d",
     fallback: "UNESCO campaign",
   },
   {
-    image: "/gallery/Some%20Partnerships/NL1A5447-1.JPG",
+    image: "/bentoGrid/p7.jpg",
     title: "Grown together",
     subtitle: "Partnerships",
     area: "e",
     fallback: "Partnership moment",
   },
   {
-    image: "/gallery/UNESCO%20Green%20Generation%20Campaign%20/IMG20260115154539.jpg",
+    image: "/bentoGrid/long2.jpg",
     title: "On the ground",
     subtitle: "Field moments",
     area: "f",
@@ -89,7 +89,7 @@ function MissionSection() {
           video.currentTime = 0;
         }
       },
-      { threshold: 0.3 }
+      { threshold: 0.3 },
     );
 
     observer.observe(el);
@@ -124,11 +124,8 @@ function MissionSection() {
           </p>
         </motion.div>
 
-        <motion.div
-          style={{ y: videoY }}
-          className="relative"
-        >
-          <div className="relative aspect-video overflow-hidden rounded-[2rem] shadow-2xl shadow-ink/15 -rotate-1 transition-transform duration-500 hover:rotate-0 hover:scale-[1.02]">
+        <motion.div style={{ y: videoY }} className="relative">
+          <div className="shadow-ink/15 relative aspect-video -rotate-1 overflow-hidden rounded-[2rem] shadow-2xl transition-transform duration-500 hover:scale-[1.02] hover:rotate-0">
             <video
               ref={videoRef}
               src="/Product feature.mp4"
@@ -138,7 +135,7 @@ function MissionSection() {
               className="absolute inset-0 h-full w-full object-cover"
             />
           </div>
-          <div className="absolute -inset-4 -z-10 rounded-[2.5rem] bg-primary/5 blur-xl" />
+          <div className="bg-primary/5 absolute -inset-4 -z-10 rounded-[2.5rem] blur-xl" />
         </motion.div>
       </div>
     </section>
@@ -211,7 +208,10 @@ export function ImpactSection() {
       </section>
 
       {/* ---------- IMPACT METRICS BAND ---------- */}
-      <section id="impact" className="bg-moss relative scroll-mt-28 overflow-hidden px-6 py-24 md:py-32">
+      <section
+        id="impact"
+        className="bg-moss relative scroll-mt-28 overflow-hidden px-6 py-24 md:py-32"
+      >
         <div className="relative mx-auto max-w-5xl text-center">
           <div className="flex items-center justify-center gap-3">
             <div className="h-px w-12 bg-white/20" />
@@ -225,15 +225,18 @@ export function ImpactSection() {
             The metrics that tell our circular journey
           </h3>
 
-          <StaggerChildren className="mt-16 grid items-start gap-10 sm:grid-cols-3 sm:gap-0 sm:divide-x sm:divide-white/10" staggerDelay={0.15}>
+          <StaggerChildren
+            className="mt-16 grid items-start gap-10 sm:grid-cols-3 sm:gap-0 sm:divide-x sm:divide-white/10"
+            staggerDelay={0.15}
+          >
             {impactStats.map((m) => (
-              <motion.div key={m.label} variants={staggerItem} className="flex flex-col items-center px-6">
-                <p className="font-display text-5xl font-bold text-white md:text-6xl">
-                  {m.value}
-                </p>
-                <p className="font-body mt-3 text-[13px] font-semibold text-white/50">
-                  {m.label}
-                </p>
+              <motion.div
+                key={m.label}
+                variants={staggerItem}
+                className="flex flex-col items-center px-6"
+              >
+                <p className="font-display text-5xl font-bold text-white md:text-6xl">{m.value}</p>
+                <p className="font-body mt-3 text-[13px] font-semibold text-white/50">{m.label}</p>
               </motion.div>
             ))}
           </StaggerChildren>
@@ -251,7 +254,7 @@ export function ImpactSection() {
             </h3>
             <Link
               href="/gallery"
-              className="group border-black/10 bg-white text-ink hover:border-primary hover:bg-primary hover:text-cream flex shrink-0 items-center gap-2 rounded-full border px-5 py-2.5 text-[13px] font-semibold transition-colors duration-300"
+              className="group text-ink hover:border-primary hover:bg-primary hover:text-cream flex shrink-0 items-center gap-2 rounded-full border border-black/10 bg-white px-5 py-2.5 text-[13px] font-semibold transition-colors duration-300"
             >
               View gallery
               <ArrowUpRight className="h-4 w-4" strokeWidth={1.75} />
@@ -279,14 +282,14 @@ export function ImpactSection() {
                   fallbackLabel={card.fallback}
                 />
                 <div className="from-ink/85 absolute inset-0 bg-linear-to-t via-transparent to-transparent opacity-80 transition-opacity duration-500 group-hover:opacity-95" />
-                <div className="absolute bottom-0 left-0 p-5 md:p-6">
+                {/* <div className="absolute bottom-0 left-0 p-5 md:p-6">
                   <p className="font-body text-[11px] font-semibold tracking-[0.14em] text-white/70 uppercase">
                     {card.subtitle}
                   </p>
                   <p className="font-display mt-1 text-base font-bold text-white md:text-xl">
                     {card.title}
                   </p>
-                </div>
+                </div> */}
               </motion.div>
             ))}
           </StaggerChildren>

@@ -127,15 +127,18 @@ export function GallerySection({ categories }: { categories: GalleryCategory[] }
         </motion.div>
 
         <motion.div
-          key={`${active}-${visibleCount}`}
-          initial={{ opacity: 0, y: 16 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, ease: EASE }}
+          key={active}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.2, ease: EASE }}
           className="mt-10 grid grid-cols-2 gap-5 md:grid-cols-3"
         >
           {visible.map((img, idx) => (
-            <figure
+            <motion.figure
               key={img.src}
+              initial={{ opacity: 0, y: 24 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.7, ease: EASE }}
               onClick={() => setSelectedIndex(idx)}
               className="bg-moss/10 group relative aspect-[4/3] cursor-pointer overflow-hidden rounded-2xl"
             >
@@ -153,7 +156,7 @@ export function GallerySection({ categories }: { categories: GalleryCategory[] }
                   {img.label}
                 </p>
               </figcaption>
-            </figure>
+            </motion.figure>
           ))}
         </motion.div>
 
