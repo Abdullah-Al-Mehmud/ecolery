@@ -40,9 +40,9 @@ const EASE: [number, number, number, number] = [0.22, 1, 0.36, 1];
 
 function ReviewCard({ name, role, text }: Review) {
   return (
-    <article data-card className="w-[260px] shrink-0 sm:w-[300px]">
-      <div className="bg-cream flex h-full flex-col rounded-3xl p-8">
-        <p className="font-body text-ink/85 mt-6 text-[15px] leading-relaxed font-semibold">
+    <article data-card className="flex w-[260px] shrink-0 sm:w-[300px]">
+      <div className="bg-cream flex h-full w-full flex-col rounded-3xl p-8">
+        <p className="font-body text-ink/85 mt-6 flex-1 text-[15px] leading-relaxed font-semibold">
           &ldquo;{text}&rdquo;
         </p>
 
@@ -62,7 +62,7 @@ export function TestimonialsSection() {
   const track = [...reviews, ...reviews];
 
   return (
-    <section className="bg-moss overflow-hidden px-6 py-24 md:py-32">
+    <section className="bg-cream-2 overflow-hidden px-6 py-24 md:py-32">
       <div className="mx-auto max-w-6xl">
         <motion.div
           initial={{ opacity: 0, y: 24 }}
@@ -74,8 +74,8 @@ export function TestimonialsSection() {
           <span className="font-body text-primary text-[13px] font-semibold tracking-[0.2em] uppercase">
             What people say
           </span>
-          <h2 className="font-display text-white mt-4 text-3xl font-bold tracking-tight md:text-5xl">
-            Real voices, <span className="text-primary-light">real impact.</span>
+          <h2 className="font-display text-ink mt-4 text-3xl font-bold tracking-tight md:text-5xl">
+            Real voices, <span className="text-primary-dark">real impact.</span>
           </h2>
         </motion.div>
       </div>

@@ -41,7 +41,7 @@ function LogoCard({ partner }: { partner: Partner }) {
           alt={partner.alt}
           fill
           sizes="128px"
-          className="object-contain opacity-60 grayscale transition-all duration-300 group-hover/card:opacity-100 group-hover/card:grayscale-0"
+          className="object-contain opacity-100 grayscale-0 transition-all duration-300 group-hover/card:opacity-60 group-hover/card:grayscale"
         />
       </div>
     </div>

@@ -3,7 +3,7 @@
 import { ImageWithFallback } from "@/components/shared/ImageWithFallback";
 import { blogCategoryStyles, getFeaturedBlogs, type BlogPost } from "@/lib/blogs";
 import { motion } from "framer-motion";
-import { ArrowRight, Clock, BookOpen } from "lucide-react";
+import { ArrowRight, Clock } from "lucide-react";
 
 const EASE: [number, number, number, number] = [0.22, 1, 0.36, 1];
 
@@ -33,7 +33,7 @@ function HeroCard({ post }: { post: BlogPost }) {
           className="object-cover transition-transform duration-[1.2s] ease-out group-hover:scale-[1.04]"
           fallbackLabel={post.category}
         />
-        <div className="absolute inset-0 rounded-3xl bg-gradient-to-t from-ink/80 via-ink/30 to-ink/5" />
+        <div className="from-ink/80 via-ink/30 to-ink/5 absolute inset-0 rounded-3xl bg-gradient-to-t" />
       </div>
 
       <div className="absolute inset-0 flex flex-col justify-end p-6 md:p-10">
@@ -51,19 +51,20 @@ function HeroCard({ post }: { post: BlogPost }) {
           </div>
         </div>
 
-        <h3 className="font-display text-white mt-4 max-w-2xl text-xl font-bold leading-[1.15] tracking-tight md:text-3xl">
+        <h3 className="font-display mt-4 max-w-2xl text-xl leading-[1.15] font-bold tracking-tight text-white md:text-3xl">
           {post.title}
         </h3>
 
-        <p className="font-body text-white/70 mt-3 max-w-lg text-[14px] leading-relaxed font-semibold line-clamp-2 md:text-[15px]">
+        <p className="font-body mt-3 line-clamp-2 max-w-lg text-[14px] leading-relaxed font-semibold text-white/70 md:text-[15px]">
           {post.excerpt}
         </p>
 
         <div className="mt-5 flex items-center gap-2">
-          <span className="text-white/90 text-[13px] font-semibold">
-            Read article
-          </span>
-          <ArrowRight className="h-4 w-4 text-white/90 transition-transform duration-300 group-hover:translate-x-1" strokeWidth={1.75} />
+          <span className="text-[13px] font-semibold text-white/90">Read article</span>
+          <ArrowRight
+            className="h-4 w-4 text-white/90 transition-transform duration-300 group-hover:translate-x-1"
+            strokeWidth={1.75}
+          />
         </div>
       </div>
     </motion.a>
@@ -86,7 +87,7 @@ function CompactCard({ post, index }: { post: BlogPost; index: number }) {
           className="object-cover transition-transform duration-[1.2s] ease-out group-hover:scale-[1.04]"
           fallbackLabel={post.category}
         />
-        <div className="absolute inset-0 rounded-2xl bg-gradient-to-t from-ink/70 via-ink/10 to-transparent" />
+        <div className="from-ink/70 via-ink/10 absolute inset-0 rounded-2xl bg-gradient-to-t to-transparent" />
       </div>
 
       <div className="absolute inset-0 flex flex-col justify-end p-4 md:p-5">
@@ -95,7 +96,7 @@ function CompactCard({ post, index }: { post: BlogPost; index: number }) {
         >
           {post.category}
         </span>
-        <h3 className="font-display text-white mt-2 text-[14px] font-bold leading-snug tracking-tight md:text-[15px]">
+        <h3 className="font-display mt-2 text-[14px] leading-snug font-bold tracking-tight text-white md:text-[15px]">
           {post.title}
         </h3>
         <div className="mt-2 flex items-center gap-2 text-white/50">
@@ -104,9 +105,7 @@ function CompactCard({ post, index }: { post: BlogPost; index: number }) {
             {post.readTime}
           </span>
           <span className="text-white/20">·</span>
-          <span className="text-[10px] font-semibold tracking-wider uppercase">
-            {post.date}
-          </span>
+          <span className="text-[10px] font-semibold tracking-wider uppercase">{post.date}</span>
         </div>
       </div>
     </motion.a>
@@ -126,12 +125,12 @@ export function BlogSection() {
           viewport={{ once: true, amount: 0.1 }}
           variants={containerVariants}
         >
-          <motion.div variants={itemVariants} className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
+          <motion.div
+            variants={itemVariants}
+            className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between"
+          >
             <div>
               <div className="flex items-center gap-3">
-                <div className="bg-primary/10 flex h-10 w-10 items-center justify-center rounded-full">
-                  <BookOpen className="text-primary h-5 w-5" strokeWidth={1.75} />
-                </div>
                 <span className="font-body text-primary text-[13px] font-semibold tracking-[0.2em] uppercase">
                   From the blog
                 </span>
@@ -145,7 +144,10 @@ export function BlogSection() {
               className="group text-ink hover:text-primary inline-flex items-center gap-1.5 text-[13px] font-semibold tracking-[0.08em] uppercase transition-colors duration-300"
             >
               View all posts
-              <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-0.5" strokeWidth={1.75} />
+              <ArrowRight
+                className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-0.5"
+                strokeWidth={1.75}
+              />
             </a>
           </motion.div>
 
@@ -155,10 +157,7 @@ export function BlogSection() {
             </motion.div>
           )}
 
-          <motion.div
-            variants={containerVariants}
-            className="mt-5 grid grid-cols-3 gap-4 md:gap-5"
-          >
+          <motion.div variants={containerVariants} className="mt-5 grid grid-cols-3 gap-4 md:gap-5">
             {sidePosts.map((post, i) => (
               <CompactCard key={post.slug} post={post} index={i} />
             ))}

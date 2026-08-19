@@ -1,4 +1,3 @@
-import { ImpactChart } from "@/components/sections/ImpactChart";
 import { ImpactHero } from "@/components/sections/ImpactHero";
 import { ImpactPillars } from "@/components/sections/ImpactPillars";
 import { ImpactSDGs } from "@/components/sections/ImpactSDGs";
@@ -15,7 +14,7 @@ export default function ImpactPage() {
       <ImpactHero />
       <ImpactPillars />
       <ImpactSDGs />
-      <ImpactChart />
+      {/* <ImpactChart /> */}
       {/* <ImpactReport /> */}
     </main>
   );

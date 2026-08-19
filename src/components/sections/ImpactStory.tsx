@@ -1,7 +1,6 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ArrowRight } from "lucide-react";
 import Image from "next/image";
 import { useState, type ComponentProps } from "react";
 
@@ -78,19 +77,6 @@ export function ImpactStory() {
             women across our supply chain and bringing sustainability education into classrooms, one
             school visit at a time.
           </motion.p>
-
-          <motion.div variants={textItemVariants} className="mt-8">
-            <a
-              href="#impact"
-              className="group font-body text-primary inline-flex items-center gap-2 text-[14px] font-semibold underline-offset-4 hover:underline"
-            >
-              See our impact
-              <ArrowRight
-                className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1"
-                strokeWidth={1.75}
-              />
-            </a>
-          </motion.div>
         </motion.div>
       </div>
     </section>
