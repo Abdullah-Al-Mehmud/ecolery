@@ -1,19 +1,35 @@
-import { Briefcase, Building2, CloudRain, Fish, Trees, Users } from "lucide-react";
+import Image from "next/image";
 
 const sdgGoals = [
-  { number: 8, label: "Decent Work &\nEconomic Growth", icon: Briefcase },
-  { number: 11, label: "Sustainable Cities\n& Communities", icon: Building2 },
-  { number: 13, label: "Climate\nAction", icon: CloudRain },
-  { number: 14, label: "Life Below\nWater", icon: Fish },
-  { number: 15, label: "Life on\nLand", icon: Trees },
-  { number: 17, label: "Partnerships for\nthe Goals", icon: Users },
+  {
+    number: 5,
+    label: "Gender\nEquality",
+    image: "Sustainable_Development_Goal_05GenderEquality.svg.png",
+  },
+  {
+    number: 11,
+    label: "Sustainable Cities\n& Communities",
+    image: "E-WEB-Goal-11.png",
+  },
+  { number: 13, label: "Climate\nAction", image: "E-WEB-Goal-13.png" },
+  {
+    number: 14,
+    label: "Life Below\nWater",
+    image: "E_SDG_goals_icons-individual-rgb-14.png",
+  },
+  { number: 15, label: "Life on\nLand", image: "OIP (3).webp" },
+  {
+    number: 17,
+    label: "Partnerships for\nthe Goals",
+    image: "images (2).png",
+  },
 ];
 
 export function SDGStrip() {
   return (
     <section
       id="explore"
-      className="bg-cream border-y border-black/5 px-6 py-20 scroll-mt-28 md:py-24"
+      className="bg-cream scroll-mt-28 border-y border-black/5 px-6 py-20 md:py-24"
     >
       <div className="mx-auto max-w-6xl text-center">
         <span className="font-body text-primary text-[13px] font-semibold tracking-[0.2em] uppercase">
@@ -28,19 +44,25 @@ export function SDGStrip() {
           rural women and educating the next generation on sustainability.
         </p>
 
-        <div className="mt-14 grid grid-cols-3 gap-6 sm:grid-cols-6">
-          {sdgGoals.map(({ number, label, icon: Icon }) => (
-            <div key={number} className="flex flex-col items-center gap-3">
-              <div className="border-primary/20 bg-primary/5 flex h-16 w-16 items-center justify-center rounded-2xl border">
-                <Icon className="text-primary h-7 w-7" strokeWidth={1.75} />
+        <div className="mt-14 grid grid-cols-3 gap-4 sm:gap-5 lg:grid-cols-6">
+          {sdgGoals.map(({ number, label, image }) => (
+            <figure key={number} className="group">
+              <div className="group-hover:border-primary/25 relative aspect-square w-full overflow-hidden rounded-2xl border border-black/5 bg-white shadow-sm transition-all duration-300 group-hover:-translate-y-1 group-hover:shadow-lg group-hover:shadow-black/5">
+                <Image
+                  src={`/sdg/${image}`}
+                  alt={`UN Sustainable Development Goal ${number}: ${label.replace(/\n/g, " ")}`}
+                  fill
+                  sizes="(max-width: 1024px) 33vw, 16vw"
+                  className="object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+                />
               </div>
-              <div className="text-center">
+              <figcaption className="mt-3 text-center">
                 <p className="font-display text-ink text-sm font-bold">{number}</p>
-                <p className="font-body mt-1 text-[10px] leading-snug font-semibold text-gray-500 whitespace-pre-line uppercase tracking-wider">
+                <p className="font-body mt-1 text-[10px] leading-snug font-semibold tracking-[0.14em] whitespace-pre-line text-gray-500 uppercase">
                   {label}
                 </p>
-              </div>
-            </div>
+              </figcaption>
+            </figure>
           ))}
         </div>
       </div>

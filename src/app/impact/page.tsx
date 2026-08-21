@@ -1,6 +1,6 @@
 import { ImpactHero } from "@/components/sections/ImpactHero";
 import { ImpactPillars } from "@/components/sections/ImpactPillars";
-import { ImpactSDGs } from "@/components/sections/ImpactSDGs";
+import { SDGStrip } from "@/components/sections/SDGStrip";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -13,7 +13,9 @@ export default function ImpactPage() {
     <main>
       <ImpactHero />
       <ImpactPillars />
-      <ImpactSDGs />
+      <SDGStrip />
+
+      {/* <ImpactSDGs /> */}
       {/* <ImpactChart /> */}
       {/* <ImpactReport /> */}
     </main>
