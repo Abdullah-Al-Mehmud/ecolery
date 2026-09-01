@@ -19,9 +19,9 @@
   --color-cork: #c08a54;
 
   /* --- Type roles (single family, loaded via Google Fonts @import) --- */
-  --font-display: "Montserrat", sans-serif;
-  --font-body: "Montserrat", sans-serif;
-  --font-fraunces: "Montserrat", sans-serif; /* alias kept so all class names keep working */
+  --font-display: "Poppins", sans-serif;
+  --font-body: "Poppins", sans-serif;
+  --font-fraunces: "Poppins", sans-serif; /* alias kept so all class names keep working */
 
   /* --- Animations --- */
   --animate-marquee: marquee 40s linear infinite;
