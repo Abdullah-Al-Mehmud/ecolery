@@ -41,7 +41,7 @@ export function AboutFounderNote() {
               </div>
             ) : (
               <Image
-                src="https://picsum.photos/seed/ecolery-founder/400/400"
+                src="/team/nafesaFounder.jpg"
                 alt="Portrait of Nafesa Anzum Helaly, Co-founder of Ecolery"
                 fill
                 sizes="(min-width: 640px) 13rem, 11rem"
@@ -71,11 +71,25 @@ export function AboutFounderNote() {
             >
               &ldquo;
             </span>
-            <blockquote className="font-fraunces text-cream text-2xl leading-[1.35] font-medium sm:text-3xl">
-              I started Ecolery out of frustration — watching plastic choke our rivers and streets
-              while no one offered a real alternative. That refusal has grown into a
-              community-rooted movement: women finding dignified work, children learning to protect
-              the planet, and proof that the future we want is ours to build.
+            <blockquote className="font-fraunces text-cream space-y-5 text-lg leading-[1.5] font-medium sm:text-xl">
+              <p>
+                I didn&apos;t start Ecolery because I wanted to run a company; I started it because
+                I was tired of feeling helpless. For years, I watched the places we love - our
+                neighborhood streets, our childhood playgrounds, and our rivers slowly drown under a
+                wave of plastic waste. It is devastating to realize how seamlessly we have accepted
+                a lifestyle where a single moment of convenience leaves behind a lifetime of
+                pollution for our children to inherit.
+              </p>
+              <p>
+                I knew I had to act, but I also realized that real environmental healing cannot
+                happen in a vacuum. It has to start with people. That is why the soul of Ecolery is
+                rooted in community. Instead of just fighting against pollution, we chose to fight
+                for each other - by bringing stable, dignified livelihoods to underprivileged women
+                in rural villages and sitting down with thousands of school children to spark a
+                lifelong love for our planet. Every time I see the determination in a person&apos;s
+                eyes, I am reminded that we are not just cleaning up the earth. We are rebuilding
+                our connection to it, together.
+              </p>
             </blockquote>
           </div>
 

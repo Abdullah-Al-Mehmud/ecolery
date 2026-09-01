@@ -79,7 +79,7 @@ export function ProductHero() {
             className="font-body text-ink/80 mt-6 max-w-md text-[15px] leading-relaxed font-semibold"
           >
             A sturdy, compostable cup you can actually eat. Cork-pressed for insulation, edible for
-            delight — and gone from the planet in 180 days.
+            delight, and gone from the planet in 180 days.
           </motion.p>
 
           <motion.div variants={itemVariants} className="mt-8 flex flex-wrap items-baseline gap-4">

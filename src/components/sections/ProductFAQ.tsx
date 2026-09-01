@@ -8,24 +8,58 @@ const EASE: [number, number, number, number] = [0.22, 1, 0.36, 1];
 
 const faqs = [
   {
-    question: "What is the minimum order for bulk pricing?",
+    question:
+      "How does the carbon footprint of an edible cup compare to traditional PLA or compostable paper cups?",
     answer:
-      "Bulk orders start at 1,000 cups, with tiered pricing that drops as volume grows. Share your quantity in the quote form and we\u2019ll send custom pricing within one business day.",
+      'Traditional "compostable" paper cups often require industrial composting facilities with specific heat and moisture levels to degrade, and PLA plastics still persist for months in standard ecosystems. Our edible cup is entirely plant-based and requires zero waste management infrastructure. Because it breaks down naturally as organic food waste within days if uneaten, it eliminates the downstream carbon costs associated with sorting, hauling, and industrial processing.',
   },
   {
-    question: "How should the cups be stored?",
+    question:
+      "Can your production scale reliably to meet high-volume, recurring commercial contracts?",
     answer:
-      "Keep cups in a cool, dry place away from direct sunlight and moisture. Properly stored, they stay fresh and crunchy for up to 6 months.",
+      "Yes. We have structured our manufacturing process to handle consistent commercial demand, allowing us to seamlessly scale with your business. For large-scale corporate partnerships, nationwide cafe chains, or major festivals, we establish rolling supply schedules with dedicated lead times to ensure your inventory is automatically replenished without friction.",
   },
   {
-    question: "How do they taste with hot vs cold drinks?",
+    question:
+      "Does the cup comply with international food safety and manufacturing standards?",
     answer:
-      "The cups hold up beautifully either way — staying crunchy for 45+ minutes in hot drinks up to 85°C and keeping their shape in cold ones. The flavour comes through gently, whichever you pour.",
+      "Absolutely. Since our product is classified as an edible food item rather than just packaging, we adhere to strict food manufacturing regulations and hygiene protocols. Every batch undergoes rigorous quality control to ensure it meets both food safety standards and mechanical structural integrity before leaving our facility.",
   },
   {
-    question: "How long does delivery take?",
+    question: "Does the cup get soggy or leak while I'm drinking?",
     answer:
-      "Orders are delivered within 3–5 business days nationwide, with tracking confirmed before dispatch.",
+      "Not at all. The cup is engineered to stay crispy and completely leak-proof for over 40 minutes with hot beverages like coffee or tea, and even longer with cold drinks. You'll easily finish your drink long before the cup loses its crunch.",
+  },
+  {
+    question: "What happens if I don't want to eat the cup?",
+    answer:
+      "That is completely fine! While it's perfectly safe and delicious to eat, you don't have to. If you throw it away, it acts just like food waste. It will naturally biodegrade in a backyard compost or soil within a few days, leaving absolutely zero trace or microplastics behind.",
+  },
+  {
+    question: "Is it safe for people with allergies?",
+    answer:
+      "Our standard cups are made from natural grains. We provide a full ingredient list on our customization guides. If you are hosting an event with specific dietary restrictions, please reach out via our quote form - we can discuss specific batch options to suit your needs.",
+  },
+  {
+    question: "Can it handle ice cream, gelato, or desserts?",
+    answer:
+      "Yes, absolutely. It acts just like a premium, sturdy waffle bowl. Because cold treats don't put the same thermal stress on the cup as a boiling espresso, it will hold shape perfectly and stay crunchy until the very last bite.",
+  },
+  {
+    question:
+      "Does the cup alter the taste or smell of a high-quality coffee?",
+    answer:
+      "No. We know how much effort goes into brewing the perfect cup, so we designed our material to be completely neutral while holding liquid. It won't bleed any starchy taste or odor into your drink; you only taste the light, biscuit-like flavor when you actually bite into it.",
+  },
+  {
+    question: "Are the ingredients 100% vegan and natural?",
+    answer:
+      "Yes. Our edible cups are entirely plant-based, made from sustainably sourced natural grains and plant fibers. We use absolutely no artificial preservatives, chemicals, or animal byproducts.",
+  },
+  {
+    question: "What is the minimum order quantity (MOQ) for custom branding?",
+    answer:
+      "There is no minimum order quantity for our regular cups. You can order any amount directly through our Facebook page or WhatsApp. For customized cups, including logo embossing, size, or specific flavor adjustments, the minimum order quantity is 1,000 cups.",
   },
 ];
 

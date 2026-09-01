@@ -33,7 +33,7 @@ export function ContactForm() {
             Write us a <span className="text-primary-dark">letter.</span>
           </h1>
           <p className="font-body text-ink/80 mt-6 max-w-md text-[15px] leading-relaxed font-semibold">
-            Partnership, bulk orders, press or a school visit — put it on paper and we&apos;ll
+            Partnership, bulk orders, press or a school visit. Put it on paper and we&apos;ll
             write back within one business day.
           </p>
 
@@ -47,7 +47,7 @@ export function ContactForm() {
           </div>
 
           <p className="font-fraunces text-ink/60 mt-12 text-xl leading-snug font-semibold">
-            P.S. We love talking shop — especially about
+            P.S. We love talking shop, especially about
             <br />
             <span className="text-primary-dark">plastic-free everything.</span>
           </p>
@@ -79,7 +79,7 @@ export function ContactForm() {
               Dear Ecolery,
             </p>
             <p className="font-body text-ink/60 mt-3 max-w-md text-[14px] leading-relaxed font-semibold">
-              Tell us what&apos;s on your mind — the more specific, the better.
+              Tell us what&apos;s on your mind. The more specific, the better.
             </p>
 
             <div className="mt-10 grid gap-6 md:grid-cols-2">

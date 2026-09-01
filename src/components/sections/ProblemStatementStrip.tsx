@@ -17,17 +17,11 @@ export function ProblemStatementStrip() {
         whileInView={{ opacity: 1, scale: 1 }}
         viewport={{ once: true, amount: 0.3 }}
         transition={{ duration: 0.8, ease: EASE }}
-        className="font-fraunces relative mx-auto max-w-5xl text-center text-3xl leading-[1.1] font-semibold tracking-tight text-cream md:text-5xl lg:text-6xl"
+        className="font-fraunces text-cream relative mx-auto max-w-5xl text-center text-3xl leading-[1.1] font-semibold tracking-tight md:text-5xl lg:text-6xl"
       >
-        Bangladesh generates{" "}
-        <span className="bg-gradient-to-r from-primary-light to-primary-dark bg-clip-text text-transparent">
-          87,000 tonnes
-        </span>{" "}
-        of single-use plastic waste every year —{" "}
-        <span className="bg-gradient-to-r from-primary-light to-primary-dark bg-clip-text text-transparent">
-          less than 1%
-        </span>{" "}
-        is ever recycled.
+        Bangladesh generates <span className="text-primary-light">87,000 tonnes</span> of single-use
+        plastic waste every year <span className="text-primary-light">less than 1%</span> is ever
+        recycled.
       </motion.h2>
     </section>
   );

@@ -11,20 +11,86 @@ type Member = {
   role: string;
   seed: string;
   initials: string;
+  image?: string;
+  linkedin?: string;
 };
 
 const team: Member[] = [
-  { name: "Nafesa Anzum Helaly", role: "Co-founder", seed: "ecolery-nafesa", initials: "NH" },
-  { name: "Shabiha Sultana Nuha", role: "Co-founder", seed: "ecolery-nuha", initials: "SN" },
-  { name: "Sharif Bin Abu Shahriar", role: "Co-founder", seed: "ecolery-sharif", initials: "SS" },
-  { name: "Yeamin Islam Tabin", role: "COO", seed: "ecolery-tabin", initials: "YT" },
-  { name: "Rakib Hassan Siam", role: "Chief Sustainability Officer", seed: "ecolery-siam", initials: "RS" },
-  { name: "Sabrin Akter Riha", role: "Chief Business Officer", seed: "ecolery-riha", initials: "SR" },
-  { name: "Tabia Tahsin", role: "Chief International Officer", seed: "ecolery-tahsin", initials: "TT" },
-  { name: "Ramim Al Rafi Nasim", role: "Head of Operations", seed: "ecolery-ramim", initials: "RN" },
-  { name: "SM Anirban Azad", role: "Head of Finance", seed: "ecolery-anirban", initials: "SA" },
-  { name: "Sameer", role: "Global Partnerships Lead", seed: "ecolery-sameer", initials: "S" },
-  { name: "Hasnat Zahin", role: "Volunteer", seed: "ecolery-zahin", initials: "HZ" },
+  {
+    name: "Nafesa Anzum Helaly",
+    role: "Co-founder",
+    seed: "ecolery-nafesa",
+    initials: "NH",
+    image: "/team/Nafesa.jpg",
+    linkedin: "https://www.linkedin.com/in/nahelaly/",
+  },
+  {
+    name: "Shabiha Sultana Nuha",
+    role: "Co-founder",
+    seed: "ecolery-nuha",
+    initials: "SN",
+    image: "/team/shabiha.jpg",
+    linkedin: "https://www.linkedin.com/in/shabiha-sultana-nuha-2054132a7/",
+  },
+  {
+    name: "Sharif Bin Abu Shahriar",
+    role: "Co-founder",
+    seed: "ecolery-sharif",
+    initials: "SS",
+    image: "/team/shahriar.jpg",
+    linkedin: "https://www.linkedin.com/in/shahriarsajal/",
+  },
+  {
+    name: "Yeamin Islam Tabin",
+    role: "Chief Operating Officer",
+    seed: "ecolery-tabin",
+    initials: "YT",
+    image: "/team/YeaminIslamTabin.jpg",
+    linkedin: "https://www.linkedin.com/in/yeamin-islam-tabin-383723223/",
+  },
+  {
+    name: "Rakib Hassan Siam",
+    role: "Chief Sustainability Officer",
+    seed: "ecolery-siam",
+    initials: "RS",
+    image: "/team/RakibHassanSiam.jpg",
+
+    linkedin: "https://www.linkedin.com/in/rakib-hassan-siam/",
+  },
+  {
+    name: "Sabrin Akter Riha",
+    role: "Chief Business Officer",
+    seed: "ecolery-riha",
+    initials: "SR",
+    image: "/team/SabrinAkterRiha.jpg",
+    linkedin: "https://www.linkedin.com/in/sabrinakter/",
+  },
+  {
+    name: "Tabia Tahsin",
+    role: "Chief International Officer",
+    seed: "ecolery-tahsin",
+    initials: "TT",
+    image: "/team/tabia.jpg",
+
+    linkedin: "https://www.linkedin.com/in/tabia-tahsin-b50307227/",
+  },
+  {
+    name: "Ramim Al Rafi Nasim",
+    role: "Head of Operations",
+    seed: "ecolery-ramim",
+    initials: "RN",
+    image: "/team/RamimAlRafiNasim.jpg",
+
+    linkedin: "https://www.linkedin.com/in/ramim-al-rafi-612672301/",
+  },
+
+  {
+    name: "Hasnat Zahin",
+    role: "Volunteer",
+    seed: "ecolery-zahin",
+    initials: "HZ",
+    image: "/team/HasnatZaheen.png",
+  },
 ];
 
 const containerVariants = {
@@ -68,9 +134,9 @@ function TeamAvatar({ member }: { member: Member }) {
   }
 
   return (
-    <div className="ring-black/10 relative aspect-square w-full overflow-hidden rounded-full ring-1 transition-all duration-500 group-hover:ring-primary/50">
+    <div className="group-hover:ring-primary/50 relative aspect-square w-full overflow-hidden rounded-full ring-1 ring-black/10 transition-all duration-500">
       <Image
-        src={`https://picsum.photos/seed/${member.seed}/400/400`}
+        src={member.image ?? `https://picsum.photos/seed/${member.seed}/400/400`}
         alt={`Portrait of ${member.name}`}
         fill
         sizes="(min-width: 1024px) 25vw, (min-width: 768px) 33vw, 50vw"
@@ -82,13 +148,17 @@ function TeamAvatar({ member }: { member: Member }) {
 }
 
 function LinkedInChip({ member }: { member: Member }) {
+  if (!member.linkedin) {
+    return null;
+  }
+
   return (
     <a
-      href="https://www.linkedin.com/"
+      href={member.linkedin}
       target="_blank"
       rel="noopener noreferrer"
       aria-label={`${member.name} on LinkedIn`}
-      className="bg-primary/5 border-primary/20 text-primary mt-4 flex h-8 w-8 items-center justify-center rounded-full border transition-colors duration-300 hover:bg-primary hover:text-cream"
+      className="bg-primary/5 border-primary/20 text-primary hover:bg-primary hover:text-cream mt-4 flex h-8 w-8 items-center justify-center rounded-full border transition-colors duration-300"
     >
       <LinkedInIcon className="h-4 w-4" />
     </a>
@@ -122,7 +192,7 @@ export function AboutTeam() {
             variants={itemVariants}
             className="font-body text-ink/80 text-[15px] leading-relaxed font-semibold md:max-w-md md:justify-self-end"
           >
-            The people turning everyday choices into environmental change — from our co-founders to
+            The people turning everyday choices into environmental change, from our co-founders to
             the volunteers who make it possible.
           </motion.p>
         </div>
@@ -140,7 +210,7 @@ export function AboutTeam() {
               <motion.div
                 key={member.name}
                 variants={itemVariants}
-                className="bg-white group flex flex-col items-center gap-5 rounded-2xl p-6 text-center sm:flex-row sm:text-left"
+                className="group flex flex-col items-center gap-5 rounded-2xl bg-white p-6 text-center sm:flex-row sm:text-left"
               >
                 <div className="w-24 shrink-0 sm:w-28">
                   <TeamAvatar member={member} />
@@ -169,12 +239,12 @@ export function AboutTeam() {
             Leadership &amp; team
           </motion.p>
 
-          <div className="mt-8 grid grid-cols-2 gap-x-6 gap-y-12 lg:grid-cols-4">
+          <div className="mt-8 flex flex-wrap justify-center gap-x-6 gap-y-12">
             {leadership.map((member) => (
               <motion.div
                 key={member.name}
                 variants={itemVariants}
-                className="group flex flex-col items-center text-center"
+                className="group flex w-[calc(50%-12px)] flex-col items-center text-center lg:w-[calc(25%-18px)]"
               >
                 <div className="w-28 sm:w-32 lg:w-36">
                   <TeamAvatar member={member} />

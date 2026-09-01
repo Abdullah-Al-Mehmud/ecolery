@@ -64,68 +64,63 @@ const channels = [
 
 export function ContactDetailsCard() {
   return (
-    <section className="bg-moss relative overflow-hidden px-6 py-24 md:py-32">
-      <div
-        aria-hidden
-        className="bg-[radial-gradient(60%_100%_at_50%_0%,rgba(140,199,140,0.07),transparent)] absolute inset-x-0 top-0 h-full"
-      />
+    <section className="bg-cream relative overflow-hidden px-6 pt-32 pb-24 md:pt-40 md:pb-32">
+      <div className="mx-auto max-w-6xl">
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.2 }}
+          variants={containerVariants}
+        >
+          <motion.div variants={itemVariants} className="max-w-2xl">
+            <span className="font-body text-primary text-[13px] font-semibold tracking-[0.2em] uppercase">
+              Get in touch
+            </span>
+            <h2 className="font-display text-ink mt-4 text-4xl leading-[1.1] font-bold tracking-tight md:text-5xl">
+              Let&apos;s start a
+              <br />
+              <span className="text-primary-dark">conversation.</span>
+            </h2>
+            <p className="font-body text-ink/50 mt-5 max-w-md text-[15px] leading-relaxed font-semibold">
+              Partnership, bulk orders, press or school visits. We&apos;d love to hear from you.
+            </p>
+          </motion.div>
 
-      <motion.div
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true, amount: 0.2 }}
-        variants={containerVariants}
-        className="relative mx-auto max-w-6xl"
-      >
-        <motion.div variants={itemVariants} className="max-w-2xl">
-          <span className="font-body text-white/50 text-[13px] font-semibold tracking-[0.2em] uppercase">
-            Direct lines
-          </span>
-          <h2 className="font-fraunces text-cream mt-4 text-3xl leading-[1.1] font-semibold tracking-tight md:text-5xl">
-            Find the right <span className="text-primary-light">door.</span>
-          </h2>
+          <div className="mt-14 grid gap-4 sm:grid-cols-2">
+            {channels.map((channel) => {
+              const Icon = channel.icon;
+              const isExternal = channel.external;
+
+              return (
+                <motion.a
+                  key={channel.label}
+                  href={channel.href}
+                  {...(isExternal ? { target: "_blank", rel: "noopener noreferrer" } : {})}
+                  variants={itemVariants}
+                  className="group flex items-center gap-4 rounded-2xl border border-black/5 bg-white px-6 py-5 transition-all duration-300 hover:border-primary/20 hover:shadow-lg hover:shadow-primary/5"
+                >
+                  <span className="border-primary/20 bg-primary/5 text-primary flex h-12 w-12 shrink-0 items-center justify-center rounded-xl transition-colors duration-300 group-hover:bg-primary group-hover:text-white">
+                    <Icon className="h-5 w-5" strokeWidth={1.75} />
+                  </span>
+
+                  <span className="min-w-0 flex-1">
+                    <span className="font-body block text-[11px] font-semibold tracking-[0.14em] text-ink/40 uppercase">
+                      {channel.label}
+                    </span>
+                    <span className="font-display text-ink mt-1 block text-[15px] font-semibold break-words">
+                      {channel.value}
+                    </span>
+                  </span>
+
+                  <span className="text-ink/20 group-hover:text-primary shrink-0 transition-colors duration-300">
+                    <ArrowUpRight className="h-4 w-4" strokeWidth={1.75} />
+                  </span>
+                </motion.a>
+              );
+            })}
+          </div>
         </motion.div>
-
-        <div className="mt-12">
-          {channels.map((channel, index) => {
-            const Icon = channel.icon;
-            const isExternal = channel.external;
-
-            return (
-              <motion.a
-                key={channel.label}
-                href={channel.href}
-                {...(isExternal ? { target: "_blank", rel: "noopener noreferrer" } : {})}
-                variants={itemVariants}
-                className={`group flex items-center gap-5 py-6 transition-colors duration-300 hover:bg-white/[0.06] md:gap-8 md:px-6 md:-mx-6 md:py-7 ${
-                  index > 0 ? "border-white/10 border-t" : ""
-                }`}
-              >
-                <span className="font-fraunces text-white/20 w-10 shrink-0 text-2xl font-semibold">
-                  {String(index + 1).padStart(2, "0")}
-                </span>
-
-                <span className="border-primary-light/25 bg-white/[0.04] text-primary-light flex h-12 w-12 shrink-0 items-center justify-center rounded-full border transition-colors duration-300 group-hover:bg-primary-light group-hover:text-moss">
-                  <Icon className="h-5 w-5" strokeWidth={1.75} />
-                </span>
-
-                <span className="min-w-0 flex-1">
-                  <span className="font-body text-white/50 block text-[12px] font-semibold uppercase tracking-[0.14em]">
-                    {channel.label}
-                  </span>
-                  <span className="font-body text-cream mt-1 block text-[15px] leading-snug font-semibold break-words">
-                    {channel.value}
-                  </span>
-                </span>
-
-                <span className="border-white/15 text-white/70 group-hover:border-primary-light group-hover:bg-primary-light group-hover:text-moss hidden shrink-0 rounded-full border p-2.5 transition-colors duration-300 sm:inline-flex">
-                  <ArrowUpRight className="h-4 w-4" strokeWidth={1.75} />
-                </span>
-              </motion.a>
-            );
-          })}
-        </div>
-      </motion.div>
+      </div>
     </section>
   );
 }

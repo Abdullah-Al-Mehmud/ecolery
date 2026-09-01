@@ -12,19 +12,21 @@
   --color-primary-dark: #0f6b3d; /* deeper green from gradient end */
 
   /* --- Icon tone: the dark moss fork/plate/spoon --- */
-  --color-moss: #33452b;
+  --color-moss: #477750;
 
   /* --- Accent: warm contrast against all the green --- */
   --color-rust: #c1622b;
   --color-cork: #c08a54;
 
-  /* --- Type roles --- */
-  --font-display: var(--font-sora);
-  --font-body: var(--font-manrope);
-  --font-fraunces: var(--font-fraunces); /* statement-serif exception, statement headlines only */
+  /* --- Type roles (single family, loaded via Google Fonts @import) --- */
+  --font-display: "Poppins", sans-serif;
+  --font-body: "Poppins", sans-serif;
+  --font-fraunces: "Poppins", sans-serif; /* alias kept so all class names keep working */
 
   /* --- Animations --- */
   --animate-marquee: marquee 40s linear infinite;
+  --animate-marquee-reverse: marquee-reverse 40s linear infinite;
+  --animate-signal: signal 2.4s ease-in-out infinite;
 }
 
 @keyframes marquee {
@@ -33,6 +35,24 @@
   }
   to {
     transform: translateX(-50%);
+  }
+}
+
+@keyframes marquee-reverse {
+  from {
+    transform: translateX(-50%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+@keyframes signal {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(400%);
   }
 }
 

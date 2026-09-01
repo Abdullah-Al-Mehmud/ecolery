@@ -13,7 +13,7 @@ const features: Feature[] = [
   {
     icon: Droplets,
     title: "Leak-proof",
-    copy: "Holds hot and cold without a drop escaping — sealed tight, sip after sip.",
+    copy: "Holds hot and cold without a drop escaping, sealed tight, sip after sip.",
   },
   {
     icon: Flame,
@@ -23,12 +23,12 @@ const features: Feature[] = [
   {
     icon: Leaf,
     title: "Biodegradable",
-    copy: "Fully compostable in 180 days — it returns to the earth, never the landfill.",
+    copy: "Fully compostable in 180 days. It returns to the earth, never the landfill.",
   },
   {
     icon: Cookie,
     title: "Tasty",
-    copy: "Edible to the last bite — our cups are made to be enjoyed, then eaten.",
+    copy: "Edible to the last bite. Our cups are made to be enjoyed, then eaten.",
   },
 ];
 
@@ -36,7 +36,7 @@ const EASE: [number, number, number, number] = [0.22, 1, 0.36, 1];
 
 export function FeaturesGrid() {
   return (
-    <section className="bg-cream px-6 py-24 md:py-32">
+    <section className="bg-cream-2 px-6 py-24 md:py-32">
       <div className="mx-auto max-w-6xl">
         <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
           {features.map(({ icon: Icon, title, copy }) => (

@@ -18,6 +18,25 @@ function LinkedinIcon({ className }: { className?: string }) {
   );
 }
 
+function InstagramIcon({ className }: { className?: string }) {
+  return (
+    <svg
+      className={className}
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="1.75"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      aria-hidden="true"
+    >
+      <rect width="20" height="20" x="2" y="2" rx="5" ry="5" />
+      <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+      <line x1="17.5" x2="17.51" y1="6.5" y2="6.5" />
+    </svg>
+  );
+}
+
 const quickLinks = [
   { label: "About US", href: "#about" },
   { label: "Our Products", href: "#product" },
@@ -40,18 +59,6 @@ export function SiteFooter() {
       />
 
       <div className="relative mx-auto max-w-6xl">
-        {/* ---- Top: brand + CTA ---- */}
-        <div className="flex flex-col items-start justify-center gap-10 border-b border-white/10 pb-14 text-center md:flex-row md:items-end">
-          <div className="max-w-lg">
-            <span className="font-body text-primary text-[13px] font-semibold tracking-[0.2em] uppercase">
-              Eat, re-eat, forget
-            </span>
-            <h3 className="font-display mt-4 text-3xl font-bold tracking-tight text-white md:text-4xl">
-              Sustainability, <span className="text-white/60">served fresh.</span>
-            </h3>
-          </div>
-        </div>
-
         {/* ---- Middle: mission / links / contact ---- */}
         <div className="grid gap-12 py-14 md:grid-cols-[1.2fr_0.8fr_1fr]">
           {/* Mission */}
@@ -61,9 +68,6 @@ export function SiteFooter() {
               combine eco-friendly innovation with deep social impact by creating green jobs for
               underprivileged rural women and educating the next generation on the vital importance
               of sustainability.
-            </p>
-            <p className="font-body mt-6 text-[12px] font-semibold tracking-[0.14em] text-white/30 uppercase">
-              Patent filed · 2019
             </p>
           </div>
 
@@ -95,7 +99,7 @@ export function SiteFooter() {
             <div className="flex items-start gap-3">
               <MapPin className="text-primary mt-0.5 h-4 w-4 shrink-0" strokeWidth={1.75} />
               <p className="font-body text-[14px] font-semibold text-white/70">
-                12, Hasina Badar Villa, Sheikh Shaheb Bazar, Dhaka – 1211
+                12, Hasina Badar Villa, Sheikh Shaheb Bazar, Dhaka 1211
               </p>
             </div>
 
@@ -137,6 +141,15 @@ export function SiteFooter() {
                 aria-label="LinkedIn"
               >
                 <LinkedinIcon className="h-4 w-4" />
+              </a>
+              <a
+                href="https://instagram.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex h-9 w-9 items-center justify-center rounded-full border border-white/10 text-white/50 transition-colors hover:border-white/30 hover:text-white"
+                aria-label="Instagram"
+              >
+                <InstagramIcon className="h-4 w-4" />
               </a>
             </div>
           </div>

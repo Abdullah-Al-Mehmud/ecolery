@@ -68,7 +68,7 @@ export function ExploreAwards() {
             </h1>
           </div>
           <p className="font-body text-ink/80 text-[15px] leading-relaxed font-semibold md:mb-1 md:max-w-sm md:justify-self-end">
-            From hackathon champions to national sustainability lists — a few of the milestones
+            From hackathon champions to national sustainability lists, a few of the milestones
             that keep the mission moving.
           </p>
         </motion.div>

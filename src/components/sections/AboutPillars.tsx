@@ -9,12 +9,12 @@ const pillars: { icon: LucideIcon; title: string; copy: string }[] = [
   {
     icon: Leaf,
     title: "Environmental Impact",
-    copy: "Every cup replaces a single-use plastic that would linger for centuries — fully compostable in 180 days, leaving soil healthier than it found it.",
+    copy: "Every cup replaces a single-use plastic that would linger for centuries, fully compostable in 180 days, leaving soil healthier than it found it.",
   },
   {
     icon: HeartHandshake,
     title: "Social Impact",
-    copy: "Green jobs for rural women and sustainability education for the next generation — impact that grows through communities.",
+    copy: "Green jobs for rural women and sustainability education for the next generation, impact that grows through communities.",
   },
   {
     icon: TrendingUp,
@@ -57,7 +57,7 @@ export function AboutPillars() {
             variants={itemVariants}
             className="font-body text-ink/80 text-[15px] leading-relaxed font-semibold md:max-w-md md:justify-self-end"
           >
-            Every product carries the weight of its footprint — we make sure ours is measured in
+            Every product carries the weight of its footprint, and we make sure ours is measured in
             people and planet, not just profit.
           </motion.p>
         </div>

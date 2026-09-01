@@ -9,12 +9,12 @@ const products: { icon: LucideIcon; title: string; copy: string }[] = [
   {
     icon: CupSoda,
     title: "Edible Straws",
-    copy: "Compostable sips for every drink — crunchy, flavour-tagged, plastic-free.",
+    copy: "Compostable sips for every drink, crunchy, flavour-tagged, plastic-free.",
   },
   {
     icon: Utensils,
     title: "Edible Cutlery",
-    copy: "Spoons and forks you can finish with the meal — no bin required.",
+    copy: "Spoons and forks you can finish with the meal. No bin required.",
   },
   {
     icon: Package,
@@ -60,7 +60,7 @@ export function ProductComingSoon() {
             More to <span className="text-primary-light">come.</span>
           </h2>
           <p className="font-body text-white/70 mt-6 text-[15px] leading-relaxed font-semibold">
-            The Edible Cup is only the beginning — new ways to eat, sip and ship without plastic
+            The Edible Cup is only the beginning. New ways to eat, sip and ship without plastic
             are already in the works.
           </p>
         </motion.div>
