@@ -15,23 +15,41 @@ export function MissionSection() {
   const textY = useTransform(scrollYProgress, [0, 1], ["4%", "-4%"]);
 
   useEffect(() => {
-    const el = sectionRef.current;
     const video = videoRef.current;
-    if (!el || !video) return;
+    if (!video) return;
+
+    // Force DOM property muted to true for reliable autoplay across all browsers
+    video.muted = true;
+    video.playsInline = true;
+
+    const playVideo = () => {
+      video.muted = true;
+      const promise = video.play();
+      if (promise !== undefined) {
+        promise.catch((error) => {
+          console.warn("Video play prevented:", error);
+        });
+      }
+    };
+
+    // Try playing immediately if ready
+    playVideo();
 
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
-          video.play();
+          playVideo();
         } else {
           video.pause();
-          video.currentTime = 0;
         }
       },
-      { threshold: 0.3 },
+      { threshold: 0.15 },
     );
 
-    observer.observe(el);
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+    }
+
     return () => observer.disconnect();
   }, []);
 
@@ -41,8 +59,8 @@ export function MissionSection() {
       id="about"
       className="bg-cream relative scroll-mt-28 overflow-hidden px-6 py-24 md:py-32"
     >
-      <div className="relative mx-auto grid max-w-6xl items-center gap-14 md:grid-cols-2">
-        <motion.div style={{ y: textY }}>
+      <div className="relative mx-auto grid max-w-7xl items-center gap-10 lg:gap-16 lg:grid-cols-12">
+        <motion.div style={{ y: textY }} className="lg:col-span-5">
           <div className="flex items-center gap-3">
             <div className="bg-primary/10 flex h-10 w-10 items-center justify-center rounded-full">
               <Leaf className="text-primary h-5 w-5" strokeWidth={1.75} />
@@ -63,14 +81,16 @@ export function MissionSection() {
           </p>
         </motion.div>
 
-        <motion.div style={{ y: videoY }} className="relative">
-          <div className="shadow-ink/15 relative aspect-video -rotate-1 overflow-hidden rounded-[2rem] shadow-2xl transition-transform duration-500 hover:scale-[1.02] hover:rotate-0">
+        <motion.div style={{ y: videoY }} className="relative lg:col-span-7">
+          <div className="shadow-ink/15 relative aspect-video w-full -rotate-1 overflow-hidden rounded-[2rem] shadow-2xl transition-transform duration-500 hover:scale-[1.02] hover:rotate-0">
             <video
               ref={videoRef}
-              src="/Product feature.mp4"
+              src="/ecoleryOVC.mp4"
+              autoPlay
               loop
               muted
               playsInline
+              preload="auto"
               className="absolute inset-0 h-full w-full object-cover"
             />
           </div>

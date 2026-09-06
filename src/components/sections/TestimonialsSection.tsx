@@ -40,15 +40,15 @@ const EASE: [number, number, number, number] = [0.22, 1, 0.36, 1];
 
 function ReviewCard({ name, role, text }: Review) {
   return (
-    <article data-card className="flex w-[260px] shrink-0 sm:w-[300px]">
-      <div className="bg-cream flex h-full w-full flex-col rounded-3xl p-8">
-        <p className="font-body text-ink/85 mt-6 flex-1 text-[15px] leading-relaxed font-semibold">
+    <article data-card className="flex w-[210px] shrink-0 sm:w-[260px] md:w-[300px]">
+      <div className="bg-cream flex h-full w-full flex-col rounded-2xl p-5 sm:rounded-3xl sm:p-6 md:p-8">
+        <p className="font-body text-ink/85 mt-2 flex-1 text-[13px] leading-relaxed font-semibold sm:mt-4 sm:text-[14px] md:mt-6 md:text-[15px]">
           &ldquo;{text}&rdquo;
         </p>
 
-        <div className="border-ink/10 mt-8 border-t pt-6">
-          <p className="font-body text-ink text-sm font-bold">{name}</p>
-          <p className="font-body text-ink/70 mt-0.5 text-[12px] font-semibold tracking-wider uppercase">
+        <div className="border-ink/10 mt-5 border-t pt-4 sm:mt-6 sm:pt-5 md:mt-8 md:pt-6">
+          <p className="font-body text-ink text-xs font-bold sm:text-sm">{name}</p>
+          <p className="font-body text-ink/70 mt-0.5 text-[10px] font-semibold tracking-wider uppercase sm:text-[11px] md:text-[12px]">
             {role}
           </p>
         </div>
@@ -62,7 +62,7 @@ export function TestimonialsSection() {
   const track = [...reviews, ...reviews];
 
   return (
-    <section className="bg-cream-2 overflow-hidden px-6 py-24 md:py-32">
+    <section className="bg-cream-2 overflow-hidden px-4 py-16 sm:px-6 md:py-32">
       <div className="mx-auto max-w-6xl">
         <motion.div
           initial={{ opacity: 0, y: 24 }}
@@ -82,16 +82,16 @@ export function TestimonialsSection() {
 
       {/* full-bleed auto-scrolling track, fades out at both edges */}
       <div
-        className="group relative mt-12 w-full px-16 md:px-32"
+        className="group relative mt-8 w-full px-4 sm:mt-12 sm:px-16 md:px-32"
         style={{
           maskImage:
-            "linear-gradient(90deg, transparent 0%, black 28%, black 72%, transparent 100%)",
+            "linear-gradient(90deg, transparent 0%, black 10%, black 90%, transparent 100%)",
           WebkitMaskImage:
-            "linear-gradient(90deg, transparent 0%, black 28%, black 72%, transparent 100%)",
+            "linear-gradient(90deg, transparent 0%, black 10%, black 90%, transparent 100%)",
         }}
       >
         <motion.div
-          className="flex w-max gap-6"
+          className="flex w-max gap-4 sm:gap-6"
           animate={{ x: ["0%", "-50%"] }}
           transition={{ duration: 32, ease: "linear", repeat: Infinity }}
         >
