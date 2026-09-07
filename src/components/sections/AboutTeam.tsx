@@ -91,6 +91,20 @@ const team: Member[] = [
     initials: "HZ",
     image: "/team/HasnatZaheen.png",
   },
+  {
+    name: "Afra Ibnat Laz",
+    role: "Volunteer",
+    seed: "ecolery-afra",
+    initials: "AL",
+    image: "/team/AfraIbnatLaz.jpg",
+  },
+  {
+    name: "Sangeeta Pallabi",
+    role: "Intern",
+    seed: "ecolery-sangeeta",
+    initials: "SP",
+    image: "/team/SangeetaPallabi.png",
+  },
 ];
 
 const containerVariants = {
@@ -140,7 +154,7 @@ function TeamAvatar({ member }: { member: Member }) {
         alt={`Portrait of ${member.name}`}
         fill
         sizes="(min-width: 1024px) 25vw, (min-width: 768px) 33vw, 50vw"
-        className="object-cover grayscale transition-all duration-700 group-hover:scale-105 group-hover:grayscale-0"
+        className="object-cover transition-transform duration-700 group-hover:scale-105"
         onError={() => setError(true)}
       />
     </div>

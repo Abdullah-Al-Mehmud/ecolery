@@ -7,6 +7,14 @@ export const metadata: Metadata = {
   title: "Ecolery · Compostable tableware",
   description:
     "Ecolery makes cork-pressed, fully compostable cups and cutlery that return to the earth after use.",
+  icons: {
+    icon: [
+      { url: "/favicon.png", type: "image/png" },
+      { url: "/icon.png", type: "image/png" },
+    ],
+    shortcut: "/favicon.png",
+    apple: "/apple-icon.png",
+  },
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

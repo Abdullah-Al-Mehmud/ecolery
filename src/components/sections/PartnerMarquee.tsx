@@ -16,8 +16,7 @@ const partners: Partner[] = [
     alt: "ICT Division, Bangladesh",
   },
   { src: "/partners/images (3).jpg", alt: "TODO: Partner name" },
-  { src: "/partners/impact link.jpg", alt: "Impact Link" },
-  { src: "/partners/LOGO_ChildFund-International-2.png", alt: "ChildFund International" },
+  { src: "/partners/impact link.jpeg", alt: "Impact Link" },
   { src: "/partners/OIP (1).webp", alt: "TODO: Partner name" },
   { src: "/partners/OIP (2).webp", alt: "TODO: Partner name" },
   { src: "/partners/orange.png", alt: "Orange" },
@@ -40,7 +39,7 @@ function LogoCard({ partner }: { partner: Partner }) {
           src={encodeURI(partner.src)}
           alt={partner.alt}
           fill
-          sizes="(min-width: 768px) 128px, (min-width: 640px) 112px, 80px"
+          sizes=""
           className="object-contain transition-all duration-300"
         />
       </div>
