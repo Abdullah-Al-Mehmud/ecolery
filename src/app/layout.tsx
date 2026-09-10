@@ -12,11 +12,10 @@ export const metadata: Metadata = {
     "Ecolery makes cork-pressed, fully compostable cups and cutlery that return to the earth after use.",
   icons: {
     icon: [
-      { url: "/favicon.png", type: "image/png" },
-      { url: "/icon.png", type: "image/png" },
+      { url: "/favicon.png?v=2", type: "image/png" },
     ],
-    shortcut: "/favicon.png",
-    apple: "/apple-icon.png",
+    shortcut: "/favicon.png?v=2",
+    apple: "/favicon.png?v=2",
   },
 };
 

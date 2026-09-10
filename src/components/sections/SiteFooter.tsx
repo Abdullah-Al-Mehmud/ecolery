@@ -135,7 +135,7 @@ export function SiteFooter() {
 
             <div className="flex items-center gap-4 pt-3">
               <a
-                href="https://facebook.com"
+                href="https://www.facebook.com/profile.php?id=100094322726801"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex h-9 w-9 items-center justify-center rounded-full border border-white/10 text-white/50 transition-colors hover:border-white/30 hover:text-white"
@@ -144,7 +144,7 @@ export function SiteFooter() {
                 <FacebookIcon className="h-4 w-4" />
               </a>
               <a
-                href="https://linkedin.com"
+                href="https://www.linkedin.com/company/ecolery"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex h-9 w-9 items-center justify-center rounded-full border border-white/10 text-white/50 transition-colors hover:border-white/30 hover:text-white"
@@ -153,7 +153,7 @@ export function SiteFooter() {
                 <LinkedinIcon className="h-4 w-4" />
               </a>
               <a
-                href="https://instagram.com"
+                href="https://www.instagram.com/ecolerybd/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex h-9 w-9 items-center justify-center rounded-full border border-white/10 text-white/50 transition-colors hover:border-white/30 hover:text-white"

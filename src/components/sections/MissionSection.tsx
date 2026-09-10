@@ -82,7 +82,7 @@ export function MissionSection() {
         </motion.div>
 
         <motion.div style={{ y: videoY }} className="relative lg:col-span-7">
-          <div className="shadow-ink/15 relative aspect-video w-full overflow-hidden rounded-[2rem] transition-transform duration-500 hover:scale-[1.02]">
+          <div className="shadow-ink/15 relative aspect-video w-full overflow-hidden rounded-[2rem]">
             <video
               ref={videoRef}
               src="/ecoleryOVC.mp4"

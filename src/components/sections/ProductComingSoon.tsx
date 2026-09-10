@@ -81,7 +81,7 @@ export function ProductComingSoon() {
                 Coming Soon
               </span>
 
-              <span className="border-primary/20 bg-primary/10 text-primary-light mt-8 flex h-14 w-14 items-center justify-center rounded-2xl border">
+              <span className="mt-8 flex h-14 w-14 items-center justify-center rounded-2xl border border-white/10 bg-white/10 text-white">
                 <Icon className="h-6 w-6" strokeWidth={1.75} />
               </span>
 

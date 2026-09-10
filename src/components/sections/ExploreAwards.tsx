@@ -20,16 +20,16 @@ type Award = {
 const awards: Award[] = [
   {
     year: "2026",
-    title: "National Cleantech Award",
-    image: "/awards/recipientNationalCleantech.jpeg",
-    organization: "UNIDO",
-  },
-  {
-    year: "2026",
     title: "Rural Development Innovation Challenge Winner",
     image:
       "/awards/Winner, CIRDAP - Reeds International Rural Development Innovation Challenge 2026.png",
     organization: "CIRDAP - Reeds International",
+  },
+  {
+    year: "2026",
+    title: "National Cleantech Award",
+    image: "/awards/recipientNationalCleantech.jpeg",
+    organization: "UNIDO",
   },
   {
     year: "2025",
