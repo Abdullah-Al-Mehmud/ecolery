@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ArrowRight, Clock, CupSoda, Flame, Sparkles, Wheat, type LucideIcon } from "lucide-react";
+import { Clock, CupSoda, Flame, Sparkles, Wheat, type LucideIcon } from "lucide-react";
 
 const EASE: [number, number, number, number] = [0.22, 1, 0.36, 1];
 
@@ -58,17 +58,7 @@ export function ProductSpecs() {
             a trace.
           </motion.p>
 
-          <motion.a
-            variants={itemVariants}
-            href="#"
-            className="group font-body text-primary-light mt-8 inline-flex items-center gap-2 text-[14px] font-semibold underline-offset-4 hover:underline"
-          >
-            Download spec sheet
-            <ArrowRight
-              className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1"
-              strokeWidth={1.75}
-            />
-          </motion.a>
+
         </motion.div>
 
         <motion.div
@@ -85,7 +75,7 @@ export function ProductSpecs() {
               className="border-white/10 border-b py-6 first:pt-0 last:border-b-0 last:pb-0"
             >
               <div className="flex items-center gap-5">
-                <span className="border-primary/20 bg-primary/10 text-primary-light flex h-11 w-11 shrink-0 items-center justify-center rounded-full border">
+                <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full border border-white/10 bg-white/10 text-white">
                   <Icon className="h-5 w-5" strokeWidth={1.75} />
                 </span>
                 <div className="min-w-0">

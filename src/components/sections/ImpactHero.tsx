@@ -21,11 +21,6 @@ const itemVariants = {
   visible: { opacity: 1, y: 0, transition: { duration: 0.7, ease: EASE } },
 };
 
-const rowVariants = {
-  hidden: { opacity: 0, x: 16 },
-  visible: { opacity: 1, x: 0, transition: { duration: 0.6, ease: EASE } },
-};
-
 function CountUp({ value, suffix }: { value: number; suffix?: string }) {
   const ref = useRef<HTMLSpanElement>(null);
   const inView = useInView(ref, { once: true, amount: 0.5 });
@@ -110,9 +105,8 @@ export function ImpactHero() {
 
             <div className="mt-4">
               {stats.map((stat) => (
-                <motion.div
+                <div
                   key={stat.label}
-                  variants={rowVariants}
                   className="flex items-baseline justify-between gap-6 border-t border-black/5 py-6"
                 >
                   <p className="font-body text-ink/60 max-w-[11rem] text-[14px] leading-snug font-semibold">
@@ -121,7 +115,7 @@ export function ImpactHero() {
                   <p className="font-fraunces text-primary-dark whitespace-nowrap text-4xl font-semibold tracking-tight md:text-5xl">
                     <CountUp value={stat.value} suffix={stat.suffix} />
                   </p>
-                </motion.div>
+                </div>
               ))}
             </div>
 

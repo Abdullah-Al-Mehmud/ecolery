@@ -16,7 +16,12 @@ const itemVariants = {
   visible: { opacity: 1, y: 0, transition: { duration: 0.7, ease: EASE } },
 };
 
-const quickSpecs = ["100% Compostable", "180-Day Breakdown", "Up to 85°C"];
+const productImages = [
+  { src: "/Cups and plates and spoon.png", alt: "Ecolery cup and spoon" },
+  { src: "/Cups and plates and spoon (1).png", alt: "Ecolery cup set" },
+  { src: "/Cups and plates and spoon (2).png", alt: "Ecolery plate and cup" },
+  { src: "/Cups and plates and spoon (3).png", alt: "Ecolery product range" },
+];
 
 export function ProductHero() {
   return (
@@ -96,24 +101,30 @@ export function ProductHero() {
             </p>
           </motion.div>
 
-          <motion.div variants={itemVariants} className="mt-10 flex flex-wrap items-center gap-6">
+          <motion.div variants={itemVariants} className="mt-10">
             <a
               href="#quote"
               className="bg-primary text-cream hover:bg-primary-dark rounded-full px-8 py-3.5 text-[14px] font-semibold transition-colors"
             >
               Get a Quote
             </a>
+          </motion.div>
 
-            <div className="flex flex-wrap gap-2">
-              {quickSpecs.map((spec) => (
-                <span
-                  key={spec}
-                  className="border-black/10 bg-white rounded-full px-4 py-2 text-[12px] font-semibold text-ink/70"
-                >
-                  {spec}
-                </span>
-              ))}
-            </div>
+          <motion.div variants={itemVariants} className="mt-8 flex items-center gap-4">
+            {productImages.map((img) => (
+              <div
+                key={img.src}
+                className="bg-cream-2 border-black/5 relative h-20 w-20 overflow-hidden rounded-2xl border sm:h-24 sm:w-24"
+              >
+                <Image
+                  src={img.src}
+                  alt={img.alt}
+                  fill
+                  sizes="96px"
+                  className="object-contain p-1.5"
+                />
+              </div>
+            ))}
           </motion.div>
         </motion.div>
       </div>

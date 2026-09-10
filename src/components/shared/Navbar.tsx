@@ -75,9 +75,9 @@ export function Navbar() {
             <Image
               src="/logo.png"
               alt="Ecolery logo"
-              width={92}
-              height={92}
-              className="h-12 w-12 object-contain"
+              width={110}
+              height={110}
+              className="h-14 w-14 object-contain"
             />
           </Link>
 
@@ -155,9 +155,9 @@ export function Navbar() {
                 <Image
                   src="/logo.png"
                   alt="Ecolery logo"
-                  width={92}
-                  height={92}
-                  className="h-12 w-12 object-contain"
+                  width={110}
+                  height={110}
+                  className="h-14 w-14 object-contain"
                 />
                 <button
                   type="button"
