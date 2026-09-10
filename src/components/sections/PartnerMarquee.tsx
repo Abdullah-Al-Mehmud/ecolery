@@ -16,8 +16,7 @@ const partners: Partner[] = [
     alt: "ICT Division, Bangladesh",
   },
   { src: "/partners/images (3).jpg", alt: "TODO: Partner name" },
-  { src: "/partners/impact link.jpg", alt: "Impact Link" },
-  { src: "/partners/LOGO_ChildFund-International-2.png", alt: "ChildFund International" },
+  { src: "/partners/impact link.jpeg", alt: "Impact Link" },
   { src: "/partners/OIP (1).webp", alt: "TODO: Partner name" },
   { src: "/partners/OIP (2).webp", alt: "TODO: Partner name" },
   { src: "/partners/orange.png", alt: "Orange" },
@@ -34,14 +33,14 @@ const partners: Partner[] = [
 
 function LogoCard({ partner }: { partner: Partner }) {
   return (
-    <div className="group/card flex h-24 w-48 shrink-0 items-center justify-center rounded-2xl border border-black/[0.06] bg-white px-6 shadow-[0_1px_2px_rgba(0,0,0,0.04)] transition-all duration-300 hover:-translate-y-0.5 hover:border-black/10 hover:shadow-[0_10px_24px_rgba(0,0,0,0.07)]">
-      <div className="relative h-12 w-32">
+    <div className="group/card flex h-14 w-32 shrink-0 items-center justify-center rounded-xl border border-black/[0.06] bg-white px-3 shadow-[0_1px_2px_rgba(0,0,0,0.04)] transition-all duration-300 hover:-translate-y-0.5 hover:border-black/10 hover:shadow-[0_10px_24px_rgba(0,0,0,0.07)] sm:h-20 sm:w-40 sm:rounded-2xl sm:px-5 md:h-24 md:w-48 md:px-6">
+      <div className="relative h-7 w-20 sm:h-10 sm:w-28 md:h-12 md:w-32">
         <Image
           src={encodeURI(partner.src)}
           alt={partner.alt}
           fill
-          sizes="128px"
-          className="object-contain opacity-100 grayscale-0 transition-all duration-300 group-hover/card:opacity-60 group-hover/card:grayscale"
+          sizes=""
+          className="object-contain transition-all duration-300"
         />
       </div>
     </div>
@@ -51,11 +50,11 @@ function LogoCard({ partner }: { partner: Partner }) {
 function MarqueeRow({ items, direction }: { items: Partner[]; direction: "left" | "right" }) {
   return (
     <div className="group/row relative overflow-hidden">
-      <div className="from-cream-2 pointer-events-none absolute inset-y-0 left-0 z-10 w-28 bg-gradient-to-r to-transparent sm:w-40" />
-      <div className="from-cream-2 pointer-events-none absolute inset-y-0 right-0 z-10 w-28 bg-gradient-to-l to-transparent sm:w-40" />
+      <div className="from-cream-2 pointer-events-none absolute inset-y-0 left-0 z-10 w-16 bg-gradient-to-r to-transparent sm:w-32 md:w-40" />
+      <div className="from-cream-2 pointer-events-none absolute inset-y-0 right-0 z-10 w-16 bg-gradient-to-l to-transparent sm:w-32 md:w-40" />
 
       <div
-        className={`flex w-max items-center gap-6 group-hover/row:[animation-play-state:paused] ${
+        className={`flex w-max items-center gap-3 group-hover/row:[animation-play-state:paused] sm:gap-5 md:gap-6 ${
           direction === "left"
             ? "motion-safe:animate-marquee"
             : "motion-safe:animate-marquee-reverse"

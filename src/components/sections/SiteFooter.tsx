@@ -1,4 +1,5 @@
 import { Mail, MapPin, Phone } from "lucide-react";
+import Image from "next/image";
 
 import { StellarWormCredit } from "@/components/sections/StellarWormCredit";
 
@@ -60,9 +61,18 @@ export function SiteFooter() {
 
       <div className="relative mx-auto max-w-6xl">
         {/* ---- Middle: mission / links / contact ---- */}
-        <div className="grid gap-12 py-14 md:grid-cols-[1.2fr_0.8fr_1fr]">
+        <div className="grid gap-12 pb-14 md:grid-cols-[1.2fr_0.8fr_1fr]">
           {/* Mission */}
           <div>
+            <div className="mb-3">
+              <Image
+                src="/logo.png"
+                alt="Ecolery logo"
+                width={100}
+                height={100}
+                className="h-16 w-auto object-contain"
+              />
+            </div>
             <p className="font-body text-[14px] leading-relaxed font-semibold text-white/60">
               Driven by a passion for environmental advocacy and community transformation, we
               combine eco-friendly innovation with deep social impact by creating green jobs for

@@ -27,7 +27,7 @@ export function AboutHero() {
         className="bg-primary/20 absolute top-[30%] left-[12%] h-[420px] w-[420px] rounded-full blur-[110px]"
       />
 
-      <div className="relative mx-auto grid w-full max-w-6xl items-center gap-16 md:grid-cols-2">
+      <div className="relative mx-auto grid w-full max-w-6xl items-center gap-12 md:grid-cols-2 lg:gap-14">
         <motion.div initial="hidden" animate="visible" variants={containerVariants}>
           <motion.span
             variants={itemVariants}
@@ -38,9 +38,9 @@ export function AboutHero() {
 
           <motion.h1
             variants={itemVariants}
-            className="font-fraunces text-ink mt-6 text-4xl leading-[1.05] font-semibold tracking-tight sm:text-5xl lg:text-6xl"
+            className="font-display text-ink mt-6 text-4xl leading-[1.05] font-semibold tracking-tight sm:text-5xl lg:text-6xl"
           >
-            <span className="bg-gradient-to-r from-primary-light to-primary-dark bg-clip-text text-transparent">
+            <span className="from-primary-light to-primary-dark bg-gradient-to-r bg-clip-text text-transparent">
               Shaping a Zero-Plastic Tomorrow, Together
             </span>
           </motion.h1>
@@ -74,44 +74,30 @@ export function AboutHero() {
         </motion.div>
 
         <motion.div
-          initial={{ opacity: 0, scale: 0.95 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 1, ease: EASE, delay: 0.3 }}
-          className="relative mx-auto w-full max-w-sm md:max-w-md"
+          initial={{ opacity: 0, y: 24 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.9, ease: EASE, delay: 0.3 }}
+          className="relative mx-auto w-full max-w-xl md:max-w-none"
         >
-          <div
-            aria-hidden
-            className="absolute inset-0 -z-10 m-auto aspect-square w-[115%] rounded-full border border-primary/20"
-          />
+          <div aria-hidden className="bg-moss/10 absolute -inset-3 rounded-[2.5rem] sm:-inset-4" />
 
-          <div className="ring-primary ring-offset-cream relative aspect-square w-full overflow-hidden rounded-full ring-4 ring-offset-8">
+          <div className="shadow-ink/10 relative aspect-[4/3] w-full overflow-hidden rounded-[2rem] border border-black/5 shadow-xl">
             {error ? (
               <div className="bg-primary/10 flex h-full w-full items-center justify-center">
                 <span className="font-display text-primary/60 text-2xl font-bold">ECO</span>
               </div>
             ) : (
               <Image
-                src="https://picsum.photos/seed/ecolery-about-hero/800/800"
-                alt="Ecolery community members working together"
+                src="/coreTeam.png"
+                alt="Ecolery core team of five standing together in Dhaka"
                 fill
-                sizes="(min-width: 768px) 28rem, 24rem"
+                sizes="(min-width: 768px) 36rem, 100vw"
                 className="object-cover"
+                priority
                 onError={() => setError(true)}
               />
             )}
           </div>
-
-          <motion.div
-            initial={{ opacity: 0, y: 16 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, ease: EASE, delay: 0.6 }}
-            className="border-white/10 bg-moss/95 shadow-ink/15 absolute -bottom-8 -left-2 rounded-2xl p-5 shadow-xl backdrop-blur-sm sm:-left-8"
-          >
-            <p className="font-display text-cream text-3xl font-bold">160,000+</p>
-            <p className="font-body text-white/50 mt-1 text-[11px] font-semibold tracking-[0.14em] uppercase">
-              plastic cups replaced
-            </p>
-          </motion.div>
         </motion.div>
       </div>
     </section>

@@ -40,12 +40,12 @@ export function ProductHero() {
 
           <div className="bg-cream-2 relative aspect-square w-full overflow-hidden rounded-[2rem]">
             <Image
-              src="/cup2.png"
+              src="/productsIMG.jpeg"
               alt="Ecolery edible cup"
               fill
               priority
               sizes="(min-width: 1024px) 50vw, 100vw"
-              className="object-contain p-10 md:p-14"
+              className="object-cover"
             />
           </div>
 
@@ -84,9 +84,9 @@ export function ProductHero() {
 
           <motion.div variants={itemVariants} className="mt-8 flex flex-wrap items-baseline gap-4">
             <p className="font-display text-primary-dark text-3xl font-bold md:text-4xl">
-              From $0.06
+              From ৳10
             </p>
-            <p className="font-body text-ink/60 text-[13px] font-semibold">per cup · bulk pricing</p>
+            <p className="font-body text-ink/60 text-[13px] font-semibold">per cup · volume pricing</p>
           </motion.div>
 
           <motion.div variants={itemVariants} className="mt-6 flex items-center gap-2">

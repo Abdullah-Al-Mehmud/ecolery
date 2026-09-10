@@ -7,7 +7,7 @@ import { AboutTeam } from "@/components/sections/AboutTeam";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "About · Ecolery",
+  title: "About",
   description: "Shaping a zero-plastic tomorrow together.",
 };
 

@@ -4,9 +4,9 @@ import type { Metadata } from "next";
 import { GallerySection, type GalleryCategory } from "@/components/sections/GallerySection";
 
 export const metadata: Metadata = {
-  title: "Gallery · Ecolery",
+  title: "Gallery",
   description:
-    "Field visits, partnerships, campaigns and recognition — a visual record of the Ecolery journey.",
+    "Field visits, partnerships, campaigns and recognition: a visual record of the Ecolery journey.",
 };
 
 const IMAGE_EXTENSION = /\.(jpe?g|png|webp|avif|gif)$/i;

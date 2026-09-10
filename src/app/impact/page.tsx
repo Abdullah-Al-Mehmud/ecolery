@@ -4,7 +4,7 @@ import { SDGStrip } from "@/components/sections/SDGStrip";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Impact · Ecolery",
+  title: "Impact",
   description: "Real numbers, real change. Cups replaced, plastic avoided, children educated.",
 };
 
