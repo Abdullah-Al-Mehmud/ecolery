@@ -4,7 +4,10 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Ecolery · Compostable tableware",
+  title: {
+    default: "Eco-friendly edible cutlery and more",
+    template: "Eco-friendly edible cutlery and more | %s",
+  },
   description:
     "Ecolery makes cork-pressed, fully compostable cups and cutlery that return to the earth after use.",
   icons: {

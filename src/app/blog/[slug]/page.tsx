@@ -14,10 +14,10 @@ export async function generateStaticParams() {
 export async function generateMetadata({ params }: BlogDetailPageProps): Promise<Metadata> {
   const { slug } = await params;
   const post = getBlogBySlug(slug);
-  if (!post) return { title: "Not Found · Ecolery" };
+  if (!post) return { title: "Not Found" };
 
   return {
-    title: `${post.title} · Ecolery`,
+    title: post.title,
     description: post.excerpt,
     openGraph: {
       title: post.title,

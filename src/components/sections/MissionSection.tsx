@@ -59,7 +59,7 @@ export function MissionSection() {
       id="about"
       className="bg-cream relative scroll-mt-28 overflow-hidden px-6 py-24 md:py-32"
     >
-      <div className="relative mx-auto grid max-w-7xl items-center gap-10 lg:gap-16 lg:grid-cols-12">
+      <div className="relative mx-auto grid max-w-7xl items-center gap-10 lg:grid-cols-12 lg:gap-16">
         <motion.div style={{ y: textY }} className="lg:col-span-5">
           <div className="flex items-center gap-3">
             <div className="bg-primary/10 flex h-10 w-10 items-center justify-center rounded-full">
@@ -82,7 +82,7 @@ export function MissionSection() {
         </motion.div>
 
         <motion.div style={{ y: videoY }} className="relative lg:col-span-7">
-          <div className="shadow-ink/15 relative aspect-video w-full -rotate-1 overflow-hidden rounded-[2rem] shadow-2xl transition-transform duration-500 hover:scale-[1.02] hover:rotate-0">
+          <div className="shadow-ink/15 relative aspect-video w-full overflow-hidden rounded-[2rem] transition-transform duration-500 hover:scale-[1.02]">
             <video
               ref={videoRef}
               src="/ecoleryOVC.mp4"
