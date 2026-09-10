@@ -102,7 +102,7 @@ export function GallerySection({ categories }: { categories: GalleryCategory[] }
               </h1>
             </div>
             <p className="font-body text-ink/80 text-[15px] leading-relaxed font-semibold md:mb-1 md:max-w-sm md:justify-self-end">
-              Field visits, partnerships, campaigns and recognition — a visual record of the mission
+              Field visits, partnerships, campaigns and recognition: a visual record of the mission
               in motion.
             </p>
           </motion.div>

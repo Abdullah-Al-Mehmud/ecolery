@@ -12,7 +12,7 @@ const featureCards = [
     title: "With Dr. Yunus",
     subtitle: "Recognition",
     area: "a",
-    fallback: "Recognition — With Dr. Yunus",
+    fallback: "Recognition: With Dr. Yunus",
   },
   {
     image: "/bentoGrid/bento1.jpg",

@@ -24,7 +24,7 @@ const trustPoints: { icon: LucideIcon; title: string; copy: string }[] = [
   {
     icon: ShieldCheck,
     title: "Transparent pricing",
-    copy: "Published volume tiers — ৳10–৳15 for 90 ml, ৳25–৳30 for 210 ml.",
+    copy: "Published volume tiers: ৳10–৳15 for 90 ml, ৳25–৳30 for 210 ml.",
   },
 ];
 
@@ -122,8 +122,8 @@ export function ProductQuoteForm() {
                   onChange={(e) => setSize(e.target.value as CupSize)}
                   className={`${inputClasses} appearance-none pr-10`}
                 >
-                  <option value="90ml">Classic — 90 ml (৳10–৳15)</option>
-                  <option value="210ml">Grande — 210 ml (৳25–৳30)</option>
+                  <option value="90ml">Classic | 90 ml (৳10–৳15)</option>
+                  <option value="210ml">Grande | 210 ml (৳25–৳30)</option>
                 </select>
                 <ChevronDown
                   className="text-ink/50 pointer-events-none absolute top-1/2 right-3 h-4 w-4 -translate-y-1/2"
@@ -254,7 +254,7 @@ export function ProductQuoteForm() {
             ) : quote?.needsContact ? (
               <p className="font-body text-[13px] leading-relaxed font-semibold text-ink/70">
                 10,000+ cups qualifies for a{" "}
-                <span className="text-ink font-bold">custom factory rate</span> — submit the form
+                <span className="text-ink font-bold">custom factory rate</span>, submit the form
                 and we&apos;ll quote within one business day.
               </p>
             ) : (
@@ -273,7 +273,7 @@ export function ProductQuoteForm() {
             className="bg-primary text-cream hover:bg-primary-dark mt-6 w-full rounded-full px-8 py-3.5 text-[14px] font-semibold transition-colors"
           >
             {quote && !quote.needsContact
-              ? `Request quote — ${formatBDT(quote.total)}`
+              ? `Request quote: ${formatBDT(quote.total)}`
               : "Get a Quote"}
           </button>
           <p className="font-body mt-3 text-center text-[12px] font-semibold text-ink/40">

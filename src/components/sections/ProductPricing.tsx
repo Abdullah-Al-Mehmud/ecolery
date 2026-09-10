@@ -71,7 +71,7 @@ export function ProductPricing() {
   const quoteSummary =
     quote && !quote.needsContact
       ? `${qty.toLocaleString()} × ${meta.name} ≈ ${formatBDT(quote.total)} (${formatBDT(quote.unitPrice)}/cup)`
-      : `${qty.toLocaleString()} × ${meta.name} — custom factory rate (10,000+ tier)`;
+      : `${qty.toLocaleString()} × ${meta.name}: custom factory rate (10,000+ tier)`;
 
   return (
     <section id="pricing" className="bg-cream scroll-mt-24 px-6 py-24 md:py-32">
@@ -87,7 +87,7 @@ export function ProductPricing() {
           </h2>
           <p className="font-body mt-6 max-w-lg text-[15px] leading-relaxed font-semibold text-gray-600">
             Pick a cup, slide your quantity, and see your instant quotation.
-            The more you order, the lower your per-cup price — no hidden fees.
+            The more you order, the lower your per-cup price, no hidden fees.
           </p>
         </div>
 
@@ -138,7 +138,7 @@ export function ProductPricing() {
               </div>
             </div>
             <ul className="mt-5 space-y-2.5">
-              {["No minimum order — try a few cups first", "Same edible, compostable quality", "Available at partner cafés & stores"].map(
+              {["No minimum order, try a few cups first", "Same edible, compostable quality", "Available at partner cafés & stores"].map(
                 (t) => (
                   <li key={t} className="font-body flex items-start gap-2 text-[13px] font-semibold text-gray-600">
                     <Check className="text-primary mt-0.5 h-4 w-4 shrink-0" strokeWidth={2} />
@@ -299,7 +299,7 @@ export function ProductPricing() {
             </div>
             <p className="font-body mt-4 text-[12px] leading-relaxed font-semibold text-gray-500">
               {meta.short} cups · Prices in BDT, excluding delivery. Orders above 10,000 cups get a
-              custom factory rate — contact us directly.
+              custom factory rate, contact us directly.
             </p>
           </div>
 
@@ -358,7 +358,7 @@ export function ProductPricing() {
                 ) : (
                   <p className="font-body mt-6 rounded-xl bg-white/[0.06] p-4 text-[12px] leading-relaxed font-semibold text-white/70">
                     You&apos;re on our best published tier. Beyond 10,000 cups we sharpen the
-                    pencil further — talk to us.
+                    pencil further, talk to us.
                   </p>
                 )}
 
@@ -384,7 +384,7 @@ export function ProductPricing() {
                 <div className="mt-6 space-y-3 border-t border-white/10 pt-6">
                   <div className="flex items-center gap-2 text-[13px] font-semibold text-white/80">
                     <PhoneCall className="h-4 w-4" strokeWidth={1.75} />
-                    Priority B2B line — bulk &amp; distributor rates
+                    Priority B2B line: bulk &amp; distributor rates
                   </div>
                   <div className="flex items-center gap-2 text-[13px] font-semibold text-white/80">
                     <Check className="h-4 w-4" strokeWidth={2} />
@@ -452,7 +452,7 @@ export function ProductPricing() {
                 </p>
                 <p className="font-display text-ink mt-1 text-[15px] font-bold">{quoteSummary}</p>
                 <p className="font-body mt-1 text-[12px] font-semibold text-gray-500">
-                  Mention this when you call or email — we reply within one business day.
+                  Mention this when you call or email, we reply within one business day.
                 </p>
               </div>
 
@@ -534,7 +534,7 @@ export function ProductPricing() {
                   Call now
                 </a>
                 <a
-                  href={`mailto:ecolery.bangladesh@gmail.com?subject=${encodeURIComponent(`Quote request — ${quoteSummary}`)}`}
+                  href={`mailto:ecolery.bangladesh@gmail.com?subject=${encodeURIComponent(`Quote request: ${quoteSummary}`)}`}
                   className="rounded-full bg-primary px-6 py-3 text-center text-[14px] font-semibold text-white transition-colors hover:bg-primary-dark"
                 >
                   Email us

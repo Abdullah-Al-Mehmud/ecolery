@@ -6,7 +6,7 @@ import { GallerySection, type GalleryCategory } from "@/components/sections/Gall
 export const metadata: Metadata = {
   title: "Gallery",
   description:
-    "Field visits, partnerships, campaigns and recognition — a visual record of the Ecolery journey.",
+    "Field visits, partnerships, campaigns and recognition: a visual record of the Ecolery journey.",
 };
 
 const IMAGE_EXTENSION = /\.(jpe?g|png|webp|avif|gif)$/i;

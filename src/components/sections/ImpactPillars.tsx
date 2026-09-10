@@ -16,8 +16,8 @@ const pillars: {
     icon: Leaf,
     title: "Environmental Impact",
     statValue: "180 days",
-    statLabel: "to fully decompose — no trace left behind",
-    copy: "Every cup replaces a single-use plastic that would outlive us. Ours returns to soil in 180 days — measured, certified, and gone without a trace.",
+    statLabel: "to fully decompose, no trace left behind",
+    copy: "Every cup replaces a single-use plastic that would outlive us. Ours returns to soil in 180 days, measured, certified, and gone without a trace.",
   },
   {
     icon: HeartHandshake,

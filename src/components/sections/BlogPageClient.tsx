@@ -163,7 +163,7 @@ export default function BlogPageClient() {
               Stories of <span className="text-primary-dark">impact.</span>
             </h1>
             <p className="font-body text-ink/65 mt-4 max-w-xl text-[15px] leading-relaxed font-semibold">
-              Awards, programs, field work and the journey toward a plastic-free future — all in one place.
+              Awards, programs, field work and the journey toward a plastic-free future: all in one place.
             </p>
           </div>
 
