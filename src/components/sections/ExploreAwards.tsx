@@ -150,7 +150,7 @@ export function ExploreAwards() {
         <motion.div
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.15 }}
+          viewport={{ once: true, amount: "some" }}
           variants={containerVariants}
         >
           <motion.div variants={itemVariants} className="grid gap-6 md:grid-cols-2 md:items-end">
@@ -180,7 +180,7 @@ export function ExploreAwards() {
         <motion.div
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.2 }}
+          viewport={{ once: true, amount: "some" }}
           variants={spotlightVariants}
           onClick={() => setSelected(spotlightAward)}
           className="group relative mt-14 aspect-[16/9] cursor-pointer overflow-hidden rounded-2xl sm:aspect-[21/9]"
@@ -213,7 +213,7 @@ export function ExploreAwards() {
         <motion.div
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.15 }}
+          viewport={{ once: true, amount: "some" }}
           variants={containerVariants}
           className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3"
         >
