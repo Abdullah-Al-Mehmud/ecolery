@@ -13,6 +13,9 @@
 # testing
 /coverage
 
+# wrangler / miniflare local state
+.wrangler/
+
 # next.js
 /.next/
 /out/

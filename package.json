@@ -6,7 +6,7 @@
     "dev": "next dev",
     "generate:gallery": "node scripts/generate-gallery-data.mjs",
     "prebuild": "node scripts/generate-gallery-data.mjs",
-    "build": "next build",
+    "build": "opennextjs-cloudflare build",
     "start": "next start",
     "preview": "opennextjs-cloudflare build && opennextjs-cloudflare preview",
     "deploy": "opennextjs-cloudflare build && opennextjs-cloudflare deploy",
