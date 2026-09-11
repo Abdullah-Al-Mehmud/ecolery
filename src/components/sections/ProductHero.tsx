@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { Leaf, Truck } from "lucide-react";
 import Image from "next/image";
+import { encodeStaticPath } from "@/lib/utils";
 
 const EASE: [number, number, number, number] = [0.22, 1, 0.36, 1];
 
@@ -17,10 +18,10 @@ const itemVariants = {
 };
 
 const productImages = [
-  { src: "/Cups and plates and spoon.png", alt: "Ecolery cup and spoon" },
-  { src: "/Cups and plates and spoon (1).png", alt: "Ecolery cup set" },
-  { src: "/Cups and plates and spoon (2).png", alt: "Ecolery plate and cup" },
-  { src: "/Cups and plates and spoon (3).png", alt: "Ecolery product range" },
+  { src: encodeStaticPath("/Cups and plates and spoon.png"), alt: "Ecolery cup and spoon" },
+  { src: encodeStaticPath("/Cups and plates and spoon (1).png"), alt: "Ecolery cup set" },
+  { src: encodeStaticPath("/Cups and plates and spoon (2).png"), alt: "Ecolery plate and cup" },
+  { src: encodeStaticPath("/Cups and plates and spoon (3).png"), alt: "Ecolery product range" },
 ];
 
 export function ProductHero() {
