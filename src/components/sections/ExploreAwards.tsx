@@ -4,7 +4,6 @@ import { AnimatePresence, motion } from "framer-motion";
 import { X } from "lucide-react";
 import Image from "next/image";
 import { useCallback, useEffect, useState } from "react";
-import { encodeStaticPath } from "@/lib/utils";
 
 const EASE: [number, number, number, number] = [0.22, 1, 0.36, 1];
 
@@ -16,15 +15,13 @@ type Award = {
   organization?: string;
 };
 
-// NOTE: images live in /public/awards/ — filenames match the award names.
+// NOTE: images live in /public/awards/ with URL-safe filenames.
 // The FIRST item in this array is treated as the spotlight (full-width banner).
 const awards: Award[] = [
   {
     year: "2026",
     title: "Rural Development Innovation Challenge Winner",
-    image: encodeStaticPath(
-      "/awards/Winner, CIRDAP - Reeds International Rural Development Innovation Challenge 2026.png",
-    ),
+    image: "/awards/cirdap-rural-innovation-challenge-2026.png",
     organization: "CIRDAP - Reeds International",
   },
   {
@@ -53,7 +50,7 @@ const awards: Award[] = [
   {
     year: "2025",
     title: "Ideathon 3.0 Champion",
-    image: encodeStaticPath("/awards/Champion, Ideathon 3.0, University of Asia Pacific (2025).png"),
+    image: "/awards/ideathon-3-0-asia-pacific-2025.png",
     organization: "University of Asia Pacific",
   },
   {
@@ -65,7 +62,7 @@ const awards: Award[] = [
   {
     year: "2024",
     title: "Orange Corners Track-1 Funding",
-    image: encodeStaticPath("/awards/Orange Corners Bangladesh Track-1 Funding (2024).png"),
+    image: "/awards/orange-corners-track-1-funding-2024.png",
     organization: "Orange Corners Bangladesh",
   },
   {
@@ -76,7 +73,7 @@ const awards: Award[] = [
   {
     year: "2024",
     title: "Daily Star Climate Justice Idea Champion",
-    image: encodeStaticPath("/awards/Champion, Daily Star Climate Justice Idea Competition 2024.png"),
+    image: "/awards/daily-star-climate-justice-2024.png",
     organization: "Daily Star",
   },
   {
@@ -98,21 +95,19 @@ const awards: Award[] = [
   {
     year: "2025",
     title: "Showcasing Green Projects Runner-Up",
-    image: encodeStaticPath("/awards/Runner-Up, Showcasing Green Projects, CPD Climate Week 2025.png"),
+    image: "/awards/cpd-climate-week-green-projects-2025.png",
     organization: "CPD Climate Week",
   },
   {
     year: "2024",
     title: "Top 3 Finalist, Global Student Entrepreneur Awards",
-    image: encodeStaticPath(
-      "/awards/Top 3 Finalist, Global Student Entrepreneur Awards (GSEA) - Bangladesh 2024.png",
-    ),
+    image: "/awards/gsea-bangladesh-2024.png",
     organization: "GSEA Bangladesh",
   },
   {
     year: "2022",
     title: "BASIS National ICT Award",
-    image: encodeStaticPath("/awards/Recipient, BASIS National ICT Award 2022.png"),
+    image: "/awards/basis-national-ict-award-2022.png",
     organization: "BASIS",
   },
 ];
