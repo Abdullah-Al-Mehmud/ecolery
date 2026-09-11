@@ -26,7 +26,7 @@ const team: Member[] = [
   },
   {
     name: "Shabiha Sultana Nuha",
-    role: "Co-founder",
+    role: "Co-founder & CEO",
     seed: "ecolery-nuha",
     initials: "SN",
     image: "/team/shabiha.jpg",
@@ -180,8 +180,8 @@ function LinkedInChip({ member }: { member: Member }) {
 }
 
 export function AboutTeam() {
-  const founders = team.filter((member) => member.role === "Co-founder");
-  const leadership = team.filter((member) => member.role !== "Co-founder");
+  const founders = team.filter((member) => member.role === "Co-founder" || member.role === "Co-founder & CEO");
+  const leadership = team.filter((member) => member.role !== "Co-founder" && member.role !== "Co-founder & CEO");
 
   return (
     <section id="team" className="bg-cream-2 scroll-mt-24 px-6 py-24 md:py-32">
