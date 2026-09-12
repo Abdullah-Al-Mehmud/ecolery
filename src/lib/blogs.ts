@@ -28,7 +28,7 @@ export const blogs: BlogPost[] = [
     title: "Champion at the UN: How Ecolery Won the Generation Hope Goals Climate Innovation Competition",
     excerpt:
       "236 applicants. 19 countries. One team from Bangladesh walked away with the win.",
-    coverImage: "https://picsum.photos/seed/ecolery-hope/1200/700",
+    coverImage: "/blogs/championAtUN.jpeg",
     content: [
       "Ecolery was named Champion of the Generation Hope Goals Climate Innovation Competition, held during the 12th Asia-Pacific Forum on Sustainable Development in Bangkok. Our co-founder Nafesa Anzum Helaly and Chief Sustainability Officer Rakib Hassan Siam represented Ecolery and Bangladesh on the ground, and it is one of the proudest milestones in our journey so far, a stage shared with some of the biggest names in international development.",
       "Getting here wasn't quick, and it certainly wasn't easy. Our team spent eight months refining our pitch, sharpening our product, and preparing to represent Bangladesh on an international platform. Standing out against that global field meant proving that edible cutlery wasn't just a clever idea, but a real, scalable answer to plastic pollution, backed by data, a working product, and a business model that could actually hold up under scrutiny. In the end, our edible cups spoke for themselves, and Ecolery was named the winning team.",
@@ -48,7 +48,7 @@ export const blogs: BlogPost[] = [
     title: "Ecolery Wins the Feminist Green Action Award 2025",
     excerpt:
       "Honoured with the first-ever Feminist Green Action Award by ActionAid Bangladesh for leading a just, feminist green climate transition.",
-    coverImage: "https://picsum.photos/seed/feminist-green/1200/700",
+    coverImage: "/blogs/feministGreenActionAward.jpg",
     content: [
       "Ecolery Bangladesh has been honoured with the first-ever Feminist Green Action Award 2025, launched by ActionAid Bangladesh to celebrate and encourage a just, feminist green climate transition. The award recognises small and medium enterprises and corporate entities leading the way in sustainable, inclusive environmental practices, and this year, Ecolery was one of only two SME winners selected, alongside Tripty Boutique House under the Centre for Development and Peace. Aman Spinning Mills Ltd. was recognised in the corporate category.",
       "Our co-founder Nafesa Anzum Helaly received the award on behalf of the team at a ceremony held on the evening of 14 May at a hotel in Dhaka, attended by diplomats, civil society representatives, corporate stakeholders, and fellow SME entrepreneurs.",
@@ -67,7 +67,7 @@ export const blogs: BlogPost[] = [
     title: "Women Entrepreneur of the Year: Ecolery's Night at the Restoration Factory Program",
     excerpt:
       "Named Women Entrepreneur of the Year at the closing event of the Restoration Factory Program at BRAC University.",
-    coverImage: "https://picsum.photos/seed/restoration-factory/1200/700",
+    coverImage: "/blogs/womenEntreprenewurOfTheYear.jpg",
     content: [
       "Ecolery has been named Women Entrepreneur of the Year at the closing event of the Restoration Factory Program in Bangladesh, held at BRAC University in the heart of Dhaka. Founders from over 30 startups gathered to showcase their work across climate-smart agriculture, renewable energy, waste and circularity, nature-based solutions, and sustainable manufacturing, with 17 entrepreneurs pitching for recognition across four impact categories. The program itself exists to identify and back the ventures with the strongest potential to restore ecosystems and build climate resilience, so simply being selected to pitch was already a milestone in its own right.",
       "The room was full of people who take this work seriously: entrepreneurs, mentors, investors, development partners, private sector leaders, senior government officials, and representatives from UNEP. Being chosen among that crowd, and among a genuinely strong field of climate ventures, is a recognition we don't take lightly.",
@@ -86,7 +86,7 @@ export const blogs: BlogPost[] = [
     title: "Ecolery's Research Named Top 3 at icddr,b's World Environment Day 2025 Competition",
     excerpt:
       "Selected among the top 3 out of more than 600 submissions at the World Environment Day 2025 Research Abstract Competition.",
-    coverImage: "https://picsum.photos/seed/icddrb-research/1200/700",
+    coverImage: "/blogs/ecolerysResearchNamedTop.jpeg",
     content: [
       "Ecolery Bangladesh was selected among the top 3 research presentations out of more than 600 submissions at the World Environment Day 2025 Research Abstract Competition, organised by icddr,b's Environmental Health and WASH Research Group. For a team that started out solving a plastic problem with edible cups, being recognised on a research stage of this scale, at one of the region's most respected health research institutions, was a proud and humbling experience. It also marked a shift for us, from being known purely as a product company to being taken seriously as a research-driven one.",
       "Our research, titled \"From Waste to Worth: Innovating Biodegradable Cutlery from Food Waste,\" explored transforming food waste, like banana peels, rice husks, and jackfruit seeds, into durable, biodegradable, and edible cutlery. This is not just an academic exercise for us. It is the same R&D work behind our next generation of edible cups, and it represents the direction we believe the entire industry needs to move in: turning what we throw away into something genuinely useful, without relying on virgin raw materials that come with their own environmental cost.",
@@ -104,7 +104,7 @@ export const blogs: BlogPost[] = [
     title: "Building Greener Futures: Ecolery's Time at Green Entrepreneurship Bootcamp 2.0",
     excerpt:
       "Selected to attend ActionAid Bangladesh's residential bootcamp alongside a select group of green entrepreneurs from across the country.",
-    coverImage: "https://picsum.photos/seed/bootcamp-green/1200/700",
+    coverImage: "/blogs/buildingGreenerFutures.jpg",
     content: [
       "Every founder knows this: the right environment can shift your thinking, sharpen your mission, and strengthen your resolve. That is exactly what the Green Entrepreneurship Bootcamp 2.0 by ActionAid Bangladesh offered, a rare blend of structure, warmth, and genuine community, and we're grateful to share that Ecolery was selected to attend alongside a select group of green entrepreneurs from across the country.",
       "Held from 16 to 19 November 2025 at Global Platform Bangladesh, the residential bootcamp brought together a small group of green entrepreneurs for four days of focused, hands-on work. It was one of the most thoughtfully designed programs we've experienced. The space felt homely, safe, and quiet in all the right ways, the kind of environment where real creativity flows and founders can work at full productivity without the usual distractions of running a business day to day.",
@@ -123,7 +123,7 @@ export const blogs: BlogPost[] = [
     title: "Driving Sustainable Change: Ecolery Joins the YSALI Peer Leadership Circles",
     excerpt:
       "A rare regional platform for collaboration, mutual learning, and genuine community where emerging changemakers from across South Asia came together.",
-    coverImage: "https://picsum.photos/seed/ysali-circles/1200/700",
+    coverImage: "/blogs/drivingSustainableChange.jpeg",
     content: [
       "Every regional breakthrough begins exactly like this: a dynamic network, a clear strategic vision, and the collective momentum of leaders who refuse to let local impact stop at national borders. That is precisely what the YSALI Peer Leadership Circles offered: a rare regional platform for collaboration, mutual learning, and genuine community where emerging changemakers from across South Asia came together to scale grassroots climate action into long-term regional solutions. Sponsored by the U.S. Department of State's Bureau of South and Central Asian Affairs and implemented by the University of Nebraska Omaha's Center for Afghanistan and Regional Studies alongside the East-West Center, the initiative provided the perfect environment for Ecolery to exchange ideas and share our zero-waste vision with fellow visionaries.",
       "For a scaling enterprise like ours, being immersed in a space dedicated to cross-border collaboration is incredibly powerful. Much of our everyday energy goes into the hyper-local work of expanding our presence, partnering with local cafes, and ensuring our production loops remain perfectly sustainable. However, spending time alongside regional peers who are navigating similar challenges, from natural resource management to designing circular economies, gave us the essential room to think larger and structure our strategies for a global audience. It served as a powerful reminder that our mission to eradicate single-use plastic waste and replace over 500 billion disposable cups worldwide is a shared journey that requires collective regional strength.",
@@ -139,7 +139,7 @@ export const blogs: BlogPost[] = [
     title: "From Local Zero-Waste Vision to Global Impact: Ecolery Selected for the UNESCO x Nestlé Youth Impact Grant",
     excerpt:
       "Selected as part of a prestigious international initiative joining a global cohort of 100 youth-led projects dedicated to environmental sustainability.",
-    coverImage: "https://picsum.photos/seed/unesco-nestle/1200/700",
+    coverImage: "/blogs/unescoxnestle.jpeg",
     content: [
       "Every milestone achieved by a young, green enterprise carries a profound realization: the quiet power of having your vision validated by global institutions that believe in the capacity of youth to shape a better tomorrow. That is exactly what being recognized by the UNESCO x Nestlé \"Youth Impact: Because You Matter\" Global Youth Grant Scheme has brought to Ecolery: an incredible sense of validation, regional pride, and a renewed drive to accelerate our circular mission. Selected as part of this prestigious international initiative, Ecolery joins a global cohort of 100 youth-led projects dedicated to environmental sustainability, packaging innovations, and grassroots climate action.",
       "For a dedicated startup navigating the uphill battles of green entrepreneurship in Bangladesh, this global support is transformative. While our day-to-day focus is often consumed by the immediate demands of production, local distribution, and community-level education, being backed by organizations like UNESCO and Nestlé opens up a whole new horizon of possibility. It transitions our edible, zero-waste cutlery from a localized solution into a globally recognized climate mitigation strategy, granting us access to a six-month journey of specialized immersion training, project development workshops, and direct executive mentorship. It provides the exact structure and resource platform a young team needs to turn bold ideas into highly resilient, scalable market solutions.",
@@ -155,7 +155,7 @@ export const blogs: BlogPost[] = [
     title: "From Grassroots Innovation to Global Scale: Ecolery Joins the Orange Corners Incubation Program",
     excerpt:
       "Selected for the Netherlands-backed incubator, building the business case behind a plastic-free Dhaka.",
-    coverImage: "https://picsum.photos/seed/orange-corners/1200/700",
+    coverImage: "/blogs/orangeCorners.jpeg",
     content: [
       "Scaling a green enterprise requires a unique combination of passion, structured mentorship, and an ecosystem that believes in sustainable transformation. For Ecolery, being selected for the Orange Corners Incubation Program represents a monumental step forward: a valuable validation of our circular mission and a strategic launchpad to transition from a growing startup into a resilient, market-ready enterprise.",
       "In the day-to-day rush of managing circular manufacturing, coordinating café partnerships, and driving environmental impact, it is easy to get caught up in immediate operations. This incubation program gives our team the essential space to step back and focus on the bigger picture. Through rigorous training, financial resources, and access to seasoned business experts, we are equipping ourselves to optimize our supply chain, scale production, and expand our footprint both locally and internationally with absolute clarity.",
@@ -171,7 +171,7 @@ export const blogs: BlogPost[] = [
     title: "Where Innovation Meets Opportunity: Ecolery at the SME Fair",
     excerpt:
       "Proudly participated in the SME Fair organised by Truvalu Bangladesh with support from the Embassy of Switzerland.",
-    coverImage: "https://picsum.photos/seed/sme-fair-ecolery/1200/700",
+    coverImage: "/blogs/smeFair.jpeg",
     content: [
       "Ecolery Bangladesh proudly participated in the SME Fair: Showcasing Impact, organised by Truvalu Bangladesh with support from the Embassy of Switzerland in Bangladesh. The event brought together promising SMEs, investors, and financial institutions, with a strong focus on businesses led by or empowering women.",
       "At the fair, Ecolery shared its journey in green innovation, highlighting its environmentally friendly edible cups and efforts to create sustainable livelihood opportunities for rural women. The platform also enabled meaningful engagement with entrepreneurs, partners, and stakeholders committed to inclusive and impact-driven growth.",
